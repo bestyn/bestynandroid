@@ -1,0 +1,93 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar.Bridge">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="bottomSheetDialogTheme">@style/AppBottomSheetDialogTheme</item>
+        <item name="checkboxStyle">@style/AppCheckBoxStyle</item>
+        <item name="radioButtonStyle">@style/AppRadioButtonStyle</item>
+        <!-- Date/Time Picker -->
+        <item name="textInputStyle">@style/AppTextInputLayout</item>
+        <item name="materialCalendarTheme">@style/AppMaterialCalendarTheme</item>
+        <item name="materialCalendarStyle">@style/AppMaterialCalendarStyle</item>
+        <item name="materialCalendarFullscreenTheme">
+            @style/AppMaterialCalendarFullscreenTheme</item>-->
+        <item name="android:timePickerStyle">@style/AppTimePicker</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+    </style>
+
+    <style name="AppTheme.Transparent">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+
+    <style name="AppTextInputLayout" parent="@style/Widget.Design.TextInputLayout">
+        <item name="hintAnimationEnabled">true</item>
+        <item name="hintEnabled">true</item>
+        <item name="boxStrokeWidth">0dp</item>
+        <item name="boxStrokeWidthFocused">0dp</item>
+    </style>
+
+    <style name="AppTheme.SplashTheme">
+        <item name="colorPrimaryDark">@color/transparent</item>
+        <item name="android:windowBackground">@drawable/splash</item>
+    </style>
+
+    <style name="AppTheme.Auth">
+        <item name="colorPrimaryDark">@color/transparent</item>
+        <item name="android:windowBackground">@drawable/bg_auth</item>
+    </style>
+
+    <style name="AppTheme.Player">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/video_player_system_bars_color</item>
+        <item name="colorPrimaryDark">@color/video_player_system_bars_color</item>
+        <item name="android:windowTranslucentStatus">false</item>
+        <item name="android:windowTranslucentNavigation">false</item>
+        <item name="android:navigationBarColor">@color/video_player_system_bars_color</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">@color/video_player_system_bars_color
+        </item>
+    </style>
+
+    <style name="AppBottomSheetDialogTheme" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/AppModalStyle</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsFloating">false</item>
+    </style>
+
+    <style name="AppCancelableBottomSheetDialogTheme" parent="AppBottomSheetDialogTheme">
+        <item name="android:windowIsFloating">true</item>
+    </style>
+
+    <style name="AppModalStyle" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+    <style name="CommentsBottomSheetDialogTheme" parent="AppBottomSheetDialogTheme">
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowSoftInputMode">adjustResize</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+
+    <style name="AppCheckBoxStyle" parent="Base.Widget.AppCompat.CompoundButton.CheckBox">
+        <item name="android:button">@drawable/selector_checkbox</item>
+    </style>
+
+    <style name="AppRadioButtonStyle" parent="Base.Widget.AppCompat.CompoundButton.RadioButton">
+        <item name="buttonTint">@drawable/selector_radio_button</item>
+    </style>
+
+    <style name="ReactionPopupStyle">
+        <item name="android:windowEnterAnimation">@anim/slide_in_bottom</item>
+        <item name="android:windowExitAnimation">@anim/slide_out_bottom</item>
+    </style>
+</resources>

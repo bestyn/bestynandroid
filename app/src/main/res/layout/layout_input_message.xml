@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <merge
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/leftIndent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/input_message_h_padding" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/rightIndent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/input_message_h_padding" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/groupEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:constraint_referenced_ids="labelEdit,btnCancelEdit,dividerEdit"
+            tools:visibility="visible" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/groupAudioRecord"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:constraint_referenced_ids="ivAudioRecord,tvAudioRecordTimer,swipeToCancel"
+            tools:visibility="gone" />
+
+        <TextView
+            android:id="@+id/labelEdit"
+            style="@style/InputEditMessageLabel"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/input_message_edit_label_height"
+            android:paddingLeft="@dimen/input_message_h_padding"
+            android:paddingRight="@dimen/input_message_h_padding"
+            android:text="@string/input_message_edit_label"
+            app:layout_constraintBottom_toTopOf="@id/dividerEdit"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/btnCancelEdit"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/btnCancelEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:paddingRight="@dimen/input_message_h_padding"
+            android:paddingBottom="10dp"
+            app:layout_constraintBottom_toBottomOf="@id/labelEdit"
+            app:layout_constraintLeft_toRightOf="@id/labelEdit"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/labelEdit"
+            app:srcCompat="@drawable/ic_cancel_message_editing" />
+
+        <View
+            android:id="@+id/dividerEdit"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/input_message_divider_width"
+            android:background="@color/input_message_divider_color"
+            app:layout_constraintBottom_toTopOf="@id/messageField"
+            app:layout_constraintTop_toBottomOf="@id/labelEdit" />
+
+        <EditText
+            android:id="@+id/messageField"
+            style="@style/InputMessageField"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/input_message_field_v_margin"
+            android:gravity="center_vertical"
+            app:layout_constrainedHeight="true"
+            app:layout_constraintBottom_toTopOf="@id/groupAttachment"
+            app:layout_constraintLeft_toRightOf="@id/leftIndent"
+            app:layout_constraintRight_toLeftOf="@id/controlsBarrier"
+            app:layout_constraintTop_toBottomOf="@id/dividerEdit"
+            app:layout_constraintVertical_bias="0"
+            app:layout_goneMarginBottom="@dimen/input_message_field_v_margin"
+            tools:text=""
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/helperAddAttachment"
+            style="@style/InputMessageField"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:clickable="false"
+            android:enabled="false"
+            android:gravity="center_vertical"
+            android:paddingLeft="0dp"
+            android:paddingRight="0dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@id/messageField"
+            app:layout_constraintLeft_toLeftOf="@id/messageField" />
+
+        <ImageView
+            android:id="@+id/btnAddAttachment"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:paddingLeft="@dimen/input_message_field_v_padding"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@id/helperAddAttachment"
+            app:layout_constraintLeft_toLeftOf="@id/messageField"
+            app:layout_constraintTop_toTopOf="@id/helperAddAttachment"
+            app:srcCompat="@drawable/ic_add_message_attachment" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/controlsBarrier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierAllowsGoneWidgets="true"
+            app:barrierDirection="left"
+            app:barrierMargin="@dimen/input_controls_spacing"
+            app:constraint_referenced_ids="btnPostMessage,btnApplyEdits,btnVoiceMessage,rightIndent" />
+
+        <ImageView
+            android:id="@+id/btnPostMessage"
+            android:layout_width="@dimen/input_message_control_size"
+            android:layout_height="@dimen/input_message_control_size"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/messageField"
+            app:layout_constraintRight_toRightOf="@id/rightIndent"
+            app:layout_constraintTop_toTopOf="@id/messageField"
+            app:layout_constraintVertical_bias="1"
+            app:srcCompat="@drawable/ic_post_message"
+            tools:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/btnApplyEdits"
+            android:layout_width="@dimen/input_message_control_size"
+            android:layout_height="@dimen/input_message_control_size"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/messageField"
+            app:layout_constraintRight_toRightOf="@id/rightIndent"
+            app:layout_constraintTop_toTopOf="@id/messageField"
+            app:layout_constraintVertical_bias="1"
+            app:srcCompat="@drawable/ic_apply_message_edits" />
+
+        <LinearLayout
+            android:id="@+id/swipeToCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            app:layout_constraintBottom_toBottomOf="@id/btnVoiceMessage"
+            app:layout_constraintLeft_toLeftOf="@id/leftIndent"
+            app:layout_constraintRight_toRightOf="@id/rightIndent"
+            app:layout_constraintTop_toTopOf="@id/btnVoiceMessage">
+
+            <TextView
+                android:id="@+id/tvSwipeToCancelArrow"
+                style="@style/SwipeToCancelArrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/input_message_swipe_arrow" />
+
+            <TextView
+                android:id="@+id/tvSwipeToCancel"
+                style="@style/SwipeToCancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/input_message_swipe_to_cancel_audio_msg" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/ivVoiceMessagePulse"
+            android:layout_width="@dimen/input_message_voice_control_pulse_size"
+            android:layout_height="@dimen/input_message_voice_control_pulse_size"
+            android:src="@drawable/ic_audio_record_pulse"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/btnVoiceMessage"
+            app:layout_constraintLeft_toLeftOf="@id/btnVoiceMessage"
+            app:layout_constraintRight_toRightOf="@id/btnVoiceMessage"
+            app:layout_constraintTop_toTopOf="@id/btnVoiceMessage"
+            tools:visibility="gone" />
+
+        <com.gbksoft.neighbourhood.ui.widgets.chat.input_field.audio.AudioRecordButton
+            android:id="@+id/btnVoiceMessage"
+            android:layout_width="@dimen/input_message_control_size"
+            android:layout_height="@dimen/input_message_control_size"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/messageField"
+            app:layout_constraintRight_toRightOf="@id/rightIndent"
+            app:layout_constraintTop_toTopOf="@id/messageField"
+            app:layout_constraintVertical_bias="1"
+            app:srcCompat="@drawable/ic_voice_message"
+            tools:visibility="gone" />
+
+        <View
+            android:id="@+id/cancelRecordBarrier"
+            android:layout_width="1dp"
+            android:layout_height="1dp"
+            app:layout_constraintLeft_toLeftOf="@id/leftIndent"
+            app:layout_constraintRight_toRightOf="@id/rightIndent" />
+
+        <ImageView
+            android:id="@+id/ivAudioRecord"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@id/btnVoiceMessage"
+            app:layout_constraintLeft_toLeftOf="@id/leftIndent"
+            app:layout_constraintTop_toTopOf="@id/btnVoiceMessage"
+            app:srcCompat="@drawable/ic_audio_record" />
+
+        <TextView
+            android:id="@+id/tvAudioRecordTimer"
+            style="@style/AudioRecordTimer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            app:layout_constraintBottom_toBottomOf="@id/btnVoiceMessage"
+            app:layout_constraintLeft_toRightOf="@id/ivAudioRecord"
+            app:layout_constraintTop_toTopOf="@id/btnVoiceMessage"
+            tools:text="00:23" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/groupAttachment"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/input_message_field_v_margin"
+            android:layout_marginBottom="@dimen/input_message_field_v_margin"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="@id/leftIndent"
+            app:layout_constraintRight_toRightOf="@id/messageField"
+            app:layout_constraintTop_toBottomOf="@id/messageField"
+            tools:visibility="visible">
+
+            <ImageView
+                android:id="@+id/iconPicture"
+                android:layout_width="@dimen/input_message_attachment_icon_size"
+                android:layout_height="@dimen/input_message_attachment_icon_size"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_input_picture_attachment" />
+
+            <ImageView
+                android:id="@+id/iconVideo"
+                android:layout_width="@dimen/input_message_attachment_icon_size"
+                android:layout_height="@dimen/input_message_attachment_icon_size"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_input_video_attachment" />
+
+            <ImageView
+                android:id="@+id/iconFile"
+                android:layout_width="@dimen/input_message_attachment_icon_size"
+                android:layout_height="@dimen/input_message_attachment_icon_size"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_input_file_attachment" />
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/attachmentIconBarrier"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="right"
+                app:constraint_referenced_ids="iconPicture,iconVideo,iconFile"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/attachmentName"
+                style="@style/InputMessageAttachment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/input_message_attachment_name_left_margin"
+                android:singleLine="true"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintLeft_toRightOf="@id/attachmentIconBarrier"
+                app:layout_constraintRight_toLeftOf="@id/btnRemoveAttachment"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="filename.png" />
+
+            <ImageView
+                android:id="@+id/btnRemoveAttachment"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:paddingLeft="@dimen/input_message_attachment_name_right_margin"
+                android:paddingRight="@dimen/input_message_attachment_name_right_margin"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/attachmentName"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_remove_message_attachment" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </merge>
+</layout>

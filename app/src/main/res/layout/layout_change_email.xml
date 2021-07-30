@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <import type="com.gbksoft.neighbourhood.utils.validation.ValidationField" />
+
+        <variable
+            name="errors"
+            type="com.gbksoft.neighbourhood.utils.validation.ErrorFieldsModel" />
+
+        <variable
+            name="profileModel"
+            type="com.gbksoft.neighbourhood.ui.fragments.profile.model.ProfileSettingsModel" />
+    </data>
+
+    <merge xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:orientation="vertical"
+        tools:parentTag="android.widget.LinearLayout">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/edit_profile_expanding_divider_height"
+            android:background="@color/edit_profile_expanding_divider_color"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            style="@style/TextInputLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/edit_profile_card_h_padding"
+            android:layout_marginTop="@dimen/change_email_layout_v_padding"
+            android:layout_marginRight="@dimen/edit_profile_card_h_padding"
+            android:text="@string/edit_profile_existing_email" />
+
+        <TextView
+            android:id="@+id/tvExistingEmail"
+            style="@style/ExistingEmailValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/edit_profile_card_h_padding"
+            android:layout_marginRight="@dimen/edit_profile_card_h_padding"
+            android:text="@{profileModel.email}"
+            tools:text="jennafisher@gmail.com" />
+
+        <TextView
+            style="@style/TextInputLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/edit_profile_card_h_padding"
+            android:layout_marginTop="@dimen/change_email_layout_fields_v_spacing"
+            android:layout_marginRight="@dimen/edit_profile_card_h_padding"
+            android:text="@string/edit_profile_new_email" />
+
+        <com.gbksoft.neighbourhood.ui.widgets.text_input_layout.AutoClearErrorInputLayout
+            android:id="@+id/tilNewEmail"
+            style="@style/TextInputLayout"
+            android:layout_marginLeft="@dimen/edit_profile_card_h_padding"
+            android:layout_marginRight="@dimen/edit_profile_card_h_padding"
+            app:errorTextAppearance="@style/TextInputLayoutError"
+            app:errorText="@{errors.errorsMap}"
+            app:errorField="@{ValidationField.NEW_EMAIL}">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etNewEmail"
+                style="@style/TextInputEditText"
+                android:hint="@string/edit_profile_new_email_hint"
+                android:inputType="textEmailAddress" />
+
+        </com.gbksoft.neighbourhood.ui.widgets.text_input_layout.AutoClearErrorInputLayout>
+
+
+        <Button
+            android:id="@+id/btnSaveEmail"
+            style="@style/SmallButton"
+            android:layout_width="@dimen/edit_profile_save_btn_width"
+            android:layout_marginLeft="@dimen/edit_profile_card_h_padding"
+            android:layout_marginTop="@dimen/change_email_layout_v_padding"
+            android:layout_marginRight="@dimen/edit_profile_card_h_padding"
+            android:layout_marginBottom="@dimen/change_email_layout_v_padding"
+            android:text="@string/edit_profile_save" />
+    </merge>
+</layout>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.chip.Chip xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:text="Architecture"
+    style="@style/InterestChip"
+    android:layout_width="wrap_content"
+    android:layout_height="@dimen/interest_chip_height"
+    app:chipStartPadding="@dimen/interest_chip_horizontal_padding"
+    app:chipEndPadding="@dimen/interest_chip_horizontal_padding"
+    android:layout_marginLeft="@dimen/interest_chip_left_margin"
+    android:layout_marginTop="@dimen/interest_chip_top_margin"
+    app:chipMinTouchTargetSize="0dp"/>

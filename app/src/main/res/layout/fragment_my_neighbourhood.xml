@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/screen_background_color">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_app_bar"
+            app:elevation="0dp">
+
+            <HorizontalScrollView
+                android:id="@+id/scrollView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none"
+                app:layout_scrollFlags="scroll|enterAlways">
+
+                <com.google.android.material.chip.ChipGroup
+                    android:id="@+id/cgFilters"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/filter_chips_h_padding"
+                    android:paddingRight="@dimen/filter_chips_h_padding"
+                    app:checkedChip="@+id/filterAll"
+                    app:selectionRequired="true"
+                    app:singleLine="true"
+                    app:singleSelection="true">
+
+                    <FrameLayout
+                        android:id="@+id/search"
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/filter_chip_min_touch_target_size">
+
+                        <ImageView
+                            android:layout_width="@dimen/filter_chip_min_height"
+                            android:layout_height="@dimen/filter_chip_min_height"
+                            android:layout_gravity="center_vertical"
+                            android:background="@drawable/bg_global_search_btn"
+                            android:scaleType="center"
+                            app:srcCompat="@drawable/ic_global_search" />
+                    </FrameLayout>
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/filterAll"
+                        style="@style/FilterChip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/posts_filter_all" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/filterNews"
+                        style="@style/FilterChip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/posts_filter_news" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/filterCrime"
+                        style="@style/FilterChip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/posts_filter_crime" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/filterEvents"
+                        style="@style/FilterChip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/posts_filter_events" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/filterOffer"
+                        style="@style/FilterChip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/posts_filter_offer" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/filterMedia"
+                        style="@style/FilterChip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/posts_filter_media" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/filterGeneral"
+                        style="@style/FilterChip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/posts_filter_general" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/filterRecommended"
+                        style="@style/FilterChip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/posts_filter_recommended" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/filterBusiness"
+                        style="@style/FilterChip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/posts_filter_business" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/filterCreated"
+                        style="@style/FilterChip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/posts_filter_created" />
+
+                    <com.google.android.material.chip.Chip
+                        android:id="@+id/filterFollowed"
+                        style="@style/FilterChip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/posts_filter_followed" />
+                </com.google.android.material.chip.ChipGroup>
+            </HorizontalScrollView>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <fragment
+                android:id="@+id/myNeighbourhoodFeedFragment"
+                android:name="com.gbksoft.neighbourhood.ui.fragments.neighbourhood.posts.MyNeighbourhoodFeedFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

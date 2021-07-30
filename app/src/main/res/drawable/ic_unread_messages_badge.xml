@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <solid android:color="@color/accent_red" />
+    <stroke
+        android:width="@dimen/floating_menu_round_badge_stroke_size"
+        android:color="@color/floating_menu_button_bg" />
+</shape>

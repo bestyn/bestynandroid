@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="ActionBarView">
+        <attr name="ab_title" format="string" />
+        <attr name="ab_isSettingsVisible" format="boolean" />
+        <attr name="ab_isShowBack" format="boolean" />
+        <attr name="ab_isShowSwitchProfile" format="boolean" />
+        <attr name="ab_isShowLogout" format="boolean" />
+        <attr name="ab_popupMenu" format="reference" />
+        <attr name="ab_isShowCancel" format="boolean" />
+        <attr name="ab_iconsTint" format="color" />
+        <attr name="ab_titleColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="AvatarView">
+        <attr name="av_fullName" format="string" />
+        <attr name="av_initialsSize" format="dimension" />
+        <attr name="av_imageUrl" format="string" />
+        <attr name="av_imageBitmap" format="reference" />
+        <attr name="av_borderEnabled" format="boolean" />
+        <attr name="av_borderThickness" format="dimension" />
+        <attr name="av_borderPadding" format="dimension" />
+        <attr name="av_isBusiness" format="boolean" />
+        <attr name="av_isEmptyStateEnabled" format="boolean" />
+        <attr name="av_isBitmapDrawingMode" format="boolean" />
+        <attr name="av_borderColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="ExpandableTextView">
+        <attr name="etv_maxLines" format="integer" />
+        <attr name="etv_expand_ellipsis" format="string" />
+        <attr name="etv_collapse_ellipsis" format="string" />
+        <attr name="etv_ellipsisColor" format="string" />
+        <attr name="etv_ellipsis_typeface">
+            <enum name="normal" value="1" />
+            <enum name="bold" value="2" />
+        </attr>
+        <attr name="etv_tap_area">
+            <enum name="ellipsis" value="1" />
+            <enum name="text" value="2" />
+        </attr>
+        <attr name="etv_hashtagsEnabled" format="boolean" />
+        <attr name="etv_hashtagColor" format="color" />
+        <attr name="etv_hashtag_typeface">
+            <enum name="normal" value="1" />
+            <enum name="bold" value="2" />
+        </attr>
+        <attr name="etv_can_expand" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="InputMessageView">
+        <attr name="imv_isVoiceEnabled" format="boolean" />
+        <attr name="imv_hint" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="AutoClearErrorInputLayout">
+        <attr name="disableAutoClearError" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="CheckableTextView">
+        <attr name="checkedTextColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="InterestGroupView">
+        <attr name="igv_verticalSpacing" format="dimension" />
+        <attr name="igv_chipVerticalPadding" format="dimension" />
+        <attr name="igv_chipTextSize" format="dimension" />
+        <attr name="igv_isCheckedStyle" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="RecordProgressView">
+        <attr name="totalProgress" format="integer" />
+        <attr name="currentProgress" format="integer" />
+        <attr name="recordPauseMarkerColor" format="color" />
+        <attr name="recordPauseMarkerWidth" format="dimension" />
+        <attr name="progressTrackBackgroundColor" format="color" />
+        <attr name="progressTrackCorners" format="dimension" />
+        <attr name="progressColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="StrokeTextView">
+        <attr name="stv_strokeColor" format="color" />
+        <attr name="stv_strokeWidth" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="CircleProgressBar">
+        <attr name="min" format="integer" />
+        <attr name="max" format="integer" />
+        <attr name="progress" format="integer" />
+        <attr name="progressbarColor" format="color" />
+        <attr name="progressBarThickness" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="TimelineView">
+        <attr name="videoFrameHeight" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="ColorPickerView">
+        <attr name="showNoColorOption" format="boolean" />
+    </declare-styleable>
+</resources>

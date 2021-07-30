@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <corners android:radius="@dimen/my_posts_view_bg_corner" />
+    <solid android:color="@color/my_posts_view_bg_color" />
+</shape>

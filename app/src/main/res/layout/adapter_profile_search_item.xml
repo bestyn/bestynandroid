@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/my_posts_view_h_margin"
+        android:layout_marginRight="@dimen/my_posts_view_h_margin"
+        android:background="@drawable/bg_my_posts_view"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="@dimen/profile_item_h_padding"
+        android:paddingVertical="@dimen/profile_item_v_padding">
+
+        <com.gbksoft.neighbourhood.ui.widgets.avatar.AvatarView
+            android:id="@+id/avatarView"
+            android:layout_width="@dimen/profile_item_avatar_size"
+            android:layout_height="@dimen/profile_item_avatar_size"
+            app:av_borderEnabled="true"
+            app:av_initialsSize="@dimen/profile_item_initials_text_size"
+            app:av_borderThickness="@dimen/profile_item_avatar_border_width"
+            tools:av_fullName="Darlene Robertson" />
+
+        <TextView
+            android:id="@+id/tvFullName"
+            style="@style/ProfileSearchItemTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/profile_item_elements_h_spacing"
+            android:layout_marginRight="@dimen/profile_item_elements_h_spacing"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:maxLines="1"
+            tools:text="Darlene Robertson" />
+
+        <ImageView
+            android:id="@+id/ivMessage"
+            android:layout_width="@dimen/profile_item_message_btn_size"
+            android:layout_height="@dimen/profile_item_message_btn_size"
+            android:background="@drawable/bg_download_incoming_file"
+            android:src="@drawable/ic_reactions_chat" />
+    </LinearLayout>
+</layout>

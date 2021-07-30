@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <merge xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:gravity="center_vertical"
+        tools:parentTag="android.widget.LinearLayout">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="@dimen/global_search_field_height"
+            android:layout_weight="1"
+            android:background="@drawable/bg_post_list_search_field"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/etSearch"
+                style="@style/PostListSearchField"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="@string/global_search_field_hint"
+                android:imeOptions="actionSearch"
+                android:inputType="text"
+                android:lines="1"
+                android:paddingLeft="@dimen/global_search_field_h_padding"
+                android:paddingRight="@dimen/global_search_field_h_padding" />
+
+            <ImageView
+                android:id="@+id/ivCancel"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:paddingHorizontal="@dimen/global_search_cancel_button_h_padding"
+                android:visibility="gone"
+                app:srcCompat="@drawable/ic_cancel_posts_search"
+                tools:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/ivSearch"
+                android:layout_width="@dimen/global_search_field_height"
+                android:layout_height="@dimen/global_search_field_height"
+                android:focusable="true"
+                android:focusableInTouchMode="false"
+                android:visibility="visible"
+                app:srcCompat="@drawable/ic_post_list_search" />
+        </LinearLayout>
+
+    </merge>
+</layout>

@@ -1,0 +1,64 @@
+{
+  "project_info": {
+    "project_number": "1060519359797",
+    "firebase_url": "https://neighbourhood-74945.firebaseio.com",
+    "project_id": "neighbourhood-74945",
+    "storage_bucket": "neighbourhood-74945.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1060519359797:android:33e2318667250e1ca5887c",
+        "android_client_info": {
+          "package_name": "com.bestyn.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1060519359797-8u51g8ccej6gbi2tkee4ljd3ggg9cd8f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.bestyn.app",
+            "certificate_hash": "921a2e3af58af336fd3afb08ed6ad522761d2fa9"
+          }
+        },
+        {
+          "client_id": "1060519359797-7cumtpqflrloimjik5nil0cdhamloaop.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.bestyn.app",
+            "certificate_hash": "6f34e213d9e1c0f00c9dfc4640b0bb639e0a0035"
+          }
+        },
+        {
+          "client_id": "1060519359797-tief6tgo46c76ebi4vft0243p0iu1ks8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCk19AuXPIviLdXV1Acpx3p-YtDQA6d7gg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1060519359797-tief6tgo46c76ebi4vft0243p0iu1ks8.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1060519359797-jvlchbtkqo3rv946pidr4bv1envfj3i0.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.bestyn.app",
+                "app_store_id": "1528179376"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

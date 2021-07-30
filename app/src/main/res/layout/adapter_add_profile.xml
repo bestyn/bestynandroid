@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/switch_profile_menu_item_height"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/screen_padding"
+        android:paddingRight="@dimen/screen_padding">
+
+        <ImageView
+            android:id="@+id/ivPlus"
+            android:layout_width="@dimen/switch_profile_avatar_size"
+            android:layout_height="@dimen/switch_profile_avatar_size"
+            android:background="@drawable/border_add_profile"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_add_profile"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvAddProfile"
+            style="@style/SwitchProfileViewAddButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/switch_profile_avatar_right_padding"
+            app:layout_constraintVertical_chainStyle="packed"
+            android:text="@string/add_business_profile"
+            app:layout_constraintBottom_toTopOf="@id/tvMaxCount"
+            app:layout_constraintLeft_toRightOf="@id/ivPlus"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvMaxCount"
+            style="@style/SwitchProfileViewProfileMaxCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/business_profile_max_count"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="@id/tvAddProfile"
+            app:layout_constraintTop_toBottomOf="@id/tvAddProfile" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

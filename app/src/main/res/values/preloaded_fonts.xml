@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/font_oswald</item>
+        <item>@font/font_pt_sans_caption</item>
+        <item>@font/poppins_medium</item>
+        <item>@font/poppins_regular</item>
+        <item>@font/poppins_semibold</item>
+    </array>
+</resources>

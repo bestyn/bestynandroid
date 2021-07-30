@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.gbksoft.neighbourhood.utils.validation.ValidationField" />
+
+        <import type="android.view.View" />
+
+        <import
+            alias="Model"
+            type="com.gbksoft.neighbourhood.ui.fragments.business_profile.add_or_edit.AddEditBusinessProfileModel" />
+
+        <variable
+            name="errors"
+            type="com.gbksoft.neighbourhood.utils.validation.ErrorFieldsModel" />
+
+        <variable
+            name="model"
+            type="com.gbksoft.neighbourhood.ui.fragments.business_profile.add_or_edit.AddEditBusinessProfileModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <View
+            android:id="@+id/actionBarBg"
+            android:background="@color/add_business_profile_bg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <com.gbksoft.neighbourhood.ui.widgets.actionbar.ActionBarView
+            android:id="@+id/actionBar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:ab_isShowBack="true"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ab_title="@string/title_add_business_profile" />
+
+        <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@id/createButtonPanel"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/actionBar">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingStart="40dp"
+                android:paddingEnd="40dp"
+                android:paddingBottom="40dp">
+
+                <androidx.constraintlayout.widget.Group
+                    android:id="@+id/avatarViews"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{model.avatarVisibility}"
+                    app:constraint_referenced_ids="avatarView,btnChangeAvatar" />
+
+                <androidx.constraintlayout.widget.Group
+                    android:id="@+id/groupEditViews"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    app:constraint_referenced_ids="tvWebSite,tilWebSite,tvEmail,tilEmail,tvPhone,tilPhone"
+                    tools:visibility="visible" />
+
+                <com.gbksoft.neighbourhood.ui.widgets.avatar.AvatarView
+                    android:id="@+id/avatarView"
+                    android:layout_width="@dimen/profile_photo_size"
+                    android:layout_height="@dimen/profile_photo_size"
+                    android:layout_marginTop="@dimen/add_business_profile_layout_top_padding"
+                    app:av_borderEnabled="false"
+                    app:av_isEmptyStateEnabled="false"
+                    app:av_imageFile="@{model.avatar}"
+                    app:av_imageUrl="@{model.avatarUrl}"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/btnChangeAvatar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="5dp"
+                    app:layout_constraintLeft_toRightOf="@id/avatarView"
+                    app:layout_constraintTop_toTopOf="@id/avatarView"
+                    app:srcCompat="@drawable/ic_change_avatar" />
+
+                <LinearLayout
+                    android:id="@+id/addAvatar"
+                    android:layout_width="@dimen/profile_photo_size"
+                    android:layout_height="@dimen/profile_photo_size"
+                    android:layout_marginTop="@dimen/add_business_profile_layout_top_padding"
+                    android:background="@drawable/bg_add_avatar"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:visibility="@{model.addAvatarVisibility}"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:src="@drawable/ic_add_avatar" />
+
+                    <TextView
+                        style="@style/AddAvatarText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:gravity="center"
+                        android:text="Add Avatar" />
+                </LinearLayout>
+
+                <androidx.constraintlayout.widget.Barrier
+                    android:id="@+id/avatarBarrier"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:barrierDirection="bottom"
+                    app:constraint_referenced_ids="avatarView,addAvatar" />
+
+                <TextView
+                    android:id="@+id/tvName"
+                    style="@style/TextInputLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:text="@string/edit_business_profile_name_label"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/avatarBarrier" />
+
+                <com.gbksoft.neighbourhood.ui.widgets.text_input_layout.AutoClearErrorInputLayout
+                    android:id="@+id/tilName"
+                    style="@style/TextInputLayout"
+                    android:layout_width="0dp"
+                    app:errorField="@{ValidationField.BUSINESS_NAME}"
+                    app:errorText="@{errors.errorsMap}"
+                    app:errorTextAppearance="@style/TextInputLayoutError"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvName">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etName"
+                        style="@style/TextInputEditText"
+                        android:hint="@string/edit_business_profile_name_hint"
+                        android:inputType="text"
+                        android:text="@={model.name}" />
+
+                </com.gbksoft.neighbourhood.ui.widgets.text_input_layout.AutoClearErrorInputLayout>
+
+                <TextView
+                    android:id="@+id/tvDescription"
+                    style="@style/TextInputLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/edit_business_profile_v_spacing"
+                    android:text="@string/edit_business_profile_description_label"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tilName" />
+
+                <com.gbksoft.neighbourhood.ui.widgets.text_input_layout.AutoClearErrorInputLayout
+                    android:id="@+id/tilDescription"
+                    style="@style/TextInputLayout"
+                    android:layout_width="0dp"
+                    app:errorField="@{ValidationField.BUSINESS_DESCRIPTION}"
+                    app:errorText="@{errors.errorsMap}"
+                    app:errorTextAppearance="@style/TextInputLayoutError"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvDescription">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etDescription"
+                        style="@style/TextInputEditText"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/edit_business_profile_description_hint"
+                        android:inputType="textMultiLine"
+                        android:minHeight="@dimen/edit_text_height"
+                        android:text="@={model.description}" />
+
+                </com.gbksoft.neighbourhood.ui.widgets.text_input_layout.AutoClearErrorInputLayout>
+
+                <TextView
+                    android:id="@+id/tvAddress"
+                    style="@style/TextInputLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/edit_business_profile_v_spacing"
+                    android:text="@string/edit_business_profile_address_label"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tilDescription" />
+
+                <com.gbksoft.neighbourhood.ui.widgets.text_input_layout.AutoClearErrorInputLayout
+                    android:id="@+id/tilAddress"
+                    style="@style/TextInputLayout"
+                    android:layout_width="0dp"
+                    app:errorField="@{ValidationField.BUSINESS_ADDRESS}"
+                    app:errorText="@{errors.errorsMap}"
+                    app:errorTextAppearance="@style/TextInputLayoutError"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvAddress">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etAddress"
+                        style="@style/TextInputEditText"
+                        android:cursorVisible="false"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:hint="@string/edit_business_profile_address_hint"
+                        android:inputType="text"
+                        android:text="@={model.address}" />
+
+                </com.gbksoft.neighbourhood.ui.widgets.text_input_layout.AutoClearErrorInputLayout>
+
+                <TextView
+                    android:id="@+id/tvCategories"
+                    style="@style/TextInputLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/edit_business_profile_v_spacing"
+                    android:text="@string/edit_business_profile_categories_label"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tilAddress" />
+
+                <TextView
+                    android:id="@+id/tvMaxCategories"
+                    style="@style/TextInputLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="@string/edit_business_profile_max_categories_label"
+                    android:textColor="@color/dark_grey"
+                    app:layout_constraintBaseline_toBaselineOf="@id/tvCategories"
+                    app:layout_constraintLeft_toRightOf="@id/tvCategories" />
+
+                <com.gbksoft.neighbourhood.ui.widgets.text_input_layout.AutoClearErrorInputLayout
+                    android:id="@+id/tilCategories"
+                    style="@style/TextInputLayout"
+                    android:layout_width="0dp"
+                    app:errorField="@{ValidationField.BUSINESS_CATEGORY}"
+                    app:errorText="@{errors.errorsMap}"
+                    app:errorTextAppearance="@style/TextInputLayoutError"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvCategories">
+
+                    <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+                        android:id="@+id/etCategories"
+                        style="@style/TextInputEditText"
+                        android:layout_height="48dp"
+                        android:hint="@string/edit_business_profile_categories_hint"
+                        android:inputType="text" />
+
+                </com.gbksoft.neighbourhood.ui.widgets.text_input_layout.AutoClearErrorInputLayout>
+
+                <com.gbksoft.neighbourhood.ui.widgets.chip.ClosableInterestGroupView
+                    android:id="@+id/cgCategories"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:interestList="@{model.hashtags}"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tilCategories" />
+
+                <TextView
+                    android:id="@+id/tvWebSite"
+                    style="@style/TextInputLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/edit_business_profile_v_spacing"
+                    android:text="@string/edit_business_profile_web_label"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/cgCategories" />
+
+                <com.gbksoft.neighbourhood.ui.widgets.text_input_layout.AutoClearErrorInputLayout
+                    android:id="@+id/tilWebSite"
+                    style="@style/TextInputLayout"
+                    android:layout_width="0dp"
+                    app:errorField="@{ValidationField.BUSINESS_SITE}"
+                    app:errorText="@{errors.errorsMap}"
+                    app:errorTextAppearance="@style/TextInputLayoutError"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvWebSite">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etWebSite"
+                        style="@style/TextInputEditText"
+                        android:hint="@string/edit_business_profile_web_hint"
+                        android:inputType="textWebEditText"
+                        android:text="@={model.webSite}" />
+
+                </com.gbksoft.neighbourhood.ui.widgets.text_input_layout.AutoClearErrorInputLayout>
+
+                <TextView
+                    android:id="@+id/tvEmail"
+                    style="@style/TextInputLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/edit_business_profile_v_spacing"
+                    android:text="@string/edit_business_profile_email_label"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tilWebSite" />
+
+                <com.gbksoft.neighbourhood.ui.widgets.text_input_layout.AutoClearErrorInputLayout
+                    android:id="@+id/tilEmail"
+                    style="@style/TextInputLayout"
+                    android:layout_width="0dp"
+                    app:errorField="@{ValidationField.BUSINESS_EMAIL}"
+                    app:errorText="@{errors.errorsMap}"
+                    app:errorTextAppearance="@style/TextInputLayoutError"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvEmail">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/email"
+                        style="@style/TextInputEditText"
+                        android:hint="@string/edit_business_profile_email_hint"
+                        android:inputType="textEmailAddress"
+                        android:text="@={model.email}" />
+
+                </com.gbksoft.neighbourhood.ui.widgets.text_input_layout.AutoClearErrorInputLayout>
+
+                <TextView
+                    android:id="@+id/tvPhone"
+                    style="@style/TextInputLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/edit_business_profile_v_spacing"
+                    android:text="@string/edit_business_profile_phone_label"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tilEmail" />
+
+                <com.gbksoft.neighbourhood.ui.widgets.text_input_layout.AutoClearErrorInputLayout
+                    android:id="@+id/tilPhone"
+                    style="@style/TextInputLayout"
+                    android:layout_width="0dp"
+                    app:errorField="@{ValidationField.BUSINESS_PHONE}"
+                    app:errorText="@{errors.errorsMap}"
+                    app:errorTextAppearance="@style/TextInputLayoutError"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvPhone">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etPhone"
+                        style="@style/TextInputEditText"
+                        android:hint="@string/edit_business_profile_phone_hint"
+                        android:inputType="phone"
+                        android:text="@={model.phone}" />
+
+                </com.gbksoft.neighbourhood.ui.widgets.text_input_layout.AutoClearErrorInputLayout>
+
+                <TextView
+                    android:id="@+id/tvRadius"
+                    style="@style/TextInputLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/edit_business_profile_v_spacing"
+                    android:text="@string/edit_business_profile_radius_label"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tilPhone" />
+
+                <RadioButton
+                    android:id="@+id/rbOtherRadius"
+                    style="@style/StandardRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:checked="@{model.radius == Model.BOUGHT_RADIUS}"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvRadius" />
+
+                <TextView
+                    android:id="@+id/tvOtherRadiusLabel"
+                    style="@style/RadioButtonText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@{model.subscriptionPlan.title}"
+                    app:layout_constraintBaseline_toBaselineOf="@id/rbOtherRadius"
+                    app:layout_constraintLeft_toRightOf="@id/rbOtherRadius"
+                    app:layout_constraintRight_toRightOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvOtherRadiusPrice"
+                    style="@style/BusinessRadiusFreeLabel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@{@string/edit_business_profile_radius_cost(model.subscriptionPlan.price)}"
+                    app:layout_constraintLeft_toLeftOf="@id/tvOtherRadiusLabel"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvOtherRadiusLabel" />
+
+                <TextView
+                    android:id="@+id/tvOtherRadiusDescription"
+                    style="@style/BusinessRadiusDescription"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@{@string/edit_business_profile_radius_other_description(model.subscriptionPlan.title, model.subscriptionPlan.price)}"
+                    app:layout_constraintLeft_toLeftOf="@id/tvOtherRadiusLabel"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvOtherRadiusPrice" />
+
+                <androidx.constraintlayout.widget.Group
+                    android:id="@+id/otherRadiusGroup"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:constraint_referenced_ids="rbOtherRadius, tvOtherRadiusLabel, tvOtherRadiusPrice, tvOtherRadiusDescription"
+                    app:visible="@{model.subscriptionPlan != null}" />
+
+                <RadioButton
+                    android:id="@+id/rbOnlyMe"
+                    style="@style/StandardRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:checked="@{model.radius == Model.RADIUS_ONLY_ME}"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvOtherRadiusDescription" />
+
+                <TextView
+                    android:id="@+id/tvOnlyMeLabel"
+                    style="@style/RadioButtonText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/edit_business_profile_radius_only_me"
+                    app:layout_constraintBaseline_toBaselineOf="@id/rbOnlyMe"
+                    app:layout_constraintLeft_toRightOf="@id/rbOnlyMe"
+                    app:layout_constraintRight_toRightOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvOnlyMeFree"
+                    style="@style/BusinessRadiusFreeLabel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/edit_business_profile_radius_cost_free"
+                    app:layout_constraintLeft_toLeftOf="@id/tvOnlyMeLabel"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvOnlyMeLabel" />
+
+                <TextView
+                    android:id="@+id/tvOnlyMeDescription"
+                    style="@style/BusinessRadiusDescription"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/edit_business_profile_radius_only_me_description"
+                    app:layout_constraintLeft_toLeftOf="@id/tvOnlyMeLabel"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvOnlyMeFree" />
+
+                <RadioButton
+                    android:id="@+id/rbRadius10"
+                    style="@style/StandardRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:checked="@{model.radius == Model.RADIUS_10}"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvOnlyMeDescription" />
+
+                <TextView
+                    android:id="@+id/tvRadius10Label"
+                    style="@style/RadioButtonText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/edit_business_profile_radius_10"
+                    app:layout_constraintBaseline_toBaselineOf="@id/rbRadius10"
+                    app:layout_constraintLeft_toRightOf="@id/rbRadius10"
+                    app:layout_constraintRight_toRightOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvRadius10Free"
+                    style="@style/BusinessRadiusFreeLabel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/edit_business_profile_radius_cost_free"
+                    app:layout_constraintLeft_toLeftOf="@id/tvRadius10Label"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvRadius10Label" />
+
+                <TextView
+                    android:id="@+id/tvRadius10Description"
+                    style="@style/BusinessRadiusDescription"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/edit_business_profile_radius_10_description"
+                    app:layout_constraintLeft_toLeftOf="@id/tvRadius10Label"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvRadius10Free" />
+
+                <RadioButton
+                    android:id="@+id/rbIncreaseRadius"
+                    style="@style/StandardRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:checked="@{model.radius == Model.RADIUS_INCREASE}"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvRadius10Description" />
+
+                <TextView
+                    android:id="@+id/tvIncreaseRadiusLabel"
+                    style="@style/RadioButtonText"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/edit_business_profile_increase_radius"
+                    app:layout_constraintBaseline_toBaselineOf="@id/rbIncreaseRadius"
+                    app:layout_constraintLeft_toRightOf="@id/rbIncreaseRadius"
+                    app:layout_constraintRight_toRightOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvIncreaseRadiusDescription"
+                    style="@style/BusinessRadiusDescription"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/edit_business_profile_increase_radius_description"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="@id/tvIncreaseRadiusLabel"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvIncreaseRadiusLabel" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
+
+        <View
+            android:id="@+id/panelShadow"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/bottom_panel_shadow_height"
+            android:background="@drawable/shadow_bottom_panel"
+            app:layout_constraintBottom_toTopOf="@id/createButtonPanel"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <FrameLayout
+            android:id="@+id/createButtonPanel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/edit_interest_panel_color"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent">
+
+            <Button
+                android:id="@+id/btnCreate"
+                style="@style/StandardButton"
+                android:layout_width="@dimen/business_profile_create_btn_width"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/bottom_panel_button_v_margin"
+                android:layout_marginBottom="@dimen/bottom_panel_button_v_margin"
+                android:text="@string/add_business_profile_button" />
+
+        </FrameLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

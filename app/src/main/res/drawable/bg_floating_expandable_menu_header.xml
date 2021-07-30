@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle" />
+    </item>
+    <item android:bottom="@dimen/floating_expandable_menu_strike_size_revert">
+        <shape
+            android:shape="rectangle">
+            <corners
+                android:topLeftRadius="@dimen/floating_expandable_menu_corners"
+                android:topRightRadius="@dimen/floating_expandable_menu_corners" />
+            <solid android:color="@color/floating_expandable_menu_bg" />
+            <stroke
+                android:width="@dimen/floating_expandable_menu_strike_size"
+                android:color="@color/floating_expandable_menu_stroke_color" />
+
+        </shape>
+    </item>
+</layer-list>

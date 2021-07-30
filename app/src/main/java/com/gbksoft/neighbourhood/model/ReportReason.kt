@@ -1,0 +1,13 @@
+package com.gbksoft.neighbourhood.model
+
+enum class ReportReason {
+    POST_INAPPROPRIATE_CONTENT,
+    POST_SPAM,
+    USER_FAKE_PROFILE,
+    USER_PRIVACY_VIOLATION,
+    USER_VANDALISM,
+    USER_INAPPROPRIATE_CONTENT,
+    USER_SPAM,
+    AUDIO_INAPPROPRIATE_CONTENT,
+    AUDIO_PLAGIARISM
+}

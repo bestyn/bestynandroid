@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item>
+        <shape>
+            <solid android:color="@color/profile_tabs_bg" />
+            <corners
+                android:topLeftRadius="@dimen/profile_tab_titles_corner"
+                android:topRightRadius="@dimen/profile_tab_titles_corner" />
+        </shape>
+    </item>
+    <item
+        android:top="-10dp"
+        android:right="-10dp"
+        android:left="-10dp">
+        <shape android:shape="rectangle">
+            <stroke
+                android:width="@dimen/profile_tab_bottom_line_height"
+                android:color="@color/grey_background" />
+        </shape>
+    </item>
+
+</layer-list>

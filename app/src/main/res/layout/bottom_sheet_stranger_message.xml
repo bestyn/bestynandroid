@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:id="@+id/llBottomSheet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_cancelable_bottom_sheet_dialog"
+        android:orientation="vertical">
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvCopy"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/bottom_sheet_dialog_item_height"
+            android:gravity="center"
+            style="@style/BottomSheetDialogButton"
+            android:text="@string/bottom_sheet_copy_message" />
+
+    </LinearLayout>
+</layout>

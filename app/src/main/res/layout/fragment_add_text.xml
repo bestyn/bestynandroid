@@ -1,0 +1,189 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:id="@+id/storyTextContainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clRoot"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#66000000"
+            android:visibility="gone"
+            tools:visibility="visible">
+
+            <FrameLayout
+                android:id="@+id/actionBarPositionHelper"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/etTextInput"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@null"
+                android:gravity="center"
+                android:inputType="textMultiLine"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:includeFontPadding="false"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:textColor="@color/white"
+                android:textCursorDrawable="@null"
+                android:textSize="34sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/ivChooseFont"
+                app:layout_constraintTop_toBottomOf="@id/btnCancel"
+                tools:text="lorem ipsulm" />
+
+            <TextView
+                android:id="@+id/btnCancel"
+                style="@style/AddTextToStoryActionButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="@dimen/screen_padding"
+                android:text="Cancel"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/btnDone"
+                style="@style/AddTextToStoryActionButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="@dimen/screen_padding"
+                android:text="Done"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <FrameLayout
+                android:id="@+id/flCornerRadiusSeekBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/screen_padding"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:visibility="visible">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="253dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/bg_seekbar" />
+
+                <com.gbksoft.neighbourhood.ui.widgets.stories.add_text.VerticalSeekBar
+                    android:id="@+id/cornerRadiusSeekbar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="270dp"
+                    android:max="3"
+                    android:progress="0"
+                    android:progressDrawable="@android:color/transparent"
+                    android:splitTrack="false"
+                    android:thumb="@drawable/ic_text_corners_radius_thumb_new" />
+            </FrameLayout>
+
+            <ImageView
+                android:id="@+id/ivChooseFont"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_marginStart="@dimen/screen_padding"
+                android:layout_marginBottom="10dp"
+                android:padding="11dp"
+                android:src="@drawable/ic_choose_font"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@id/barrier"
+                app:layout_constraintLeft_toLeftOf="parent"
+                tools:background="@drawable/bg_add_story_text_selected_item"
+                tools:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/ivChooseTextColor"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_marginBottom="10dp"
+                android:src="@drawable/ic_choose_text_color"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@id/barrier"
+                app:layout_constraintLeft_toRightOf="@id/ivChooseFont"
+                tools:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/ivChooseBackground"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_marginBottom="10dp"
+                android:src="@drawable/ic_choose_background_color"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@id/barrier"
+                app:layout_constraintLeft_toRightOf="@id/ivChooseTextColor"
+                tools:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/ivChooseTextAlignment"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_marginBottom="10dp"
+                android:src="@drawable/ic_center_text_alignment"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@id/barrier"
+                app:layout_constraintLeft_toRightOf="@id/ivChooseBackground"
+                tools:visibility="visible" />
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/barrier"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:barrierDirection="top"
+                app:constraint_referenced_ids="colorPicker,textBackgroundColorPicker,fontPicker" />
+
+            <com.gbksoft.neighbourhood.ui.widgets.stories.add_text.ColorPickerView
+                android:id="@+id/colorPicker"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@id/doneButtonPositionHelper"
+                app:showNoColorOption="false" />
+
+            <com.gbksoft.neighbourhood.ui.widgets.stories.add_text.ColorPickerView
+                android:id="@+id/textBackgroundColorPicker"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@id/doneButtonPositionHelper"
+                app:showNoColorOption="true" />
+
+            <com.gbksoft.neighbourhood.ui.widgets.stories.add_text.FontPickerView
+                android:id="@+id/fontPicker"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@id/doneButtonPositionHelper" />
+
+            <FrameLayout
+                android:id="@+id/doneButtonPositionHelper"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+</layout>

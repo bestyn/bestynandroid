@@ -1,0 +1,748 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="ProfileNameText" parent="H3">
+        <item name="android:textColor">@color/main_black</item>
+    </style>
+
+    <style name="TabTitleText" parent="TabLabel">
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="PostFeedTabTitle" parent="TabTitleText">
+        <item name="android:letterSpacing">-0</item>
+    </style>
+
+    <style name="ProfileInterestsText" parent="TextLabel">
+        <item name="android:textColor">@color/main_black</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="maxLines">1</item>
+    </style>
+
+    <style name="ProfileInterestsSearchField" parent="RegularText">
+        <item name="android:textColor">@color/secondary_black</item>
+        <item name="android:textColorHint">@color/grey_medium</item>
+    </style>
+
+    <style name="ProfileInterestSearchCancel" parent="PoppinsMedium">
+        <item name="android:textColor">@color/blue_button</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">@dimen/font_size_small_x</item>
+        <item name="maxLines">1</item>
+    </style>
+
+    <style name="ProfileInfoType" parent="TextLabel">
+        <item name="android:textColor">@color/main_black</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="maxLines">1</item>
+    </style>
+
+    <style name="ProfileInfoValueText" parent="RegularText">
+        <item name="android:textColor">@color/main_black</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="maxLines">1</item>
+    </style>
+
+    <style name="ProfileInfoNotSetText" parent="RegularText">
+        <item name="android:textColor">@color/grey_medium</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="maxLines">1</item>
+    </style>
+
+    <style name="ProfileInfoLinkText" parent="RegularText">
+        <item name="android:textColor">@color/accent_blue</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="SelectedInterestLabel" parent="TextLabel">
+        <item name="android:textColor">@color/main_black</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="maxLines">1</item>
+    </style>
+
+    <style name="SwitchProfileViewTitle" parent="PoppinsSemiBold">
+        <item name="android:textColor">@color/main_black</item>
+        <item name="android:textSize">@dimen/font_size_base</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="SwitchProfileViewAddress" parent="PoppinsRegular">
+        <item name="android:textColor">@color/dark_grey</item>
+        <item name="android:textSize">@dimen/font_size_small</item>
+    </style>
+
+    <style name="SwitchProfileViewBusiness" parent="PoppinsMedium">
+        <item name="android:textSize">@dimen/font_size_small_xx</item>
+        <item name="android:textColor">@color/grey_medium</item>
+    </style>
+
+    <style name="SwitchProfileViewAddButton" parent="ActionButtons">
+        <item name="android:textColor">@color/accent_blue</item>
+    </style>
+
+    <style name="SwitchProfileViewProfileMaxCount" parent="PostText">
+        <item name="android:textColor">@color/dark_grey</item>
+    </style>
+
+    <style name="SwitchProfileCurrentName" parent="EventNameText">
+        <item name="android:textColor">@color/main_black</item>
+    </style>
+
+    <style name="SwitchProfileCurrentAddress" parent="PostText">
+        <item name="android:textColor">@color/dark_grey</item>
+    </style>
+
+    <style name="ActionBarTitle" parent="H5">
+        <item name="android:textColor">@color/main_black</item>
+    </style>
+
+    <style name="SelectCoverActionBarText" parent="ActionBarTitle">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="EditProfileCardTitle" parent="TextLabel">
+        <item name="android:textColor">@color/main_black</item>
+    </style>
+
+    <style name="TextInputLabel" parent="TextLabel">
+        <item name="android:textColor">@color/main_black</item>
+    </style>
+
+    <style name="AddedMediaLabel" parent="ButtonText">
+        <item name="android:textColor">@color/main_black</item>
+    </style>
+
+    <style name="TextInputLayout" parent="@style/Widget.Design.TextInputLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="hintAnimationEnabled">false</item>
+        <item name="hintEnabled">false</item>
+        <item name="boxStrokeWidth">0dp</item>
+        <item name="boxStrokeWidthFocused">0dp</item>
+        <item name="android:translationY">-10dp</item>
+    </style>
+
+    <style name="TextInputLayoutError" parent="PoppinsMedium">
+        <item name="android:textSize">@dimen/font_size_small_xx</item>
+        <item name="android:textColor">@color/accent_red</item>
+    </style>
+
+    <style name="TextInputEditText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/edit_text_height</item>
+        <item name="android:textAppearance">@style/RegularText</item>
+        <item name="android:textColor">@color/main_black</item>
+        <item name="android:background">@drawable/bg_edit_text</item>
+        <item name="android:paddingStart">0dp</item>
+        <item name="android:paddingEnd">0dp</item>
+        <item name="android:paddingTop">15dp</item>
+        <item name="android:paddingBottom">10dp</item>
+    </style>
+
+    <style name="ExistingEmailValue" parent="TextInputEditText">
+        <item name="android:background">@null</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">0dp</item>
+    </style>
+
+    <style name="BottomSheetDialogButton" parent="ActionButtons">
+        <item name="android:textColor">@color/secondary_black</item>
+    </style>
+
+    <style name="BottomSheetDialogButtonRemoveButton" parent="ActionButtons">
+        <item name="android:textColor">@color/accent_red</item>
+    </style>
+
+    <style name="SettingsBottomSheetDialogButton" parent="H5">
+        <item name="android:textColor">@color/main_black</item>
+    </style>
+
+    <style name="SettingsBottomSheetDialogLogoutButton" parent="TextLabel">
+        <item name="android:textColor">@color/grey_medium</item>
+    </style>
+
+    <style name="CreatePostBottomSheetDialogTitle" parent="H4">
+        <item name="android:textColor">@color/main_black</item>
+    </style>
+
+    <style name="DialogTitle" parent="H4">
+        <item name="android:textColor">@color/main_black</item>
+    </style>
+
+    <style name="DialogText" parent="RegularText">
+        <item name="android:textColor">@color/main_black</item>
+    </style>
+
+    <style name="DialogLink" parent="TextLabel">
+        <item name="android:textColor">@color/dialog_text_link</item>
+    </style>
+
+    <style name="DialogTimer" parent="TextLabel">
+        <item name="android:textColor">@color/grey_medium</item>
+    </style>
+
+    <style name="AuthPageTitle" parent="H2">
+        <item name="android:textColor">@color/main_black</item>
+    </style>
+
+    <style name="AgreeTermsAndPolicy" parent="TabLabel">
+        <item name="android:letterSpacing">0</item>
+        <item name="android:textColor">@color/agree_terms_and_policy_text_color</item>
+    </style>
+
+    <style name="ForgotPassword" parent="TabLabel">
+        <item name="android:letterSpacing">0</item>
+    </style>
+
+    <style name="InitialsText" parent="PoppinsSemiBold">
+        <item name="android:textAlignment">center</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="SearchInterestLabel" parent="H4">
+        <item name="android:textColor">@color/main_black</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="CategoryTitle" parent="ButtonText">
+        <item name="android:textColor">@color/main_black</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="AddAvatarText" parent="TabLabel">
+        <item name="android:textColor">@color/accent_blue</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:letterSpacing">0</item>
+    </style>
+
+    <style name="RadioButtonText" parent="RegularText">
+        <item name="android:textColor">@color/main_black</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="BusinessRadiusFreeLabel" parent="PoppinsMedium">
+        <item name="android:textSize">@dimen/font_size_small_x</item>
+        <item name="android:textColor">@color/atlantis</item>
+    </style>
+
+    <style name="BusinessRadiusDescription" parent="PoppinsRegular">
+        <item name="android:textSize">@dimen/font_size_small_x</item>
+        <item name="android:textColor">@color/dark_grey</item>
+    </style>
+
+    <style name="BusinessDescription" parent="TabLabel">
+        <item name="android:textColor">@color/main_black</item>
+    </style>
+
+    <style name="ProfileAddress" parent="TabLabel">
+        <item name="android:textColor">@color/main_black</item>
+    </style>
+
+    <style name="ProfileBirthdayAndGender" parent="TabLabel">
+        <item name="android:textColor">@color/dark_grey</item>
+    </style>
+
+    <style name="BusinessAddImage" parent="PoppinsMedium">
+        <item name="android:textSize">@dimen/font_size_small_x</item>
+        <item name="android:textColor">@color/accent_blue</item>
+    </style>
+
+    <style name="MyPostsEmptyListLabel" parent="RegularText">
+        <item name="android:textColor">@color/dark_grey</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="PostAuthorName" parent="NamesText">
+        <item name="android:textColor">@color/main_black</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="PostPublishTime" parent="DateTimeText">
+        <item name="android:textColor">@color/dark_grey</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="PostEditedLabel" parent="PoppinsMedium">
+        <item name="android:textSize">@dimen/font_size_small_xx</item>
+        <item name="android:textColor">@color/grey_medium</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="PostEventTime" parent="PoppinsMedium">
+        <item name="android:textSize">@dimen/font_size_small_x</item>
+        <item name="android:textColor">@color/accent_red</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="PostEventName" parent="EventNameText">
+        <item name="android:textColor">@color/main_black</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="PostAddress" parent="PoppinsRegular">
+        <item name="android:textSize">@dimen/font_size_small</item>
+        <item name="android:textColor">@color/slate_gray</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="PostPrice" parent="PoppinsMedium">
+        <item name="android:textSize">@dimen/font_size_base_xxx</item>
+        <item name="android:textColor">@color/accent_3</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="PostDescription" parent="PostText">
+        <item name="android:textColor">@color/main_black</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="ReactionButtonText" parent="PoppinsMedium">
+        <item name="android:textSize">@dimen/font_size_base</item>
+        <item name="android:textColor">@color/post_likes_inactive_text_color</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="ReactionCounter" parent="PoppinsMedium">
+        <item name="android:textSize">@dimen/font_size_base_x</item>
+        <item name="android:textColor">@color/main_black</item>
+    </style>
+
+    <style name="PostFollowers" parent="ReactionButtonText">
+        <item name="android:textColor">@color/post_followers_inactive_text_color</item>
+    </style>
+
+    <style name="PostMessages" parent="PostFollowers">
+        <item name="android:textColor">@color/post_messages_inactive_text_color</item>
+    </style>
+
+    <style name="PostFollowButton" parent="PostMessages">
+        <item name="android:layout_height">@dimen/post_follow_button_height</item>
+        <item name="android:textColor">@color/accent_green</item>
+        <item name="android:textSize">@dimen/font_size_small</item>
+    </style>
+
+    <style name="StateFollowed" parent="PoppinsMedium">
+        <item name="android:textColor">@color/post_followed_state_color</item>
+        <item name="android:textSize">@dimen/font_size_small</item>
+    </style>
+
+    <style name="PostEventType" parent="PoppinsMedium">
+        <item name="android:layout_height">@dimen/my_posts_type_label_height</item>
+        <item name="android:minWidth">@dimen/my_posts_type_label_min_width</item>
+        <item name="android:background">@drawable/bg_event_type</item>
+        <item name="android:textSize">@dimen/font_size_small_x</item>
+        <item name="android:textColor">@color/post_event_type_text_color</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingLeft">@dimen/my_posts_type_label_h_padding</item>
+        <item name="android:paddingRight">@dimen/my_posts_type_label_h_padding</item>
+    </style>
+
+    <style name="PostStoryType" parent="PostEventType">
+        <item name="android:background">@drawable/bg_story_type</item>
+        <item name="android:textColor">@color/post_story_type_text_color</item>
+    </style>
+
+    <style name="PostNewsType" parent="PostEventType">
+        <item name="android:background">@drawable/bg_news_type</item>
+        <item name="android:textColor">@color/post_news_type_text_color</item>
+    </style>
+
+    <style name="PostCrimeType" parent="PostEventType">
+        <item name="android:background">@drawable/bg_crime_type</item>
+        <item name="android:textColor">@color/post_crime_type_text_color</item>
+    </style>
+
+    <style name="PostOfferType" parent="PostEventType">
+        <item name="android:background">@drawable/bg_offer_type</item>
+        <item name="android:textColor">@color/post_offer_type_text_color</item>
+    </style>
+
+    <style name="PostMediaType" parent="PostEventType">
+        <item name="android:background">@drawable/bg_media_type</item>
+        <item name="android:textColor">@color/post_media_type_text_color</item>
+    </style>
+
+    <style name="ReportHint" parent="H4">
+        <item name="android:textColor">@color/main_black</item>
+    </style>
+
+    <style name="ReportRadioButton" parent="TextLabel">
+        <item name="android:textColor">@color/main_black</item>
+        <item name="android:background">@drawable/selector_report_radio_button_bg</item>
+        <item name="android:minHeight">@dimen/report_reason_button_min_height</item>
+        <item name="android:paddingStart">@dimen/report_reason_button_h_padding</item>
+        <item name="android:paddingEnd">@dimen/report_reason_button_h_padding</item>
+        <item name="android:button">@null</item>
+        <item name="android:drawableEnd">@drawable/selector_report_radio_button</item>
+    </style>
+
+    <style name="PostEmptyMessagesHint" parent="RegularText">
+        <item name="android:textColor">@color/dark_grey</item>
+    </style>
+
+    <style name="InputMessageField" parent="PostText">
+        <item name="android:textColor">@color/main_black</item>
+        <item name="android:textColorHint">@color/grey_medium</item>
+        <item name="android:background">@drawable/bg_input_message_field</item>
+        <item name="android:minHeight">@dimen/input_message_field_min_height</item>
+        <item name="android:paddingLeft">@dimen/input_message_field_v_padding</item>
+        <item name="android:paddingRight">@dimen/input_message_field_v_padding</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="InputEditMessageLabel" parent="FilterText">
+        <item name="android:textColor">@color/dark_grey</item>
+        <item name="android:paddingLeft">@dimen/input_message_field_v_padding</item>
+        <item name="android:paddingRight">@dimen/input_message_field_v_padding</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="InputMessageAttachment" parent="FilterText">
+        <item name="android:textColor">@color/accent_blue</item>
+    </style>
+
+    <style name="ChatDateHeader" parent="DateTimeText">
+        <item name="android:textColor">@color/dark_grey</item>
+    </style>
+
+    <style name="UnreadMsgHighlighter" parent="DateTimeText">
+        <item name="android:textColor">@color/dark_grey</item>
+    </style>
+
+    <style name="IncomingMsgAuthor" parent="PoppinsSemiBold">
+        <item name="android:textSize">@dimen/font_size_small</item>
+        <item name="android:textColor">@color/main_black</item>
+    </style>
+
+    <style name="IncomingMsgText" parent="PostText">
+        <item name="android:textColor">@color/main_black</item>
+    </style>
+
+    <style name="IncomingMsgTime" parent="PoppinsRegular">
+        <item name="android:textSize">@dimen/font_size_small_xx</item>
+        <item name="android:textColor">@color/dark_grey</item>
+    </style>
+
+    <style name="IncomingFileMsgTitle" parent="FilterText">
+        <item name="android:textColor">@color/accent_blue</item>
+    </style>
+
+    <style name="IncomingAudioDuration" parent="DateTimeText">
+        <item name="android:textColor">@color/grey_medium</item>
+    </style>
+
+    <style name="OutcomingMsgAuthor" parent="IncomingMsgAuthor">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="OutcomingMsgText" parent="IncomingMsgText">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="OutcomingMsgTime" parent="IncomingMsgTime">
+        <item name="android:textColor">@color/white_50a</item>
+    </style>
+
+    <style name="OutcomingFileMsgTitle" parent="IncomingFileMsgTitle">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="OutcomingAudioDuration" parent="IncomingAudioDuration">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="MediaMsgTime" parent="PoppinsRegular">
+        <item name="android:textSize">@dimen/font_size_small_xx</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="ChatListSearchField" parent="RegularText">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textColorHint">@color/white_70a</item>
+    </style>
+
+    <style name="ChatListCancelSearch" parent="FilterText">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="ChatListItemOpponentName" parent="NamesText">
+        <item name="android:textColor">@color/main_black</item>
+    </style>
+
+    <style name="ChatListItemLastMessage" parent="PostText">
+        <item name="android:textColor">@color/dark_grey</item>
+    </style>
+
+    <style name="ChatListItemLastMessageTime" parent="DateTimeText">
+        <item name="android:textColor">@color/dark_grey</item>
+    </style>
+
+    <style name="ChatListItemUnreadCount" parent="PoppinsSemiBold">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/font_size_small_xx</item>
+    </style>
+
+    <style name="NoChatBackgroundLabel" parent="RegularText">
+        <item name="android:textColor">@color/dark_grey</item>
+    </style>
+
+    <style name="ChatRoomOpponentName" parent="NamesText">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="SwipeToCancel" parent="PostText">
+        <item name="android:textColor">@color/main_black</item>
+    </style>
+
+    <style name="SwipeToCancelArrow" parent="SwipeToCancel">
+        <item name="android:textColor">@color/accent_red_2</item>
+    </style>
+
+    <style name="AudioRecordTimer" parent="H5">
+        <item name="android:textColor">@color/accent_red</item>
+    </style>
+
+    <style name="PostListSearchField" parent="PostText">
+        <item name="android:textColor">@color/main_black</item>
+        <item name="android:textColorHint">@color/grey_medium</item>
+    </style>
+
+    <style name="NewsBlockTitle" parent="NamesText">
+        <item name="android:textColor">@color/main_black</item>
+    </style>
+
+    <style name="NewsDescription" parent="PostText">
+        <item name="android:textColor">@color/main_black</item>
+    </style>
+
+    <style name="StaticPageText" parent="RegularText">
+        <item name="android:textColor">@color/main_black</item>
+    </style>
+
+    <style name="MapMarkerMeLabel" parent="PoppinsMedium">
+        <item name="android:textSize">@dimen/font_size_base_xx</item>
+        <item name="android:textColor">@color/my_marker_label_text_color</item>
+    </style>
+
+    <style name="MapMarkerNeighborLabel" parent="MapMarkerMeLabel">
+        <item name="android:textColor">@color/neighbor_marker_label_text_color</item>
+    </style>
+
+    <style name="MapMarkerClusterIcon" parent="PoppinsSemiBold">
+        <item name="android:textSize">@dimen/font_size_base_x</item>
+        <item name="android:textColor">@color/marker_cluster_text_color</item>
+    </style>
+
+    <style name="SubscriptionPlanName" parent="EventNameText">
+        <item name="android:textColor">@color/selector_subscription_main_text</item>
+    </style>
+
+    <style name="SubscriptionPlanPrice" parent="RegularText">
+        <item name="android:textColor">@color/selector_subscription_secondary_text</item>
+    </style>
+
+    <style name="SubscriptionHint" parent="DateTimeText">
+        <item name="android:textColor">@color/dark_grey</item>
+    </style>
+
+    <style name="SubscriptionScreenTitle" parent="H3">
+        <item name="android:textColor">@color/main_black</item>
+    </style>
+
+    <style name="SubscriptionScreenDescription" parent="PostText">
+        <item name="android:textColor">@color/main_black</item>
+    </style>
+
+    <style name="RestorePurchase" parent="PoppinsMedium">
+        <item name="android:textSize">@dimen/font_size_base</item>
+        <item name="android:textColor">@color/selector_restore_purchase_button_text</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="RecentSearchesLabel" parent="H5">
+        <item name="android:textColor">@color/main_black</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="maxLines">1</item>
+    </style>
+
+    <style name="ProfileSearchItemTitle" parent="PoppinsMedium">
+        <item name="android:textSize">@dimen/font_size_base</item>
+        <item name="android:textColor">@color/main_black</item>
+    </style>
+
+    <style name="EmptySearchLabel" parent="RegularText">
+        <item name="android:textColor">@color/dark_grey</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="HashtagLabel" parent="PoppinsRegular">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/font_size_base</item>
+        <item name="singleLine">true</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="HashtagButton" parent="PoppinsMedium">
+        <item name="android:textColor">@color/grey_medium</item>
+        <item name="android:textSize">@dimen/font_size_small</item>
+        <item name="android:background">@drawable/bg_hashtag_button</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:paddingTop">2dp</item>
+        <item name="android:paddingBottom">2dp</item>
+
+    </style>
+
+    <style name="HashtagSearchTitle" parent="H5">
+        <item name="android:textColor">@color/main_black</item>
+    </style>
+
+    <style name="StoriesTab" parent="PoppinsMedium">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/font_size_small</item>
+        <item name="android:gravity">center_horizontal</item>
+
+    </style>
+
+    <style name="StoryFollowersCountLabel" parent="PoppinsMedium">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/font_size_small</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="stv_strokeColor">#33000000</item>
+        <item name="stv_strokeWidth">2sp</item>
+    </style>
+
+    <style name="StoryAuthorName" parent="NamesText">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="StoryDescription" parent="PostText">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="MediaPickerActionButton" parent="PoppinsMedium">
+        <item name="android:textColor">@color/main_black</item>
+        <item name="android:textSize">@dimen/font_size_base_x</item>
+    </style>
+
+    <style name="MediaPickerNumber" parent="PoppinsRegular">
+        <item name="android:textSize">@dimen/font_size_base</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="MediaPickerDuration" parent="PoppinsRegular">
+        <item name="android:textSize">@dimen/font_size_base</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="StoriesEmptyListLabel" parent="RegularText">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="VideoSegmentDuration" parent="PoppinsMedium">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/font_size_small_xx</item>
+        <item name="stv_strokeColor">@color/black_20a</item>
+        <item name="stv_strokeWidth">1dp</item>
+    </style>
+
+    <style name="AddTextToStoryActionButton" parent="H5">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="StoryTextPopupItem" parent="PoppinsMedium">
+        <item name="android:textColor">@color/blue_button</item>
+        <item name="android:textSize">@dimen/font_size_base</item>
+    </style>
+
+    <style name="AudioDescription" parent="PoppinsRegular">
+        <item name="android:textColor">@color/main_black</item>
+        <item name="android:textSize">@dimen/font_size_small</item>
+    </style>
+
+    <style name="AudioAddedBy" parent="PoppinsRegular">
+        <item name="android:textColor">@color/dark_grey</item>
+        <item name="android:textSize">@dimen/font_size_small_x</item>
+    </style>
+
+    <style name="AudioListSearchField" parent="PoppinsRegular">
+        <item name="android:textSize">@dimen/font_size_small</item>
+        <item name="android:textColor">@color/main_black</item>
+        <item name="android:textColorHint">@color/grey_medium</item>
+        <item name="android:background">@drawable/bg_search_audio</item>
+    </style>
+
+    <style name="TrimAudioDescription" parent="PoppinsRegular">
+        <item name="android:textSize">@dimen/font_size_small</item>
+        <item name="android:textColor">@color/main_black</item>
+    </style>
+
+    <style name="TrimAudioSelectBeginning" parent="PoppinsMedium">
+        <item name="android:textSize">@dimen/font_size_base</item>
+        <item name="android:textColor">@color/main_black</item>
+    </style>
+
+    <style name="TrimAudioStartTime" parent="PoppinsMedium">
+        <item name="android:textSize">@dimen/font_size_small_x</item>
+        <item name="android:textColor">@color/blue_button</item>
+    </style>
+
+    <style name="TrimAudioDuration" parent="PoppinsMedium">
+        <item name="android:textSize">@dimen/font_size_small_x</item>
+        <item name="android:textColor">@color/amethyst_smoke</item>
+    </style>
+
+    <style name="AdjustVolumeTitle" parent="PoppinsMedium">
+        <item name="android:textColor">@color/main_black</item>
+        <item name="android:textSize">@dimen/font_size_base</item>
+    </style>
+
+    <style name="AdjustVolumeType" parent="PoppinsMedium">
+        <item name="android:textColor">@color/main_black</item>
+        <item name="android:textSize">@dimen/font_size_small_x</item>
+    </style>
+
+    <style name="AddTrackButton" parent="PoppinsSemiBold">
+        <item name="android:textColor">@color/blue_button</item>
+        <item name="android:textSize">@dimen/font_size_base</item>
+    </style>
+
+    <style name="AddTrackTitle" parent="PoppinsSemiBold">
+        <item name="android:textColor">@color/main_black</item>
+        <item name="android:textSize">@dimen/font_size_base_x</item>
+    </style>
+
+    <style name="FollowerName" parent="PoppinsRegular">
+        <item name="android:textColor">@color/main_black</item>
+        <item name="android:textSize">@dimen/font_size_base</item>
+    </style>
+
+    <style name="FollowersCount" parent="PoppinsRegular">
+        <item name="android:textColor">@color/main_black</item>
+        <item name="android:textSize">@dimen/font_size_base_x</item>
+    </style>
+
+    <style name="MentionProfileName" parent="PoppinsMedium">
+        <item name="android:textColor">@color/main_black</item>
+        <item name="android:textSize">@dimen/font_size_base</item>
+    </style>
+
+    <style name="MentionsSearchEmptyState" parent="PoppinsMedium">
+        <item name="android:textColor">@color/grey_medium</item>
+        <item name="android:textSize">@dimen/font_size_base</item>
+    </style>
+</resources>

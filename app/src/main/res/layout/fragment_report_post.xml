@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <View
+            android:id="@+id/actionBarBg"
+            android:background="@color/report_screen_bg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <com.gbksoft.neighbourhood.ui.widgets.actionbar.ActionBarView
+            android:id="@+id/actionBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:ab_isShowBack="true"
+            app:ab_title="@string/title_report_screen"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@id/reportButtonFrame"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/actionBar">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/report_screen_h_padding"
+                android:paddingTop="@dimen/report_screen_v_padding"
+                android:paddingRight="@dimen/report_screen_h_padding"
+                android:paddingBottom="@dimen/report_screen_v_padding">
+
+                <TextView
+                    style="@style/ReportHint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/report_post_hint" />
+
+                <RadioGroup
+                    android:id="@+id/rgPostReasons"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/report_reasons_top_margin"
+                    android:visibility="gone"
+                    tools:visibility="visible">
+
+                    <RadioButton
+                        android:id="@+id/reasonInappropriateContent"
+                        style="@style/ReportRadioButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/report_post_inappropriate_content"
+                        app:checkedTextColor="@{@color/report_reason_checked_text_color}"
+                        app:uncheckedTextColor="@{@color/report_reason_unchecked_text_color}" />
+
+                    <RadioButton
+                        android:id="@+id/reasonSpam"
+                        style="@style/ReportRadioButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/report_reasons_v_spacing"
+                        android:text="@string/report_post_spam"
+                        tools:checked="true"
+                        app:checkedTextColor="@{@color/report_reason_checked_text_color}"
+                        app:uncheckedTextColor="@{@color/report_reason_unchecked_text_color}" />
+                </RadioGroup>
+
+                <RadioGroup
+                    android:id="@+id/rgAudioReasons"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/report_reasons_top_margin"
+                    android:visibility="gone"
+                    tools:visibility="visible">
+
+                    <RadioButton
+                        android:id="@+id/reasonAudioInappropriateContent"
+                        style="@style/ReportRadioButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/report_post_inappropriate_content"
+                        app:checkedTextColor="@{@color/report_reason_checked_text_color}"
+                        app:uncheckedTextColor="@{@color/report_reason_unchecked_text_color}" />
+
+                    <RadioButton
+                        android:id="@+id/reasonAudioPlagiarism"
+                        style="@style/ReportRadioButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/report_reasons_v_spacing"
+                        android:text="@string/report_audio_plagiarism"
+                        tools:checked="true"
+                        app:checkedTextColor="@{@color/report_reason_checked_text_color}"
+                        app:uncheckedTextColor="@{@color/report_reason_unchecked_text_color}" />
+                </RadioGroup>
+            </LinearLayout>
+
+        </ScrollView>
+
+        <View
+            android:id="@+id/panelShadow"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/bottom_panel_shadow_height"
+            android:background="@drawable/shadow_bottom_panel"
+            app:layout_constraintBottom_toTopOf="@id/reportButtonFrame"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <FrameLayout
+            android:id="@+id/reportButtonFrame"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/report_screen_panel_color"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent">
+
+            <Button
+                android:id="@+id/btnReport"
+                style="@style/ReportButton"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/bottom_panel_button_v_margin"
+                android:layout_marginBottom="@dimen/bottom_panel_button_v_margin"
+                android:enabled="false"
+                android:text="@string/report_post_button" />
+
+        </FrameLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/chat_list_action_bar_color"
+            android:orientation="vertical">
+
+            <com.gbksoft.neighbourhood.ui.widgets.actionbar.ActionBarView
+                android:id="@+id/actionBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:ab_iconsTint="@color/white"
+                app:ab_isShowBack="true"
+                app:ab_title="@string/title_chat_background"
+                app:ab_titleColor="@color/white"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:cardCornerRadius="@dimen/my_posts_list_bg_corner"
+                app:layout_marginBottom="@{-@dimen/my_posts_list_bg_corner}">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvBackgrounds"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_my_posts_list"
+                    android:clipToPadding="false"
+                    android:paddingLeft="@dimen/chat_background_list_spacing"
+                    android:paddingTop="@dimen/chat_background_list_spacing"
+                    android:paddingRight="@dimen/chat_background_list_spacing"
+                    android:paddingBottom="@{@dimen/my_posts_list_bg_corner + @dimen/chat_background_list_spacing}"
+                    app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                    app:layout_constraintBottom_toTopOf="@id/shadowFrame"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/actionBar"
+                    app:spanCount="@integer/chat_background_list_columns_count"
+                    tools:listitem="@layout/adapter_chat_background" />
+
+            </androidx.cardview.widget.CardView>
+
+
+        </LinearLayout>
+    </FrameLayout>
+
+</layout>

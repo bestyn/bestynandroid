@@ -1,0 +1,184 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.firebase.crashlytics'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: "androidx.navigation.safeargs"
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        applicationId "com.bestyn.app"
+        minSdkVersion 21
+        targetSdkVersion 29
+
+        multiDexEnabled true
+        renderscriptTargetApi 18
+        renderscriptSupportModeEnabled true
+
+        vectorDrawables.useSupportLibrary = true
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    dataBinding {
+        enabled true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+}
+
+apply from: '../signing.gradle'
+apply from: '../flavors.gradle'
+
+dependencies {
+    //implementation project(':data')
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation "androidx.multidex:multidex:2.0.1"
+    implementation "com.karumi:dexter:6.1.0"
+    implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
+
+    //Firebase
+    implementation "com.google.firebase:firebase-analytics:18.0.0"
+    implementation "com.google.firebase:firebase-crashlytics:17.2.2"
+    implementation 'com.google.firebase:firebase-storage:19.2.0'
+    implementation 'com.firebaseui:firebase-ui-storage:4.3.2'
+    implementation 'com.google.firebase:firebase-messaging:21.0.0'
+    implementation platform('com.google.firebase:firebase-bom:26.1.0')
+    implementation 'com.google.firebase:firebase-database-ktx'
+
+    //Google Tag Manager
+    implementation 'com.google.android.gms:play-services-tagmanager:17.0.0'
+
+    // Navigation
+    implementation "androidx.navigation:navigation-fragment-ktx:$navComponentVersion"
+    implementation "androidx.navigation:navigation-ui-ktx:$navComponentVersion"
+
+    //Android components
+    implementation "androidx.appcompat:appcompat:1.2.0"
+    implementation "androidx.constraintlayout:constraintlayout:2.0.0"
+    implementation "androidx.recyclerview:recyclerview:1.2.0-beta01"
+    implementation "com.google.android.material:material:1.3.0-alpha02"
+    implementation "androidx.viewpager2:viewpager2:1.1.0-alpha01"
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
+    // Fragments
+    implementation "androidx.fragment:fragment-ktx:$fragment_version"
+    // Testing Fragments in Isolation
+    debugImplementation "androidx.fragment:fragment-testing:$fragment_version"
+    implementation "androidx.work:work-runtime-ktx:2.4.0"
+
+    ///Json
+    implementation "com.google.code.gson:gson:2.8.6"
+
+    //RxJava
+    implementation "io.reactivex.rxjava2:rxandroid:2.1.1"
+    implementation "io.reactivex.rxjava2:rxjava:2.2.16"
+    implementation "com.jakewharton.rxbinding3:rxbinding-core:3.1.0"
+    implementation "com.jakewharton.rxbinding3:rxbinding-appcompat:3.1.0"
+    implementation "com.f2prateek.rx.preferences2:rx-preferences:2.0.1-beta1"
+
+    //Glide
+    implementation "com.github.bumptech.glide:glide:4.11.0"
+    implementation "com.github.bumptech.glide:annotations:4.11.0"
+    implementation 'jp.wasabeef:glide-transformations:4.1.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation project(path: ':flexbox_library')
+    kapt 'com.github.bumptech.glide:compiler:4.11.0'
+
+    //Timber
+    implementation "com.jakewharton.timber:timber:4.7.1"
+
+    //Kotlin
+    implementation "androidx.core:core-ktx:1.3.1"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
+
+    //Circular Image
+    implementation "de.hdodenhof:circleimageview:3.1.0"
+
+    //Full Photo Image
+    implementation "com.github.chrisbanes:PhotoView:2.3.0"
+
+    //Retrofit
+    implementation "com.squareup.retrofit2:retrofit:2.8.1"
+    implementation "com.squareup.retrofit2:converter-gson:2.8.1"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:2.8.1"
+    implementation "com.squareup.okhttp3:okhttp:4.5.0"
+    implementation "com.squareup.okhttp3:logging-interceptor:4.5.0"
+    implementation "com.itkacher.okhttpprofiler:okhttpprofiler:1.0.7"
+
+    //Exo Player
+    implementation "com.google.android.exoplayer:exoplayer:2.11.5"
+
+    //Map
+    implementation 'com.google.maps.android:android-maps-utils-v3:1.3.1'
+    implementation 'com.google.android.libraries.maps:maps:3.1.0-beta'
+
+    //Places
+    implementation name: 'places-maps-sdk-3.1.0-beta', ext: 'aar'
+    implementation 'com.google.android.gms:play-services-gcm:17.0.0'
+    implementation 'com.google.auto.value:auto-value-annotations:1.6.5'
+
+    //Centrifuge
+    implementation 'io.github.centrifugal:centrifuge-java:0.0.5'
+
+    //Image Crop
+    api 'com.theartofdev.edmodo:android-image-cropper:2.8.0'
+
+    //Stetho
+    implementation "com.facebook.stetho:stetho:1.5.1"
+    implementation "com.facebook.stetho:stetho-okhttp3:1.5.1"
+
+    testImplementation "junit:junit:4.13"
+    androidTestImplementation "androidx.test.ext:junit:1.1.1"
+    androidTestImplementation "androidx.test.espresso:espresso-core:3.2.0"
+
+    //Billing
+    implementation "com.android.billingclient:billing-ktx:3.0.0"
+
+    //Language Detect
+    implementation 'com.google.mlkit:language-id:16.1.1'
+
+    implementation group: 'org.threeten', name: 'threetenbp', version: '1.3.7'
+
+    //BlurView
+    implementation 'com.eightbitlab:blurview:1.6.3'
+
+    //Koin
+    implementation "org.koin:koin-android:$koinVersion"
+    implementation "org.koin:koin-androidx-viewmodel:$koinVersion"
+    implementation "org.koin:koin-androidx-scope:$koinVersion"
+
+    //Room
+    def roomVersion = "2.2.5"
+    implementation "androidx.room:room-runtime:$roomVersion"
+    kapt "androidx.room:room-compiler:$roomVersion"
+    implementation "androidx.room:room-ktx:$roomVersion"
+    // optional - Kotlin Extensions and Coroutines support for Room
+    testImplementation "androidx.room:room-testing:$roomVersion"// optional - Test helpers
+
+    //SwipeRevealLayout
+    implementation 'com.chauthai.swipereveallayout:swipe-reveal-layout:1.4.1'
+
+    //Camera
+    api 'com.otaliastudios:cameraview:2.6.4'
+
+    //FFmpeg
+    implementation 'com.arthenica:mobile-ffmpeg-min-gpl:4.4'
+
+}
+repositories {
+    mavenCentral()
+}

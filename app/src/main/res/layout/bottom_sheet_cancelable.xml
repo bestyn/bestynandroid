@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:id="@+id/cancelableRoot"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/bottom_sheet_dialog_padding"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/cancelableButton"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/bottom_sheet_dialog_item_height"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/bottom_sheet_dialog_cancel_button_spacing"
+            android:background="@drawable/bg_cancelable_bottom_sheet_dialog"
+            style="@style/BottomSheetDialogButton"
+            android:text="@string/bottom_sheet_cancel" />
+    </LinearLayout>
+
+</layout>

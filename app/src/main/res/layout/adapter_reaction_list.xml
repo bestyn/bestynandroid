@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="reaction"
+            type="com.gbksoft.neighbourhood.model.reaction.PostReaction" />
+
+        <import type="com.gbksoft.neighbourhood.model.post.PostType" />
+
+        <import type="android.view.View" />
+
+        <import type="android.text.TextUtils" />
+
+        <import type="com.gbksoft.neighbourhood.utils.Constants" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_my_posts_view"
+        android:paddingStart="20dp"
+        android:paddingTop="5dp"
+        android:paddingEnd="20dp"
+        android:paddingBottom="5dp">
+
+        <com.gbksoft.neighbourhood.ui.widgets.avatar.AvatarView
+            android:id="@+id/ivAuthorAvatar"
+            android:layout_width="@dimen/reactions_list_view_avatar_size"
+            android:layout_height="@dimen/reactions_list_view_avatar_size"
+            app:av_borderEnabled="true"
+            app:av_borderThickness="@dimen/reactions_list_avatar_border"
+            app:av_fullName="@{reaction.profile.name}"
+            app:av_imageUrl="@{reaction.profile.avatar.small}"
+            app:av_initialsSize="@dimen/my_posts_initials_text_size"
+            app:av_isBusiness="@{reaction.profile.business ? true : false}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/ivReaction"
+            android:layout_width="21dp"
+            android:layout_height="21dp"
+            android:layout_marginStart="30dp"
+            app:layout_constraintBottom_toBottomOf="@id/ivAuthorAvatar"
+            app:layout_constraintEnd_toEndOf="@id/ivAuthorAvatar"
+            app:layout_constraintStart_toStartOf="@id/ivAuthorAvatar"
+            tools:src="@drawable/ic_reaction_like" />
+
+        <TextView
+            android:id="@+id/tvAuthorName"
+            style="@style/PostAuthorName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/reactions_list_view_avatar_h_margin"
+            android:layout_marginRight="@dimen/reactions_list_view_avatar_h_margin"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="@{reaction.profile.name}"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintBottom_toBottomOf="@id/ivAuthorAvatar"
+            app:layout_constraintLeft_toRightOf="@id/ivAuthorAvatar"
+            app:layout_constraintTop_toTopOf="@id/ivAuthorAvatar"
+            app:layout_constraintRight_toLeftOf="@id/ivChat"
+            tools:text="Kateryna Lavrova" />
+
+        <ImageView
+            android:id="@+id/ivChat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_download_incoming_file"
+            android:src="@drawable/ic_reactions_chat"
+            android:visibility="@{reaction.isMine()? View.GONE : View.VISIBLE }"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

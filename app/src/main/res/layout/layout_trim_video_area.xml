@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    tools:background="@color/stories_screen_background"
+    tools:layout_height="match_parent"
+    tools:parentTag="android.widget.FrameLayout">
+
+    <FrameLayout
+        android:id="@+id/trim_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/trim_area_thumb_width"
+        android:layout_marginRight="@dimen/trim_area_thumb_width"
+        android:visibility="visible"
+        tools:layout_gravity="left|center_vertical"
+        tools:layout_height="@dimen/trim_video_timeline_height" />
+
+    <View
+        android:id="@+id/trim_area"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/trim_area_color"
+        android:visibility="invisible"
+        tools:layout_gravity="left|center_vertical"
+        tools:layout_height="@dimen/trim_video_timeline_height"
+        tools:visibility="visible" />
+
+    <com.gbksoft.neighbourhood.ui.widgets.stories.timeline.TimelineThumb
+        android:id="@+id/trim_area_left_thumb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="20dp"
+        android:src="@drawable/ic_trim_video_left_border"
+        android:visibility="invisible"
+        tools:layout_gravity="left|center_vertical"
+        tools:visibility="visible" />
+
+    <com.gbksoft.neighbourhood.ui.widgets.stories.timeline.TimelineThumb
+        android:id="@+id/trim_area_right_thumb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingHorizontal="20dp"
+        android:src="@drawable/ic_trim_video_right_border"
+        android:visibility="invisible"
+        tools:layout_gravity="right|center_vertical"
+        tools:visibility="visible" />
+
+</merge>

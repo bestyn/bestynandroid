@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+
+        <com.gbksoft.neighbourhood.ui.widgets.avatar.AvatarView
+            android:id="@+id/avatarView"
+            android:layout_width="@dimen/my_marker_avatar_size"
+            android:layout_height="@dimen/my_marker_avatar_size"
+            app:av_borderColor="@color/my_marker_avatar_border_color"
+            app:av_borderEnabled="true"
+            app:av_borderThickness="@dimen/my_marker_avatar_border_thickness"
+            app:av_isBitmapDrawingMode="true" />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/shape_my_marker_label"
+            android:paddingLeft="@dimen/marker_label_h_padding"
+            android:paddingTop="@dimen/marker_label_v_padding"
+            android:paddingRight="@dimen/marker_label_h_padding"
+            android:paddingBottom="@dimen/marker_label_v_padding"
+            android:text="@string/map_marker_me"
+            style="@style/MapMarkerMeLabel" />
+
+    </LinearLayout>
+</layout>

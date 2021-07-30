@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <FrameLayout
+        android:id="@+id/rootView"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/actionBarSize"
+        android:background="@color/action_bar_bg">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/btnBack"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="start|center_vertical"
+                android:background="@drawable/ripple_click"
+                android:paddingLeft="@dimen/screen_padding"
+                android:paddingRight="@dimen/screen_padding"
+                android:scaleType="center"
+                app:srcCompat="@drawable/ic_nav_back" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/actionBarTitle"
+            style="@style/ActionBarTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            tools:text="Title" />
+
+        <ImageView
+            android:id="@+id/btnCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="end|center_vertical"
+            android:background="@drawable/ripple_click"
+            android:paddingLeft="@dimen/screen_padding"
+            android:paddingRight="@dimen/screen_padding"
+            android:scaleType="center"
+            app:srcCompat="@drawable/ic_cancel"
+            tools:visibility="gone" />
+
+        <View
+            android:id="@+id/optionsMenuGravityHelper"
+            android:layout_width="4dp"
+            android:layout_height="4dp"
+            android:layout_gravity="top|right"
+            tools:visibility="gone" />
+
+        <FrameLayout
+            android:id="@+id/btnSettings"
+            android:paddingLeft="@dimen/screen_padding"
+            android:paddingRight="@dimen/screen_padding"
+            android:layout_gravity="right|center_vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            tools:visibility="visible">
+
+            <ImageView
+                android:layout_width="@dimen/action_bar_settings_icon_size"
+                android:layout_height="@dimen/action_bar_settings_icon_size"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/ic_profile_settings" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/btnOptionsMenu"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="right|center_vertical"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/screen_padding"
+            android:paddingRight="@dimen/screen_padding"
+            tools:visibility="gone">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:scaleType="center"
+                app:srcCompat="@drawable/ic_options_menu" />
+        </FrameLayout>
+    </FrameLayout>
+
+</layout>

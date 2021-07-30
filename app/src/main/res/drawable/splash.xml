@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@drawable/splash_background" />
+    <item>
+        <bitmap
+            android:gravity="fill_horizontal|bottom"
+            android:src="@drawable/splash_shapes" />
+    </item>
+    <item android:bottom="@dimen/splash_logo_offset">
+        <bitmap
+            android:gravity="center"
+            android:src="@drawable/splash_logo" />
+    </item>
+</layer-list>

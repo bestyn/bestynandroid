@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:id="@+id/llBottomSheet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_bottom_sheet_dialog"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/CreatePostBottomSheetDialogTitle"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/settings_bottom_sheet_dialog_item_height"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="@dimen/settings_bottom_sheet_dialog_h_padding"
+            android:text="@string/create_post_menu_title" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/bottom_sheet_dialog_divider_height"
+            android:background="@color/bottom_sheet_dialog_divider"
+            android:visibility="visible" />
+
+
+        <TextView
+            android:id="@+id/tvCreateOffer"
+            style="@style/SettingsBottomSheetDialogButton"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/settings_bottom_sheet_dialog_item_height"
+            android:drawablePadding="@dimen/settings_bottom_sheet_dialog_item_icon_spacing"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="@dimen/settings_bottom_sheet_dialog_h_padding"
+            android:text="@string/create_post_label_offer"
+            app:drawableLeftCompat="@drawable/ic_create_offer" />
+
+        <View
+            android:id="@+id/offerDivider"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/bottom_sheet_dialog_divider_height"
+            android:background="@color/bottom_sheet_dialog_divider"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/tvCreateNews"
+            style="@style/SettingsBottomSheetDialogButton"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/settings_bottom_sheet_dialog_item_height"
+            android:drawablePadding="@dimen/settings_bottom_sheet_dialog_item_icon_spacing"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="@dimen/settings_bottom_sheet_dialog_h_padding"
+            android:text="@string/create_post_label_news"
+            app:drawableLeftCompat="@drawable/ic_create_news" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/bottom_sheet_dialog_divider_height"
+            android:background="@color/bottom_sheet_dialog_divider"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/tvCreateEvent"
+            style="@style/SettingsBottomSheetDialogButton"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/settings_bottom_sheet_dialog_item_height"
+            android:drawablePadding="@dimen/settings_bottom_sheet_dialog_item_icon_spacing"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="@dimen/settings_bottom_sheet_dialog_h_padding"
+            android:text="@string/create_post_label_event"
+            app:drawableLeftCompat="@drawable/ic_create_event" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/bottom_sheet_dialog_divider_height"
+            android:background="@color/bottom_sheet_dialog_divider"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/tvCreateCrime"
+            style="@style/SettingsBottomSheetDialogButton"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/settings_bottom_sheet_dialog_item_height"
+            android:drawablePadding="@dimen/settings_bottom_sheet_dialog_item_icon_spacing"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="@dimen/settings_bottom_sheet_dialog_h_padding"
+            android:text="@string/create_post_label_crime"
+            app:drawableLeftCompat="@drawable/ic_create_crime" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/bottom_sheet_dialog_divider_height"
+            android:background="@color/bottom_sheet_dialog_divider"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/tvCreateGeneral"
+            style="@style/SettingsBottomSheetDialogButton"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/settings_bottom_sheet_dialog_item_height"
+            android:drawablePadding="@dimen/settings_bottom_sheet_dialog_item_icon_spacing"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="@dimen/settings_bottom_sheet_dialog_h_padding"
+            android:text="@string/create_post_label_general"
+            app:drawableLeftCompat="@drawable/ic_create_general" />
+
+    </LinearLayout>
+</layout>

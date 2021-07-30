@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="PoppinsSemiBold">
+        <item name="android:fontFamily">@font/poppins_semibold</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="PoppinsMedium">
+        <item name="android:fontFamily">@font/poppins_medium</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="PoppinsRegular">
+        <item name="android:fontFamily">@font/poppins_regular</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="H2" parent="PoppinsSemiBold">
+        <item name="android:fontFamily">@font/poppins_semibold</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textSize">@dimen/font_size_huge</item>
+    </style>
+
+    <style name="H3" parent="PoppinsSemiBold">
+        <item name="android:textSize">@dimen/font_size_large_xx</item>
+    </style>
+
+    <style name="H4" parent="PoppinsSemiBold">
+        <item name="android:textSize">@dimen/font_size_large_x</item>
+    </style>
+
+    <style name="H5" parent="PoppinsMedium">
+        <item name="android:textSize">@dimen/font_size_base_x</item>
+    </style>
+
+    <style name="EventNameText" parent="PoppinsSemiBold">
+        <item name="android:textSize">@dimen/font_size_large</item>
+    </style>
+
+    <style name="NamesText" parent="PoppinsSemiBold">
+        <item name="android:textSize">@dimen/font_size_small</item>
+    </style>
+
+    <style name="TextLabel" parent="PoppinsMedium">
+        <item name="android:textSize">@dimen/font_size_base</item>
+    </style>
+
+    <style name="RegularText" parent="PoppinsRegular">
+        <item name="android:textSize">@dimen/font_size_base</item>
+    </style>
+
+    <style name="TabLabel" parent="PoppinsMedium">
+        <item name="android:textSize">@dimen/font_size_small</item>
+        <item name="android:letterSpacing">0.05</item>
+    </style>
+
+    <style name="ActionButtons" parent="PoppinsMedium">
+        <item name="android:textSize">@dimen/font_size_base</item>
+    </style>
+
+    <style name="PostText" parent="PoppinsRegular">
+        <item name="android:textSize">@dimen/font_size_small</item>
+    </style>
+
+    <style name="FilterText" parent="PoppinsMedium">
+        <item name="android:textSize">@dimen/font_size_small_x</item>
+    </style>
+
+    <style name="DateTimeText" parent="PoppinsRegular">
+        <item name="android:textSize">@dimen/font_size_small_x</item>
+    </style>
+
+    <style name="ButtonText" parent="PoppinsSemiBold">
+        <item name="android:textSize">@dimen/font_size_base</item>
+    </style>
+
+    <style name="OnlineIndicator" parent="PoppinsMedium">
+        <item name="android:textSize">@dimen/font_size_small_xx</item>
+    </style>
+
+</resources>

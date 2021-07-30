@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/reactions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/reaction_popup_padding"
+            android:paddingRight="45dp"
+            android:paddingTop="@dimen/reaction_popup_padding"
+            android:paddingBottom="@dimen/reaction_popup_padding">
+
+            <ImageView
+                android:id="@+id/ivTrash"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_weight="1"
+                android:src="@drawable/ic_reaction_trash" />
+
+            <ImageView
+                android:id="@+id/ivHundredPoints"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_weight="1"
+                android:src="@drawable/ic_reaction_hundred_points" />
+
+            <ImageView
+                android:id="@+id/ivSad"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_weight="1"
+                android:src="@drawable/ic_reaction_sad" />
+
+            <ImageView
+                android:id="@+id/ivAngry"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_weight="1"
+                android:src="@drawable/ic_reaction_angry" />
+
+            <ImageView
+                android:id="@+id/ivLaugh"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:src="@drawable/ic_reaction_laugh"
+                android:layout_weight="1"/>
+
+            <ImageView
+                android:id="@+id/ivLove"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_weight="1"
+                android:src="@drawable/ic_reaction_love" />
+
+            <ImageView
+                android:id="@+id/ivLike"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_weight="1"
+                android:src="@drawable/ic_reaction_like" />
+
+        </LinearLayout>
+    </LinearLayout>
+</layout>

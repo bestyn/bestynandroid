@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:id="@+id/llBottomSheet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@color/bottom_sheet_dialog_divider"
+        android:showDividers="middle"
+        android:background="@drawable/bg_cancelable_bottom_sheet_dialog"
+        android:orientation="vertical">
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvEditStory"
+            style="@style/BottomSheetDialogButton"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/bottom_sheet_dialog_item_height"
+            android:gravity="center"
+            android:text="Edit" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvDeleteStory"
+            style="@style/BottomSheetDialogButton"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/bottom_sheet_dialog_item_height"
+            android:gravity="center"
+            android:text="Delete" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvUnfollowStory"
+            style="@style/BottomSheetDialogButton"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/bottom_sheet_dialog_item_height"
+            android:gravity="center"
+            android:text="Unfollow Post" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvCreateDuet"
+            style="@style/BottomSheetDialogButton"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/bottom_sheet_dialog_item_height"
+            android:gravity="center"
+            android:text="Create Duet" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvCopyDescription"
+            style="@style/BottomSheetDialogButton"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/bottom_sheet_dialog_item_height"
+            android:gravity="center"
+            android:text="Copy Description" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvDownloadVideo"
+            style="@style/BottomSheetDialogButton"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/bottom_sheet_dialog_item_height"
+            android:gravity="center"
+            android:text="Download" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvMessageAuthor"
+            style="@style/BottomSheetDialogButton"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/bottom_sheet_dialog_item_height"
+            android:gravity="center"
+            tools:text="Message {Author name}" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvReportPost"
+            style="@style/BottomSheetDialogButton"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/bottom_sheet_dialog_item_height"
+            android:gravity="center"
+            android:text="Report Post" />
+    </LinearLayout>
+</layout>

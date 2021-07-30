@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/video_player_bg_color"
+        android:orientation="vertical">
+
+        <com.google.android.exoplayer2.ui.PlaybackControlView
+            android:id="@+id/position_helper"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:visibility="invisible"
+            app:show_timeout="0" />
+
+        <com.google.android.exoplayer2.ui.PlayerView
+            android:id="@+id/playerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible"
+            app:fastforward_increment="30000"
+            app:resize_mode="fit"
+            app:rewind_increment="30000"
+            app:show_timeout="10000" />
+
+        <ImageView
+            android:id="@+id/btnMute"
+            android:layout_width="@dimen/video_player_btn_size"
+            android:layout_height="@dimen/video_player_btn_size"
+            android:scaleType="center"
+            app:layout_constraintBottom_toTopOf="@id/position_helper"
+            app:layout_constraintRight_toRightOf="parent"
+            app:srcCompat="@drawable/ic_player_unmuted" />
+
+        <ImageView
+            android:id="@+id/btnClose"
+            android:layout_width="@dimen/video_player_btn_size"
+            android:layout_height="@dimen/video_player_btn_size"
+            android:scaleType="center"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_close_player" />
+
+        <ImageView
+            android:id="@+id/btnDownload"
+            android:layout_width="@dimen/video_player_btn_size"
+            android:layout_height="@dimen/video_player_btn_size"
+            android:scaleType="center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_download_video" />
+
+        <ProgressBar
+            android:id="@+id/downloadProgressBar"
+            android:layout_width="@dimen/video_player_btn_size"
+            android:layout_height="@dimen/video_player_btn_size"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            android:padding="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

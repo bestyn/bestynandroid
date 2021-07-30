@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:layout_width="80dp"
+    tools:layout_height="80dp"
+    tools:parentTag="android.widget.FrameLayout">
+
+    <TextView
+        android:id="@+id/av_tvAVInitials"
+        style="@style/InitialsText"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:minHeight="2dp"
+        android:minWidth="2dp"
+        tools:text="AV"
+        tools:textSize="22sp"
+        tools:visibility="visible" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/av_ivAvatar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        tools:visibility="visible" />
+
+</merge>

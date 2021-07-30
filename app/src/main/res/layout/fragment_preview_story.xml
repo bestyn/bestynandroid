@@ -1,0 +1,192 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/stories_screen_background"
+            android:keepScreenOn="true"
+            tools:context="com.gbksoft.neighbourhood.ui.fragments.stories.create_story.preview.PreviewStoryFragment">
+
+            <com.google.android.exoplayer2.ui.PlayerView
+                android:id="@+id/playerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:resize_mode="zoom"
+                app:use_controller="true"
+                tools:visibility="invisible" />
+
+            <LinearLayout
+                android:id="@+id/llDuetPlayerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <com.google.android.exoplayer2.ui.PlayerView
+                    android:id="@+id/duetTopVideoPlayer"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    app:resize_mode="zoom"
+                    app:use_controller="true" />
+
+                <com.google.android.exoplayer2.ui.PlayerView
+                    android:id="@+id/duetBottomVideoPlayer"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    app:resize_mode="zoom"
+                    app:use_controller="true" />
+
+            </LinearLayout>
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/addTextFragment"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:tag="addTextFragment"
+                app:layout_constraintBottom_toTopOf="@id/doneButtonPositionHelper"
+                app:layout_constraintTop_toBottomOf="@id/actionBarPositionHelper" />
+
+            <FrameLayout
+                android:id="@+id/actionBarPositionHelper"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/ivBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="@dimen/create_story_progress_h_margin"
+                android:src="@drawable/ic_white_back_arrow"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/actionBarPositionHelper"
+                app:layout_marginTop="@{@dimen/create_story_progress_bottom_margin + @dimen/record_progress_height + @dimen/create_story_progress_top_margin}" />
+
+            <LinearLayout
+                android:id="@+id/options"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/create_story_options_h_margin"
+                android:layout_marginTop="@dimen/create_story_progress_bottom_margin"
+                android:orientation="vertical"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/actionBarPositionHelper">
+
+                <ImageView
+                    android:id="@+id/btnMute"
+                    android:layout_width="@dimen/create_story_options_btn_size"
+                    android:layout_height="@dimen/create_story_options_btn_size"
+                    app:srcCompat="@drawable/ic_unmuted" />
+
+                <ImageView
+                    android:id="@+id/btnAdjustStory"
+                    android:layout_width="@dimen/create_story_options_btn_size"
+                    android:layout_height="@dimen/create_story_options_btn_size"
+                    android:layout_marginTop="@dimen/create_story_options_btn_v_spacing"
+                    android:src="@drawable/ic_adjust_story" />
+
+                <ImageView
+                    android:id="@+id/btnStorySpeed"
+                    android:layout_width="@dimen/create_story_options_btn_size"
+                    android:layout_height="@dimen/create_story_options_btn_size"
+                    android:layout_marginTop="@dimen/create_story_options_btn_v_spacing"
+                    android:src="@drawable/ic_story_speed"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:id="@+id/btnAddStorySound"
+                    android:layout_width="@dimen/create_story_options_btn_size"
+                    android:layout_height="@dimen/create_story_options_btn_size"
+                    android:layout_marginTop="@dimen/create_story_options_btn_v_spacing"
+                    android:src="@drawable/ic_add_story_sound" />
+
+                <ImageView
+                    android:id="@+id/btnAdjustVolume"
+                    android:layout_width="@dimen/create_story_options_btn_size"
+                    android:layout_height="@dimen/create_story_options_btn_size"
+                    android:layout_marginTop="@dimen/create_story_options_btn_v_spacing"
+                    android:src="@drawable/ic_adjust_volume" />
+
+                <ImageView
+                    android:id="@+id/btnAddStoryText"
+                    android:layout_width="@dimen/create_story_options_btn_size"
+                    android:layout_height="@dimen/create_story_options_btn_size"
+                    android:layout_marginTop="@dimen/create_story_options_btn_v_spacing"
+                    android:src="@drawable/ic_add_story_text"
+                    android:visibility="visible" />
+
+                <ImageView
+                    android:id="@+id/btnStoryFilter"
+                    android:layout_width="@dimen/create_story_options_btn_size"
+                    android:layout_height="@dimen/create_story_options_btn_size"
+                    android:layout_marginTop="@dimen/create_story_options_btn_v_spacing"
+                    android:src="@drawable/ic_story_filter"
+                    android:visibility="gone" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/ivFromGallery"
+                android:layout_width="@dimen/create_story_type_btn_size"
+                android:layout_height="@dimen/create_story_type_btn_size"
+                android:background="@drawable/bg_story_from_gallery_btn"
+                android:padding="@dimen/create_story_type_btn_image_padding"
+                android:src="@drawable/ic_story_from_gallery"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@id/btnDone"
+                app:layout_constraintHorizontal_bias="0.45"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/btnDone"
+                app:layout_constraintTop_toTopOf="@id/btnDone" />
+
+            <ImageView
+                android:id="@+id/btnDone"
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:layout_marginBottom="40dp"
+                app:layout_constraintBottom_toTopOf="@id/doneButtonPositionHelper"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:srcCompat="@drawable/ic_preview_done" />
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:visibility="visible" />
+
+            <FrameLayout
+                android:id="@+id/doneButtonPositionHelper"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <include
+            android:id="@+id/trimAudioBottomSheet"
+            layout="@layout/trim_audio_bottom_sheet" />
+
+        <include
+            android:id="@+id/adjustVolumeBottomSheet"
+            layout="@layout/adjust_volume_bottom_sheet" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

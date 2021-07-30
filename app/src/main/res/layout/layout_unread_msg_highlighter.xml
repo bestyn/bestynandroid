@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <merge
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:parentTag="android.widget.FrameLayout">
+
+        <View
+            android:layout_gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:background="@color/chat_unread_msg_highlighter_line"
+            android:layout_height="@dimen/chat_unread_msg_highlighter_line_size" />
+
+        <TextView
+            style="@style/UnreadMsgHighlighter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:paddingHorizontal="@dimen/chat_unread_msg_highlighter_label_h_padding"
+            android:background="@drawable/bg_unread_msg_highlighter_label"
+            android:text="@string/chat_unread_msg_highlighter_label" />
+    </merge>
+</layout>

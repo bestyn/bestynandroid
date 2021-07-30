@@ -1,0 +1,3 @@
+include ':flexbox_library'
+rootProject.name = 'neighbourhood-android'
+include ':app'

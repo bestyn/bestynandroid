@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintDuet"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/stories_screen_background"
+        android:keepScreenOn="true">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.google.android.exoplayer2.ui.PlayerView
+                android:id="@+id/playerView"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                app:resize_mode="zoom"
+                app:use_controller="true" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <com.otaliastudios.cameraview.CameraView
+                    android:id="@+id/cameraView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:cameraSnapshotMaxHeight="800"
+                    app:cameraSnapshotMaxWidth="900" />
+            </FrameLayout>
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/progressBarPositionHelper"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.gbksoft.neighbourhood.ui.widgets.stories.progress_bar.RecordProgressView
+            android:id="@+id/recordProgressView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/record_progress_height"
+            android:layout_marginHorizontal="@dimen/create_story_progress_h_margin"
+            android:layout_marginTop="@dimen/create_story_progress_top_margin"
+            app:layout_constraintTop_toBottomOf="@id/progressBarPositionHelper"
+            app:progressColor="@color/record_progress_color"
+            app:progressTrackBackgroundColor="@color/record_progress_bg"
+            app:progressTrackCorners="@dimen/record_progress_corners"
+            app:recordPauseMarkerColor="@color/record_progress_marker_color"
+            app:recordPauseMarkerWidth="@dimen/record_progress_marker_width" />
+
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/create_story_progress_bottom_margin"
+            android:paddingHorizontal="@dimen/create_story_progress_h_margin"
+            android:src="@drawable/ic_white_back_arrow"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/recordProgressView" />
+
+        <LinearLayout
+            android:id="@+id/options"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/create_story_options_h_margin"
+            android:layout_marginTop="@dimen/create_story_progress_bottom_margin"
+            android:orientation="vertical"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/recordProgressView">
+
+            <ImageView
+                android:id="@+id/ivStorySpeed"
+                android:layout_width="@dimen/create_story_options_btn_size"
+                android:layout_height="@dimen/create_story_options_btn_size"
+                android:src="@drawable/ic_story_speed"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/ivStoryFilters"
+                android:layout_width="@dimen/create_story_options_btn_size"
+                android:layout_height="@dimen/create_story_options_btn_size"
+                android:layout_marginTop="@dimen/create_story_options_btn_v_spacing"
+                android:src="@drawable/ic_story_filter"
+                android:visibility="gone" />
+
+            <ImageView
+                android:id="@+id/ivCameraTorch"
+                android:layout_width="@dimen/create_story_options_btn_size"
+                android:layout_height="@dimen/create_story_options_btn_size"
+                android:layout_marginTop="@dimen/create_story_options_btn_v_spacing"
+                android:src="@drawable/ic_torch_active" />
+
+            <ImageView
+                android:id="@+id/ivMicrophone"
+                android:layout_width="@dimen/create_story_options_btn_size"
+                android:layout_height="@dimen/create_story_options_btn_size"
+                android:layout_marginTop="@dimen/create_story_options_btn_v_spacing"
+                android:src="@drawable/ic_microphone_enabled" />
+
+            <ImageView
+                android:id="@+id/ivSwitchCamera"
+                android:layout_width="@dimen/create_story_options_btn_size"
+                android:layout_height="@dimen/create_story_options_btn_size"
+                android:layout_marginTop="@dimen/create_story_options_btn_v_spacing"
+                android:src="@drawable/ic_switch_camera" />
+        </LinearLayout>
+
+        <com.gbksoft.neighbourhood.ui.widgets.stories.record_button.VideoRecordButton
+            android:id="@+id/recordButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/create_story_record_btn_bottom_margin"
+            app:layout_constraintBottom_toTopOf="@id/recordButtonPositionHelper"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <FrameLayout
+            android:id="@+id/recordButtonPositionHelper"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <ImageView
+            android:id="@+id/btnDeleteSegment"
+            android:layout_width="@dimen/delete_story_segment_btn_size"
+            android:layout_height="@dimen/delete_story_segment_btn_size"
+            android:padding="@dimen/delete_story_segment_btn_padding"
+            android:src="@drawable/ic_delete_story_segment"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/recordButton"
+            app:layout_constraintLeft_toRightOf="@id/recordButton"
+            app:layout_constraintRight_toLeftOf="@id/btnDone"
+            app:layout_constraintTop_toTopOf="@id/recordButton" />
+
+        <ImageView
+            android:id="@+id/btnDone"
+            android:layout_width="@dimen/create_story_done_btn_size"
+            android:layout_height="@dimen/create_story_done_btn_size"
+            android:layout_marginRight="@dimen/create_story_done_btn_w_margin"
+            android:src="@drawable/ic_recording_done"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/recordButton"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/recordButton" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

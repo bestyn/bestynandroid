@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <merge
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clRoot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <View
+                android:id="@+id/bgAll"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@drawable/bg_story_tab"
+                app:layout_constraintBottom_toBottomOf="@id/tvAll"
+                app:layout_constraintEnd_toEndOf="@id/tvAll"
+                app:layout_constraintStart_toStartOf="@id/tvAll"
+                app:layout_constraintTop_toTopOf="@id/tvAll" />
+
+            <View
+                android:id="@+id/bgRecommended"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@drawable/bg_story_tab"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@id/tvRecommended"
+                app:layout_constraintEnd_toEndOf="@id/tvRecommended"
+                app:layout_constraintStart_toStartOf="@id/tvRecommended"
+                app:layout_constraintTop_toTopOf="@id/tvRecommended" />
+
+            <View
+                android:id="@+id/bgCreated"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@drawable/bg_story_tab"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@id/tvCreated"
+                app:layout_constraintEnd_toEndOf="@id/tvCreated"
+                app:layout_constraintStart_toStartOf="@id/tvCreated"
+                app:layout_constraintTop_toTopOf="@id/tvCreated" />
+
+            <com.gbksoft.neighbourhood.ui.fragments.stories.component.StrokeTextView
+                android:id="@+id/tvAll"
+                style="@style/StoryFollowersCountLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/story_tab_padding_w"
+                android:paddingTop="@dimen/story_tab_padding_h"
+                android:paddingEnd="@dimen/story_tab_padding_w"
+                android:paddingBottom="@dimen/story_tab_padding_h"
+                android:text="@string/story_tab_all"
+                app:layout_constraintEnd_toStartOf="@id/tvRecommended"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.gbksoft.neighbourhood.ui.fragments.stories.component.StrokeTextView
+                android:id="@+id/tvRecommended"
+                style="@style/StoryFollowersCountLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:paddingStart="@dimen/story_tab_padding_w"
+                android:paddingTop="@dimen/story_tab_padding_h"
+                android:paddingEnd="@dimen/story_tab_padding_w"
+                android:paddingBottom="@dimen/story_tab_padding_h"
+                android:text="@string/story_tab_recommended"
+                app:layout_constraintEnd_toStartOf="@id/tvCreated"
+                app:layout_constraintStart_toEndOf="@id/tvAll"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.gbksoft.neighbourhood.ui.fragments.stories.component.StrokeTextView
+                android:id="@+id/tvCreated"
+                style="@style/StoryFollowersCountLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingStart="@dimen/story_tab_padding_w"
+                android:paddingTop="@dimen/story_tab_padding_h"
+                android:paddingEnd="@dimen/story_tab_padding_w"
+                android:paddingBottom="@dimen/story_tab_padding_h"
+                android:text="@string/story_tab_created"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/tvRecommended"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </merge>
+</layout>

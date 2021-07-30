@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">@color/default_status_bar_bg</color>
+    <color name="colorPrimaryDark">@color/default_status_bar_bg</color>
+    <color name="colorAccent">@color/accent_green</color>
+
+    <!-- presumably to change the dark/light theme -->
+    <color name="colorLight">#aaaaaa</color>
+    <color name="colorDark">#222222</color>
+
+    <!-- Base -->
+    <color name="button_color">@color/blue_button</color>
+    <color name="grey_button_color">@color/grey_medium</color>
+    <color name="light_button_color">@color/white_button</color>
+    <color name="chip_text_color">@color/accent_blue</color>
+    <color name="text_link">@color/blue_button</color>
+    <color name="dialog_text_link">@color/accent_blue</color>
+    <color name="screen_background_color">@color/grey_background</color>
+    <color name="edit_text_underline_color">@color/grey_stroke</color>
+    <color name="edit_text_icon_tint">@color/grey_stroke</color>
+    <color name="action_bar_bg">@color/transparent</color>
+    <color name="dialog_color">@color/white</color>
+    <color name="screen_foreground_color">@color/white</color>
+    <color name="navigation_bar_bg">@color/white</color>
+    <color name="default_status_bar_bg">@color/screen_background_color</color>
+    <color name="default_system_nav_bar_bg">@color/navigation_bar_bg</color>
+
+    <!-- Avatar View -->
+    <color name="basic_avatar_border_color">@color/blue_button</color>
+    <color name="basic_avatar_empty_color_start">@color/electric_violet</color>
+    <color name="basic_avatar_empty_color_center">@color/heliotrope_2</color>
+    <color name="basic_avatar_empty_color_end">@color/white</color>
+    <color name="business_avatar_border_color">@color/accent_3</color>
+    <color name="business_avatar_empty_color_start">@color/atlantis_2</color>
+    <color name="business_avatar_empty_color_center">@color/conifer</color>
+    <color name="business_avatar_empty_color_end">@color/white</color>
+
+    <!-- Date/Time Picker -->
+    <color name="calendar_header_bg">@color/accent_green</color>
+    <color name="calendar_selected_day_bg">@color/accent_3</color>
+    <color name="calendar_selected_day_color">@color/white</color>
+    <color name="calendar_today_stroke">@color/calendar_selected_day_bg</color>
+    <color name="calendar_select_button_color">@color/accent_blue</color>
+
+    <!-- Bottom Navigation-->
+
+    <!-- Auth -->
+    <color name="agree_terms_and_policy_text_color">@color/grey_medium</color>
+
+    <!-- Static Pages -->
+    <color name="static_page_bg">@color/white</color>
+
+    <!-- Switch profile bottom sheet-->
+    <color name="switch_profile_bottom_sheet_bg">@color/white</color>
+    <color name="switch_profile_divider">@color/grey_stroke</color>
+
+    <!-- Profile -->
+    <color name="profile_tabs_bg">@color/screen_foreground_color</color>
+    <color name="profile_selected_tab_text">@color/accent_blue</color>
+    <color name="profile_tab_text">@color/grey_medium</color>
+    <color name="logout_btn_text_color">@color/grey_medium</color>
+
+    <!-- Bottom sheet dialogs -->
+    <color name="bottom_sheet_dialog_bg_color">@color/white</color>
+    <color name="bottom_sheet_dialog_divider">@color/grey_stroke</color>
+
+    <!-- Edit profile -->
+    <color name="edit_profile_expandable_card_title_color">@color/accent_blue</color>
+    <color name="edit_profile_expanding_divider_color">@color/grey_stroke</color>
+
+    <!-- Edit My interest -->
+    <color name="edit_interest_block_color">@color/white</color>
+    <color name="edit_interest_bg_color">@color/grey_background</color>
+    <color name="edit_interest_panel_color">@color/white</color>
+
+    <!-- Business Profile -->
+    <color name="business_add_image_stroke_color">@color/grey_stroke</color>
+
+    <!-- Add/Edit Business Profile -->
+    <color name="add_business_profile_bg">@color/white</color>
+
+    <!-- Posts -->
+    <color name="default_media_pager_dot">@color/grey_light</color>
+    <color name="selected_media_pager_dot">@color/blue_button</color>
+
+    <!-- Create/Edit Post -->
+    <color name="add_post_media_stroke_color">@color/grey_stroke</color>
+    <color name="edit_post_panel_color">@color/white</color>
+
+    <!-- Floating Menu -->
+
+    <!-- My Posts -->
+    <color name="my_posts_selected_tab_text">@color/blue_button</color>
+    <color name="my_posts_tab_text">@color/grey_medium</color>
+    <color name="my_posts_list_bg_color">@color/grey_background</color>
+    <color name="my_posts_view_bg_color">@color/white</color>
+    <color name="my_posts_view_divider_color">@color/grey_background</color>
+    <color name="post_event_type_text_color">@color/accent_red</color>
+    <color name="post_event_type_bg_color">@color/accent_red_10a</color>
+    <color name="post_offer_type_text_color">@color/accent_blue_label</color>
+    <color name="post_offer_type_bg_color">@color/accent_blue_label_10a</color>
+    <color name="post_story_type_text_color">@color/accent_green</color>
+    <color name="post_story_type_bg_color">@color/accent_green_10a</color>
+    <color name="post_news_type_text_color">@color/accent_3</color>
+    <color name="post_news_type_bg_color">@color/accent_3_10a</color>
+    <color name="post_crime_type_text_color">@color/dark_grey</color>
+    <color name="post_crime_type_bg_color">@color/dark_grey_10a</color>
+    <color name="post_media_type_text_color">@color/pink</color>
+    <color name="post_ellipsis_color">@color/grey_medium</color>
+    <color name="post_likes_inactive_text_color">@color/secondary_black</color>
+    <color name="post_followers_inactive_text_color">@color/secondary_black</color>
+    <color name="post_followers_active_text_color">@color/accent_3</color>
+    <color name="post_messages_inactive_text_color">@color/secondary_black</color>
+    <color name="post_messages_active_text_color">@color/dodger_blue_2</color>
+    <color name="post_followed_state_color">@color/grey_light</color>
+    <color name="post_hashtag_color">@color/blue_button</color>
+
+    <!-- My Neighborhood -->
+    <color name="post_list_search_field_bg_color">@color/grey_background</color>
+
+    <!-- News -->
+    <color name="news_item_bg_color">@color/white</color>
+
+    <!-- Post Details -->
+    <color name="post_details_action_bar_color">@color/accent_green</color>
+
+    <!-- Video Player -->
+    <color name="video_player_bg_color">@color/black</color>
+    <color name="video_player_system_bars_color">@color/black</color>
+
+    <!-- My Neighbors Map -->
+    <color name="neighbor_marker_label_text_color">@color/secondary_black</color>
+    <color name="my_marker_label_text_color">@color/white</color>
+    <color name="my_marker_avatar_border_color">@color/blue_button</color>
+    <color name="map_neighbors_area_color">@color/accent_green_10a</color>
+    <color name="marker_cluster_text_color">@color/blue_button</color>
+
+    <!-- Reports-->
+    <color name="report_screen_bg">@color/white</color>
+    <color name="report_screen_panel_color">@color/white</color>
+    <color name="report_reason_checked_start_color">@color/shocking</color>
+    <color name="report_reason_checked_end_color">@color/blue_button</color>
+    <color name="report_reason_unchecked_start_color">@color/remy</color>
+    <color name="report_reason_unchecked_end_color">@color/selago</color>
+    <color name="report_reason_checked_text_color">@color/white</color>
+    <color name="report_reason_unchecked_text_color">@color/main_black</color>
+    <color name="disabled_report_button_color">@color/grey_medium</color>
+
+    <!-- Input Message View  -->
+    <color name="input_message_field_color">@color/grey_background</color>
+    <color name="input_message_divider_color">@color/grey_background</color>
+
+    <!-- Chat Room  -->
+    <color name="chat_incoming_msg_bg">@color/white</color>
+    <color name="chat_outcoming_msg_bg">@color/accent_green</color>
+    <color name="chat_incoming_msg_ellipsis_color">@color/grey_medium</color>
+    <color name="chat_outcoming_msg_ellipsis_color">@color/white_50a</color>
+    <color name="chat_outcoming_file_attachment_divider_color">@color/white_20a</color>
+    <color name="chat_incoming_file_attachment_divider_color">@color/grey_background</color>
+    <color name="chat_incoming_msg_link">@color/text_link</color>
+    <color name="chat_outcoming_msg_link">@color/white</color>
+    <color name="chat_unread_msg_highlighter_line">@color/grey_stroke</color>
+
+    <!-- Image Cropper -->
+    <color name="image_cropper_system_bars_color">@color/white</color>
+    <!-- background for crop/scale controls -->
+    <!--<color name="ucrop_color_widget_background" tools:override="true">@color/colorAccent</color> -->
+
+    <!-- Chat List -->
+    <color name="chat_list_action_bar_color">@color/accent_green</color>
+    <color name="chat_list_bg_color">@color/white</color>
+    <color name="chat_list_search_field_bg_color">@color/blue_button</color>
+    <color name="chat_list_divider">@color/grey_background</color>
+
+    <!-- Chat Background -->
+    <color name="default_chat_background_color">@color/grey_background</color>
+
+    <!-- Subscription -->
+    <color name="subscription_item_gradient_start">#E6E4FC</color>
+    <color name="subscription_item_gradient_end">#FEEDF1</color>
+    <color name="subscription_item_selected">@color/blue_button</color>
+    <color name="subscription_item_disabled">#EFF1F3</color>
+    <color name="subscription_item_disabled_text">#707389</color>
+
+    <!-- Reaction Popup -->
+
+    <!-- Floating Menu  -->
+    <color name="floating_expandable_menu_bg">@color/white_50a</color>
+    <color name="floating_expandable_menu_stroke_color">@color/black_5a</color>
+    <color name="floating_menu_button_bg">@color/alabaster</color>
+    <color name="floating_menu_button_stroke_color">@color/black_5a</color>
+    <color name="floating_menu_expanded_bg_color">@color/black_30a</color>
+    <color name="floating_menu_selected_icon_color">@color/blue_button</color>
+    <color name="floating_menu_unselected_icon_color">@color/grey_medium</color>
+    <color name="floating_menu_add_post_button_bg">@color/blue_button</color>
+
+    <!-- Create Story -->
+    <color name="stories_screen_background">@color/black</color>
+    <color name="stories_nav_bar_color">@color/stories_screen_background</color>
+    <color name="stories_status_bar_color">@color/stories_screen_background</color>
+    <color name="record_progress_bg">@color/main_black_20a</color>
+    <color name="record_progress_color">@color/accent_red</color>
+    <color name="record_progress_marker_color">@color/transparent</color>
+    <color name="create_story_record_btn_stroke_color">@color/white</color>
+
+    <!-- Story Description -->
+    <color name="story_switch_thumb_color">@color/white</color>
+    <color name="story_switch_track_checked_color">@color/blue_button</color>
+    <color name="story_switch_track_unchecked_color">@android:color/darker_gray</color>
+
+    <!-- Adjust Story -->
+    <color name="trim_area_color">@color/accent_red_50a</color>
+</resources>

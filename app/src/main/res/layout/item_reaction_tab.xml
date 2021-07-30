@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/ivReaction"
+            android:layout_width="21dp"
+            android:layout_height="21dp"
+            app:layout_constraintBottom_toBottomOf="@id/ivAuthorAvatar"
+            app:layout_constraintEnd_toEndOf="@id/ivAuthorAvatar"
+            app:layout_constraintStart_toStartOf="@id/ivAuthorAvatar"
+            tools:src="@drawable/ic_reaction_like" />
+
+        <TextView
+            android:id="@+id/tvReactionCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="235"
+            android:textSize="@dimen/font_size_base"
+            android:textColor="#9EA1B1"
+            android:layout_marginStart="5dp"/>
+
+    </LinearLayout>
+</layout>

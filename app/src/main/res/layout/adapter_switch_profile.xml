@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/switch_profile_menu_item_height"
+        android:paddingLeft="@dimen/screen_padding"
+        android:paddingRight="@dimen/screen_padding">
+
+        <com.gbksoft.neighbourhood.ui.widgets.avatar.AvatarView
+            android:id="@+id/avatar"
+            android:layout_width="@dimen/switch_profile_avatar_size"
+            android:layout_height="@dimen/switch_profile_avatar_size"
+            app:av_borderEnabled="true"
+            app:av_borderPadding="@dimen/switch_profile_avatar_border_padding"
+            app:av_borderThickness="@dimen/switch_profile_avatar_border_width"
+            app:av_initialsSize="@dimen/switch_profile_initials_text_size"
+            tools:av_isBusiness="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/currentIconLeftBarrier"
+            android:layout_width="1px"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toRightOf="@id/avatar"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_marginLeft="@{@dimen/switch_profile_current_ic_size / 2}" />
+
+        <View
+            android:id="@+id/currentIconBottomBarrier"
+            android:layout_width="wrap_content"
+            android:layout_height="1px"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/avatar"
+            app:layout_marginTop="@{@dimen/switch_profile_current_ic_size / 5}" />
+
+        <ImageView
+            android:id="@+id/ivUnreadMessages"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_profile_unread_messages"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/tvBusiness"
+            style="@style/SwitchProfileViewBusiness"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/switch_profile_business_type"
+            app:layout_constraintBottom_toTopOf="@id/tvTitle"
+            app:layout_constraintLeft_toLeftOf="@id/tvTitle"
+            app:layout_constraintRight_toRightOf="@id/tvTitle"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            style="@style/SwitchProfileViewTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/switch_profile_avatar_right_padding"
+            android:layout_marginRight="@dimen/switch_profile_avatar_right_padding"
+            android:ellipsize="end"
+            app:layout_constraintBottom_toTopOf="@id/tvAddress"
+            app:layout_constraintLeft_toRightOf="@id/avatar"
+            app:layout_constraintRight_toLeftOf="@id/ivUnreadMessages"
+            app:layout_constraintTop_toBottomOf="@id/tvBusiness"
+            tools:text="Profile Name" />
+
+        <TextView
+            android:id="@+id/tvAddress"
+            style="@style/SwitchProfileViewAddress"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="@id/tvTitle"
+            app:layout_constraintRight_toRightOf="@id/tvTitle"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle"
+            tools:text="45648 Ariel Monserratmouth" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

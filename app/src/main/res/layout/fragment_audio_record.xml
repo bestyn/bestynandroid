@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:backgroundTint="@color/blue_button"
+        android:backgroundTintMode="src_atop"
+        android:fitsSystemWindows="true"
+        tools:context=".ui.fragments.AudioRecordFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:animateLayoutChanges="true"
+            android:background="@color/blue_button">
+
+            <com.gbksoft.neighbourhood.ui.widgets.actionbar.ActionBarView
+                android:id="@+id/actionBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:ab_iconsTint="@color/white"
+                app:ab_isShowBack="true"
+                app:ab_title="@string/recording"
+                app:ab_titleColor="@color/white"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/btnMinimizeRecordActionBar"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:padding="12dp"
+                android:src="@drawable/ic_minimize_record"
+                android:visibility="visible"
+                android:layout_marginEnd="19dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/actionBar"
+                app:layout_constraintBottom_toBottomOf="@id/actionBar"/>
+
+            <LinearLayout
+                android:id="@+id/layoutRecordProcess"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toTopOf="@+id/btnRecord"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/actionBar"
+                app:layout_constraintVertical_bias="0.41000003">
+
+                <Chronometer
+                    android:id="@+id/textRecordTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="center"
+                    android:text="00:00:00"
+                    android:textColor="@color/accent_green"
+                    android:textSize="54sp" />
+
+                <TextView
+                    android:id="@+id/textAudioRecordedTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="center"
+                    android:text="00:00:00"
+                    android:textColor="@color/button"
+                    android:textSize="16sp"
+                    android:visibility="invisible" />
+
+                <com.gbksoft.neighbourhood.ui.widgets.stories.audio.TrimAudioLargeView
+                    android:id="@+id/trimAudioRecord"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="27dp"
+                    android:layout_marginEnd="40dp"
+                    android:visibility="visible" />
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/imageRecordShapeOuter"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@drawable/ic_ellipse_40"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="@+id/btnRecord"
+                app:layout_constraintEnd_toEndOf="@+id/btnRecord"
+                app:layout_constraintStart_toStartOf="@+id/btnRecord"
+                app:layout_constraintTop_toTopOf="@+id/btnRecord" />
+
+            <ImageView
+                android:id="@+id/imageRecordShapeInner"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@drawable/ic_ellipse_39"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="@+id/btnRecord"
+                app:layout_constraintEnd_toEndOf="@+id/btnRecord"
+                app:layout_constraintStart_toStartOf="@+id/btnRecord"
+                app:layout_constraintTop_toTopOf="@+id/btnRecord" />
+
+            <ImageView
+                android:id="@+id/imageRecordShape"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:background="@drawable/bg_record_btn"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="@+id/btnRecord"
+                app:layout_constraintEnd_toEndOf="@+id/btnRecord"
+                app:layout_constraintStart_toStartOf="@+id/btnRecord"
+                app:layout_constraintTop_toTopOf="@+id/btnRecord" />
+
+            <ImageView
+                android:id="@+id/btnRecordRemove"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@drawable/bg_record_btn"
+                android:padding="5dp"
+                android:src="@drawable/ic_record_remove"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="@+id/btnRecord"
+                app:layout_constraintEnd_toStartOf="@+id/btnRecord"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/btnRecord" />
+
+            <ImageView
+                android:id="@+id/btnRecord"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_marginBottom="60dp"
+                android:background="@drawable/bg_audio_record_btn"
+                android:padding="18dp"
+                android:src="@drawable/ic_microphone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/btnRecordDone"
+                app:layout_constraintStart_toEndOf="@+id/btnRecordRemove" />
+
+            <ImageView
+                android:id="@+id/btnRecordDone"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@drawable/bg_record_btn"
+                android:padding="5dp"
+                android:src="@drawable/ic_record_done"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="@+id/btnRecord"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/btnRecord"
+                app:layout_constraintTop_toTopOf="@+id/btnRecord" />
+
+            <ImageView
+                android:id="@+id/btnMinimizeRecord"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@drawable/bg_record_btn"
+                android:padding="12dp"
+                android:src="@drawable/ic_minimize_record"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@+id/btnRecord"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/btnRecord"
+                app:layout_constraintTop_toTopOf="@+id/btnRecord" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

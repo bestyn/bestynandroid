@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    tools:background="@color/stories_screen_background"
+    tools:parentTag="android.widget.FrameLayout">
+
+    <ProgressBar
+        android:id="@+id/select_cover_progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="visible"
+        style="?android:attr/progressBarStyleSmall" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical">
+
+        <ImageView
+            android:layout_width="@dimen/select_story_cover_timeline_barrier_width"
+            android:layout_height="@dimen/select_story_cover_timeline_barrier_height"
+            android:background="@drawable/ic_cover_timeline_left_barrier" />
+
+        <com.gbksoft.neighbourhood.ui.widgets.stories.timeline.FrameLineView
+            android:id="@+id/select_cover_timeline"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:videoFrameHeight="@dimen/select_story_cover_timeline_height" />
+
+        <ImageView
+            android:layout_width="@dimen/select_story_cover_timeline_barrier_width"
+            android:layout_height="@dimen/select_story_cover_timeline_barrier_height"
+            android:background="@drawable/ic_cover_timeline_left_barrier" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="@dimen/select_cover_thumb_height" />
+
+    <com.gbksoft.neighbourhood.ui.widgets.stories.timeline.TimelineThumb
+        android:id="@+id/select_cover_thumb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_select_cover_thumb"
+        android:visibility="gone"
+        tools:layout_gravity="center_horizontal"
+        tools:visibility="visible" />
+</merge>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_bottom_sheet_dialog">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <View
+                android:id="@+id/headerClickableArea"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toTopOf="@id/divider"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.gbksoft.neighbourhood.ui.widgets.avatar.AvatarView
+                android:id="@+id/avatarView"
+                android:layout_width="@dimen/switch_profile_header_avatar_size"
+                android:layout_height="@dimen/switch_profile_header_avatar_size"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/switch_profile_header_v_padding"
+                app:av_borderEnabled="true"
+                app:av_borderPadding="@dimen/switch_profile_header_avatar_border_padding"
+                app:av_borderThickness="@dimen/switch_profile_header_avatar_border_thickness"
+                app:av_initialsSize="@dimen/switch_profile_header_avatar_initials_size"
+                tools:av_fullName="Kathryn Murphy"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvName"
+                style="@style/SwitchProfileCurrentName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/switch_profile_header_text_v_padding"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/avatarView"
+                android:gravity="center_horizontal"
+                tools:text="Kathryn Murphy" />
+
+            <TextView
+                android:id="@+id/tvAddress"
+                style="@style/SwitchProfileCurrentAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/switch_profile_header_text_v_spacing"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvName"
+                android:gravity="center_horizontal"
+                tools:text="45 Derrick Street, Boston, NY, 12345" />
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/switch_profile_header_v_padding"
+                android:background="@drawable/divider_switch_profile"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvAddress" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvBottomSheet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/divider"
+                tools:listitem="@layout/adapter_switch_profile" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

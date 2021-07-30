@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="profile"
+            type="com.gbksoft.neighbourhood.model.profile.ProfileSearchItem" />
+
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="14dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clRoot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.gbksoft.neighbourhood.ui.widgets.avatar.AvatarView
+                android:id="@+id/imgAvatar"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:layout_marginLeft="18dp"
+                android:padding="2dp"
+                app:av_borderEnabled="true"
+                app:av_borderPadding="@dimen/profile_avatar_border_padding"
+                app:av_borderThickness="@dimen/profile_avatar_border_width"
+                app:av_fullName="@{profile.fullName}"
+                app:av_imageUrl="@{profile.avatar.medium}"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvFollowerName"
+                style="@style/FollowerName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:fontFamily="@font/poppins_semibold"
+                android:gravity="start"
+                android:maxLines="1"
+                android:ellipsize="end"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/btnFollow"
+                app:layout_constraintStart_toEndOf="@+id/imgAvatar"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Albert Flores" />
+
+            <TextView
+                android:id="@+id/btnFollow"
+                android:layout_width="wrap_content"
+                android:layout_height="22dp"
+                android:layout_marginStart="14dp"
+                android:layout_marginEnd="6dp"
+                android:gravity="center"
+                android:includeFontPadding="false"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/btnOptions"
+                app:layout_constraintStart_toEndOf="@+id/tvFollowerName"
+                app:layout_constraintTop_toTopOf="parent"
+                app:listFollowType="@{profile.followType}"
+                tools:background="@drawable/bg_follow_btn_violet"
+                tools:fontFamily="@font/poppins_medium"
+                tools:text="Follow Back"
+                tools:textColor="@color/accent_green" />
+
+            <ImageView
+                android:id="@+id/btnOptions"
+                android:layout_width="wrap_content"
+                android:layout_height="42dp"
+                android:paddingStart="18dp"
+                android:paddingEnd="18dp"
+                android:src="@drawable/ic_dots_menu"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+</layout>

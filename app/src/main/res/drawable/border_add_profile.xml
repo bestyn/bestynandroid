@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="@color/accent_blue" />
+        </shape>
+    </item>
+    <item
+        android:bottom="@dimen/switch_profile_add_profile_border_width"
+        android:left="@dimen/switch_profile_add_profile_border_width"
+        android:right="@dimen/switch_profile_add_profile_border_width"
+        android:top="@dimen/switch_profile_add_profile_border_width">
+        <shape android:shape="oval">
+            <solid android:color="@color/switch_profile_bottom_sheet_bg" />
+        </shape>
+    </item>
+</layer-list>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:id="@+id/llBottomSheet"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bg_cancelable_bottom_sheet_dialog"
+        android:orientation="vertical">
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/my_posts_tab_titles_height"
+            android:layout_gravity="bottom"
+            app:tabMode="scrollable"
+            android:background="@drawable/bg_my_posts_tab_titles"
+            app:tabIndicatorColor="@color/my_posts_selected_tab_text"
+            app:tabIndicatorHeight="@dimen/my_posts_selected_tab_indicator_height"
+            app:tabSelectedTextColor="@color/my_posts_selected_tab_text"
+            app:tabTextAppearance="@style/PostFeedTabTitle"
+            app:tabGravity="fill"
+            app:tabMinWidth="0dp"
+            app:tabPaddingStart="7dp"
+            app:tabPaddingEnd="7dp"
+            android:paddingStart="7dp"
+            android:paddingEnd="7dp"
+            app:tabTextColor="@color/my_posts_tab_text" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/profile_tabs_bg" />
+    </LinearLayout>
+</layout>

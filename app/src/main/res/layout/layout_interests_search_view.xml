@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <merge xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        tools:gravity="center_vertical"
+        tools:parentTag="android.widget.LinearLayout">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="@dimen/chat_list_search_field_height"
+            android:layout_weight="1"
+            android:background="@drawable/bg_interests_search_view"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/chat_list_search_field_h_padding"
+            android:paddingRight="@dimen/chat_list_search_field_h_padding">
+
+            <EditText
+                android:id="@+id/etSearch"
+                style="@style/ProfileInterestsSearchField"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@null"
+                android:hint="@string/chat_list_search_field_hint"
+                android:inputType="text"
+                android:lines="1" />
+
+            <ImageView
+                android:id="@+id/ivClear"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:paddingLeft="@dimen/chat_list_search_field_text_h_margin"
+                android:visibility="gone"
+                app:srcCompat="@drawable/ic_interests_clear_search"
+                tools:visibility="visible" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/btnCancel"
+            style="@style/ProfileInterestSearchCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/chat_list_search_field_height"
+            android:gravity="center_vertical"
+            android:layout_marginStart="10dp"
+            android:text="Cancel"
+            android:visibility="gone"
+            tools:visibility="visible" />
+    </merge>
+</layout>

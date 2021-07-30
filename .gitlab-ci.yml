@@ -1,0 +1,189 @@
+image: hub.ci.gbksoft.net:5000/pub/android/runner:28-611
+
+before_script:
+  - touch key.properties
+  - cat > key.properties < ${KEY_PROPERTIES}
+  - touch keystore.jks
+  - cat "${KEYSTORE_JKS}" | base64 -d > keystore.jks
+  - export PATH=$PATH:/opt/gradle/gradle-6.1.1/bin
+  - (echo y; echo y; echo y; echo y; echo y; echo y) | $ANDROID_HOME/tools/bin/sdkmanager --licenses
+  - gradle wrapper --gradle-version 6.1.1
+  - gradle --version
+  - chmod +x ./gradlew
+
+variables:
+  KEYSTORE_JKS: ${KEYSTORE_JKS}
+  KEY_PROPERTIES: ${KEY_PROPERTIES}
+
+cache:
+  key: ${CI_PROJECT_ID}
+  paths:
+    - .gradle/
+
+
+DevAppDebug:
+  tags:
+    - shared-build
+  script:
+    - appVersionCode=`python python/appcenter_get_build_version_code.py $APPCENTER_TOKEN $GROUP_NAME $APP_NAME`
+    - echo $appVersionCode
+    - ./gradlew assembleDevAppDebug task setVC -Pvc=`echo $appVersionCode` task setVN -Pvn=$CI_COMMIT_TAG
+  only:
+    - /^devD_v\.\d+\.\d+\.\d+/
+  artifacts:
+    paths:
+      - app/build/outputs/
+  after_script:
+    - python python/appcenter_build_upload.py $APPCENTER_TOKEN $GROUP_NAME $APP_NAME $CI_COMMIT_TAG
+
+DevAppRelease:
+  tags:
+    - shared-build
+  script:
+    - appVersionCode=`python python/appcenter_get_build_version_code.py $APPCENTER_TOKEN $GROUP_NAME $APP_NAME`
+    - echo $appVersionCode
+    - ./gradlew assembleDevAppRelease task setVC -Pvc=`echo $appVersionCode` task setVN -Pvn=$CI_COMMIT_TAG
+  only:
+    - /^devR_v\.\d+\.\d+\.\d+/
+  artifacts:
+    paths:
+      - app/build/outputs/
+  after_script:
+    - python python/appcenter_build_upload.py $APPCENTER_TOKEN $GROUP_NAME $APP_NAME $CI_COMMIT_TAG
+
+MobtestAppDebug:
+  tags:
+    - shared-build
+  script:
+    - appVersionCode=`python python/appcenter_get_build_version_code.py $APPCENTER_TOKEN $GROUP_NAME $APP_NAME`
+    - echo $appVersionCode
+    - ./gradlew assembleMobtestAppDebug task setVC -Pvc=`echo $appVersionCode` task setVN -Pvn=$CI_COMMIT_TAG
+  only:
+    - /^testD_v\.\d+\.\d+\.\d+/
+  artifacts:
+    paths:
+      - app/build/outputs/
+  after_script:
+    - python python/appcenter_build_upload.py $APPCENTER_TOKEN $GROUP_NAME $APP_NAME $CI_COMMIT_TAG
+
+MobtestAppRelease:
+  tags:
+    - shared-build
+  script:
+    - appVersionCode=`python python/appcenter_get_build_version_code.py $APPCENTER_TOKEN $GROUP_NAME $APP_NAME`
+    - echo $appVersionCode
+    - ./gradlew assembleMobtestAppRelease task setVC -Pvc=`echo $appVersionCode` task setVN -Pvn=$CI_COMMIT_TAG
+  only:
+    - /^testR_v\.\d+\.\d+\.\d+/
+  artifacts:
+    paths:
+      - app/build/outputs/
+  after_script:
+    - python python/appcenter_build_upload.py $APPCENTER_TOKEN $GROUP_NAME $APP_NAME $CI_COMMIT_TAG
+
+AutomationAppDebug:
+  tags:
+    - shared-build
+  script:
+    - appVersionCode=`python python/appcenter_get_build_version_code.py $APPCENTER_TOKEN $GROUP_NAME $APP_NAME`
+    - echo $appVersionCode
+    - ./gradlew assembleAutomationAppDebug task setVC -Pvc=`echo $appVersionCode` task setVN -Pvn=$CI_COMMIT_TAG
+  only:
+    - /^automationD_v\.\d+\.\d+\.\d+/
+  artifacts:
+    paths:
+      - app/build/outputs/
+  after_script:
+    - python python/appcenter_build_upload.py $APPCENTER_TOKEN $GROUP_NAME $APP_NAME $CI_COMMIT_TAG
+
+AutomationAppRelease:
+  tags:
+    - shared-build
+  script:
+    - appVersionCode=`python python/appcenter_get_build_version_code.py $APPCENTER_TOKEN $GROUP_NAME $APP_NAME`
+    - echo $appVersionCode
+    - ./gradlew assembleAutomationAppRelease task setVC -Pvc=`echo $appVersionCode` task setVN -Pvn=$CI_COMMIT_TAG
+  only:
+    - /^automationR_v\.\d+\.\d+\.\d+/
+  artifacts:
+    paths:
+      - app/build/outputs/
+  after_script:
+    - python python/appcenter_build_upload.py $APPCENTER_TOKEN $GROUP_NAME $APP_NAME $CI_COMMIT_TAG
+
+LiveAppDebug:
+  tags:
+    - shared-build
+  script:
+    - appVersionCode=`python python/appcenter_get_build_version_code.py $APPCENTER_TOKEN $GROUP_NAME $APP_NAME`
+    - echo $appVersionCode
+    - ./gradlew assembleLiveAppDebug task setVC -Pvc=`echo $appVersionCode` task setVN -Pvn=$CI_COMMIT_TAG
+  only:
+    - /^liveD_v\.\d+\.\d+\.\d+/
+  artifacts:
+    paths:
+      - app/build/outputs/
+  after_script:
+    - python python/appcenter_build_upload.py $APPCENTER_TOKEN $GROUP_NAME $APP_NAME $CI_COMMIT_TAG
+
+LiveAppRelease:
+  tags:
+    - shared-build
+  script:
+    - appVersionCode=`python python/appcenter_get_build_version_code.py $APPCENTER_TOKEN $GROUP_NAME $APP_NAME`
+    - echo $appVersionCode
+    - ./gradlew assembleLiveAppRelease task setVC -Pvc=`echo $appVersionCode` task setVN -Pvn=$CI_COMMIT_TAG
+  only:
+    - /^liveR_v\.\d+\.\d+\.\d+/
+  artifacts:
+    paths:
+      - app/build/outputs/
+  after_script:
+    - python python/appcenter_build_upload.py $APPCENTER_TOKEN $GROUP_NAME $APP_NAME $CI_COMMIT_TAG
+
+ProdAppDebug:
+  tags:
+    - shared-build
+  script:
+    - appVersionCode=`python python/appcenter_get_build_version_code.py $APPCENTER_TOKEN $GROUP_NAME $APP_NAME`
+    - echo $appVersionCode
+    - ./gradlew assembleProdAppDebug task setVC -Pvc=`echo $appVersionCode` task setVN -Pvn=$CI_COMMIT_TAG
+  only:
+    - /^prodD_v\.\d+\.\d+\.\d+/
+  artifacts:
+    paths:
+      - app/build/outputs/
+  after_script:
+    - python python/appcenter_build_upload.py $APPCENTER_TOKEN $GROUP_NAME $APP_NAME $CI_COMMIT_TAG
+
+ProdAppRelease:
+  tags:
+    - shared-build
+  script:
+    - appVersionCode=`python python/appcenter_get_build_version_code.py $APPCENTER_TOKEN $GROUP_NAME $APP_NAME`
+    - echo $appVersionCode
+    - ./gradlew assembleProdAppRelease task setVC -Pvc=`echo $appVersionCode` task setVN -Pvn=$CI_COMMIT_TAG
+  only:
+    - /^prodR_v\.\d+\.\d+\.\d+/
+  artifacts:
+    paths:
+      - app/build/outputs/
+  after_script:
+    - python python/appcenter_build_upload.py $APPCENTER_TOKEN $GROUP_NAME $APP_NAME $CI_COMMIT_TAG
+
+Lint:
+  tags:
+    - shared-build
+  script:
+    - ./gradlew lintDebug
+  only:
+    - /^master$/
+    - /^develop$/
+    - /^release$/
+    - /.*-lint$/i
+
+  artifacts:
+    paths:
+      - app/build/reports/
+  after_script:
+    - python python/lint_report.py $SLACK_URL $GITLAB_USER_LOGIN $SLACK_CHANNEL_NAME $CI_PROJECT_NAMESPACE $CI_PROJECT_NAME $CI_JOB_ID

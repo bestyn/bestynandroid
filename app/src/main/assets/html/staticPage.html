@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title></title>
+    <style>
+      @font-face {
+        font-weight: 400;
+        font-family: "SFUIText";
+        font-style: normal;
+        src: url('fonts/SFUIText-Regular.eot?') format("eot"), url('fonts/SFUIText-Regular.woff') format("woff"), url('fonts/SFUIText-Regular.ttf') format("truetype");
+      }
+      
+      body {
+        color: #030303;
+        font-weight: 400;
+        font-family: SFUIText;
+      }
+      
+      ul {
+        padding-left: 0;
+        font-size: 15px;
+        line-height: 25px;
+        list-style: none;
+      }
+      
+      ul li::before {
+        display: inline-block;
+        width: 6px;
+        margin-right: 12px;
+        color: #0066ff;
+        font-weight: bold;
+        content: "\2022";
+      }
+      
+      p {
+        font-size: 15px;
+        line-height: 1.4;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <div>
+      <p>%s</p>
+    </div>
+  </body>
+</html>

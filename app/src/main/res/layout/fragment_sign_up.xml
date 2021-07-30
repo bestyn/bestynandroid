@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.gbksoft.neighbourhood.utils.validation.ValidationField" />
+
+        <variable
+            name="errors"
+            type="com.gbksoft.neighbourhood.utils.validation.ErrorFieldsModel" />
+
+        <variable
+            name="signUp"
+            type="com.gbksoft.neighbourhood.model.auth.SignUpModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:src="@drawable/img_auth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <com.gbksoft.neighbourhood.ui.widgets.actionbar.ActionBarView
+            android:id="@+id/actionBar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:ab_isShowBack="true"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            style="@style/AuthPageTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:text="@string/title_sign_up"
+            app:layout_constraintBottom_toTopOf="@id/position_helper"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.8" />
+
+        <View
+            android:id="@+id/position_helper"
+            android:layout_width="1px"
+            android:layout_height="1px"
+            android:layout_marginTop="@dimen/auth_form_top_margin"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/form"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/bg_frg"
+            android:orientation="vertical"
+            android:paddingTop="35dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/position_helper">
+
+            <ScrollView
+                android:id="@+id/scrollView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:paddingStart="40dp"
+                    android:paddingEnd="40dp">
+
+                    <TextView
+                        android:id="@+id/tvAddressLabel"
+                        style="@style/TextInputLabel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/sign_up_address_label" />
+
+                    <com.gbksoft.neighbourhood.ui.widgets.text_input_layout.AutoClearErrorInputLayout
+                        android:id="@+id/addressLayout"
+                        style="@style/TextInputLayout"
+                        app:errorField="@{ValidationField.ADDRESS}"
+                        app:errorText="@{errors.errorsMap}"
+                        app:errorTextAppearance="@style/TextInputLayoutError">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/address"
+                            style="@style/TextInputEditText"
+                            android:cursorVisible="false"
+                            android:focusable="false"
+                            android:focusableInTouchMode="false"
+                            android:hint="@string/sign_up_address_hint"
+                            android:inputType="text"
+                            android:text="@={signUp.address}" />
+
+                    </com.gbksoft.neighbourhood.ui.widgets.text_input_layout.AutoClearErrorInputLayout>
+
+                    <TextView
+                        style="@style/TextInputLabel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="26dp"
+                        android:text="@string/sign_up_full_name_label" />
+
+                    <com.gbksoft.neighbourhood.ui.widgets.text_input_layout.AutoClearErrorInputLayout
+                        android:id="@+id/fullNameLayout"
+                        style="@style/TextInputLayout"
+                        app:errorField="@{ValidationField.FULL_NAME}"
+                        app:errorText="@{errors.errorsMap}"
+                        app:errorTextAppearance="@style/TextInputLayoutError">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/fullName"
+                            style="@style/TextInputEditText"
+                            android:hint="@string/sign_up_full_name_hint"
+                            android:inputType="text|textCapWords"
+                            android:text="@={signUp.fullName}" />
+
+                    </com.gbksoft.neighbourhood.ui.widgets.text_input_layout.AutoClearErrorInputLayout>
+
+                    <TextView
+                        style="@style/TextInputLabel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="26dp"
+                        android:text="@string/sign_up_email_label" />
+
+                    <com.gbksoft.neighbourhood.ui.widgets.text_input_layout.AutoClearErrorInputLayout
+                        android:id="@+id/emailLayout"
+                        style="@style/TextInputLayout"
+                        app:errorField="@{ValidationField.EMAIL}"
+                        app:errorText="@{errors.errorsMap}"
+                        app:errorTextAppearance="@style/TextInputLayoutError">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/email"
+                            style="@style/TextInputEditText"
+                            android:hint="@string/sign_up_email_hint"
+                            android:inputType="textEmailAddress"
+                            android:text="@={signUp.email}" />
+
+                    </com.gbksoft.neighbourhood.ui.widgets.text_input_layout.AutoClearErrorInputLayout>
+
+                    <TextView
+                        style="@style/TextInputLabel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="26dp"
+                        android:text="@string/sign_up_password_label" />
+
+                    <com.gbksoft.neighbourhood.ui.widgets.text_input_layout.AutoClearErrorInputLayout
+                        android:id="@+id/passwordLayout"
+                        style="@style/TextInputLayout"
+                        app:errorField="@{ValidationField.PASSWORD}"
+                        app:errorText="@{errors.errorsMap}"
+                        app:errorTextAppearance="@style/TextInputLayoutError"
+                        app:passwordToggleEnabled="true"
+                        app:passwordToggleTint="@color/edit_text_icon_tint">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/password"
+                            style="@style/TextInputEditText"
+                            android:hint="@string/sign_up_password_hint"
+                            android:inputType="textPassword"
+                            android:text="@={signUp.password}" />
+
+                    </com.gbksoft.neighbourhood.ui.widgets.text_input_layout.AutoClearErrorInputLayout>
+
+                    <TextView
+                        style="@style/TextInputLabel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="26dp"
+                        android:text="@string/sign_up_confirm_password_label" />
+
+                    <com.gbksoft.neighbourhood.ui.widgets.text_input_layout.AutoClearErrorInputLayout
+                        android:id="@+id/confirmPasswordLayout"
+                        style="@style/TextInputLayout"
+                        app:errorField="@{ValidationField.CONFIRM_PASSWORD}"
+                        app:errorText="@{errors.errorsMap}"
+                        app:errorTextAppearance="@style/TextInputLayoutError"
+                        app:passwordToggleEnabled="true"
+                        app:passwordToggleTint="@color/edit_text_icon_tint">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/confirmPassword"
+                            style="@style/TextInputEditText"
+                            android:hint="@string/sign_up_confirm_password_hint"
+                            android:inputType="textPassword"
+                            android:text="@={signUp.confirmPassword}" />
+
+                    </com.gbksoft.neighbourhood.ui.widgets.text_input_layout.AutoClearErrorInputLayout>
+
+                    <com.gbksoft.neighbourhood.ui.widgets.text_input_layout.AutoClearErrorInputLayout
+                        android:id="@+id/checkboxTCPPLayout"
+                        style="@style/TextInputLayout"
+                        app:errorField="@{ValidationField.TERMS}"
+                        app:errorText="@{errors.errorsMap}"
+                        app:errorTextAppearance="@style/TextInputLayoutError">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <CheckBox
+                                android:id="@+id/checkboxTCPP"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="start"
+                                android:checked="@={signUp.termsPolicy}" />
+
+                            <TextView
+                                android:id="@+id/tvTCPP"
+                                style="@style/AgreeTermsAndPolicy"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="12dp"
+                                android:gravity="start"
+                                tools:text="@string/terms_and_policy_full_text" />
+
+                        </LinearLayout>
+
+                    </com.gbksoft.neighbourhood.ui.widgets.text_input_layout.AutoClearErrorInputLayout>
+
+                    <Button
+                        android:id="@+id/btnSignUp"
+                        style="@style/StandardButton"
+                        android:layout_width="@dimen/auth_button_width"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:text="@string/sign_up_button" />
+
+                </LinearLayout>
+
+            </ScrollView>
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

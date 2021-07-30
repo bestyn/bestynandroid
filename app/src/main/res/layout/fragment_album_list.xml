@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <View
+            android:id="@+id/actionBarBg"
+            android:background="@color/chat_list_action_bar_color"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <LinearLayout
+            android:id="@+id/actionBarFrame"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.gbksoft.neighbourhood.ui.widgets.actionbar.ActionBarView
+                android:id="@+id/actionBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:ab_iconsTint="@color/white"
+                app:ab_isShowBack="true"
+                app:ab_titleColor="@color/white"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.gbksoft.neighbourhood.ui.widgets.avatar.AvatarView
+                android:id="@+id/avatar"
+                android:layout_width="@dimen/chat_action_bar_opponent_avatar_size"
+                android:layout_height="@dimen/chat_action_bar_opponent_avatar_size"
+                app:av_borderEnabled="false"
+                app:av_initialsSize="@dimen/chat_action_bar_opponent_initials_text_size" />
+
+            <TextView
+                android:id="@+id/title"
+                style="@style/ChatRoomOpponentName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/chat_action_bar_opponent_name_h_margin"
+                android:layout_marginRight="@dimen/chat_action_bar_opponent_name_h_margin"
+                android:singleLine="true"
+                tools:text="Kateryna Lavrova" />
+
+        </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/imagesFrame"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:cardBackgroundColor="@color/screen_background_color"
+            app:cardCornerRadius="@dimen/my_posts_list_bg_corner"
+            app:cardElevation="0dp"
+            app:layout_constraintBottom_toTopOf="@id/bottomBarrierImagesFrame"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/actionBarFrame">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvImages"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/my_posts_list_bg_corner"
+                android:clipToPadding="false"
+                android:orientation="vertical"
+                android:paddingVertical="@dimen/album_list_h_padding"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+        </androidx.cardview.widget.CardView>
+
+        <View
+            android:id="@+id/bottomBarrierImagesFrame"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/my_posts_list_bg_corner"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

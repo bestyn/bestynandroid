@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/NewsBlockTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/news_list_title_h_margin"
+            android:layout_marginTop="@dimen/news_list_title_top_margin"
+            android:text="@string/news_list_title" />
+
+        <com.gbksoft.neighbourhood.ui.widgets.NestedScrollableHost
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/news_list_title_bottom_margin">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvNewsList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/my_posts_view_h_margin"
+                android:paddingRight="@dimen/my_posts_view_h_margin"
+                android:scrollbars="none"
+                android:nestedScrollingEnabled="false"
+                app:fastScrollEnabled="false"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/adapter_news_list"
+                tools:visibility="visible" />
+        </com.gbksoft.neighbourhood.ui.widgets.NestedScrollableHost>
+    </LinearLayout>
+</layout>

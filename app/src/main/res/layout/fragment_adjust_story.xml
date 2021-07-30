@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:keepScreenOn="true">
+
+        <View
+            android:id="@+id/bg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/stories_screen_background" />
+
+        <LinearLayout
+            android:id="@+id/actionBar"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/actionBarSize"
+            android:orientation="horizontal"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:id="@+id/llTotalVideoActionButtons"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/btnCancel"
+                    style="@style/SelectCoverActionBarText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:paddingLeft="@dimen/screen_padding"
+                    android:paddingRight="@dimen/screen_padding"
+                    android:text="@string/story_action_bar_cancel_btn" />
+
+                <TextView
+                    style="@style/SelectCoverActionBarText"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:text="@string/adjust_story_title" />
+
+                <TextView
+                    android:id="@+id/btnDone"
+                    style="@style/SelectCoverActionBarText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:paddingLeft="@dimen/screen_padding"
+                    android:paddingRight="@dimen/screen_padding"
+                    android:text="@string/story_action_bar_done_btn" />
+            </LinearLayout>
+
+            <FrameLayout
+                android:id="@+id/flVideoSegmentActionButtons"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone">
+
+                <ImageView
+                    android:id="@+id/btnDeleteSegment"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/bg_delete_video_segment"
+                    android:padding="10dp"
+                    android:src="@drawable/ic_delete" />
+            </FrameLayout>
+
+        </LinearLayout>
+
+
+        <com.google.android.exoplayer2.ui.PlayerView
+            android:id="@+id/playerView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/select_story_cover_frame_top_margin"
+            android:layout_marginBottom="@dimen/select_story_cover_frame_bottom_margin"
+            app:layout_constraintBottom_toTopOf="@id/trimVideoView"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/actionBar"
+            app:resize_mode="fit"
+            app:use_controller="true" />
+
+        <ImageView
+            android:id="@+id/btnPlay"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:layout_marginLeft="@dimen/screen_padding"
+            android:background="@drawable/bg_close_segment_trimming"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="10dp"
+            android:src="@drawable/ic_adjust_story_pause"
+            app:layout_constraintBottom_toBottomOf="@id/trimVideoView"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="@id/trimVideoView" />
+
+        <com.gbksoft.neighbourhood.ui.widgets.stories.timeline.TrimVideoView
+            android:id="@+id/trimVideoView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="@dimen/screen_padding"
+            android:layout_marginBottom="@dimen/select_story_cover_timeline_bottom_margin"
+            app:layout_constraintBottom_toTopOf="@id/trimVideoViewBarrier"
+            app:layout_constraintLeft_toRightOf="@id/btnPlay"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <com.gbksoft.neighbourhood.ui.widgets.stories.timeline.TrimVideoThumbTime
+            android:id="@+id/trimAreaLeftTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60dp"
+            android:gravity="bottom"
+            android:text="0.0 s"
+            android:textColor="@color/white"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/trimVideoView" />
+
+        <com.gbksoft.neighbourhood.ui.widgets.stories.timeline.TrimVideoThumbTime
+            android:id="@+id/trimAreaRightTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60dp"
+            android:gravity="bottom"
+            android:text="0.0 s"
+            android:textColor="@color/white"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/trimVideoView" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/trimVideoViewBarrier"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:barrierDirection="top"
+            app:constraint_referenced_ids="rvVideoSegments,llEditVideoSegment" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvVideoSegments"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/screen_padding"
+            android:layout_marginRight="@dimen/screen_padding"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:listitem="@layout/adapter_video_segment_list" />
+
+        <LinearLayout
+            android:id="@+id/llEditVideoSegment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="15dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <ImageView
+                android:id="@+id/btnCloseEditVideoSegment"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:background="@drawable/bg_close_segment_trimming"
+                android:padding="12dp"
+                android:src="@drawable/ic_close_segment_trimming" />
+
+            <TextView
+                style="@style/SelectCoverActionBarText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="Edit Clip" />
+
+
+            <ImageView
+                android:id="@+id/btnDoneEditVideoSegment"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:background="@drawable/bg_close_segment_trimming"
+                android:padding="12dp"
+                android:src="@drawable/ic_segment_trimming_done" />
+
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <corners android:radius="@dimen/business_image_corner" />
+    <stroke
+        android:width="@dimen/business_add_image_stroke_width"
+        android:color="@color/business_add_image_stroke_color" />
+</shape>

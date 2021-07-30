@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clRoot"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp">
+
+        <ImageView
+            android:id="@+id/btnPlayPause"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/bg_audio_play_btn"
+            android:src="@drawable/ic_play_audio"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvDescription"
+            style="@style/AudioDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            app:layout_constraintLeft_toRightOf="@id/btnPlayPause"
+            app:layout_constraintRight_toLeftOf="@id/tvDuration"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Ennja #mymusic #annete #villagershouts #clubdance" />
+
+        <TextView
+            android:id="@+id/tvAddedBy"
+            style="@style/AudioAddedBy"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            app:layout_constraintLeft_toRightOf="@id/btnPlayPause"
+            app:layout_constraintRight_toLeftOf="@id/tvDuration"
+            app:layout_constraintTop_toBottomOf="@id/tvDescription"
+            tools:text="added by Anette Black" />
+
+        <Button
+            android:id="@+id/btnApply"
+            style="@style/ApplyAudioButton"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:layout_margin="10dp"
+            android:text="@string/audio_list_apply_btn"
+            android:visibility="gone"
+            app:layout_constraintLeft_toRightOf="@id/btnPlayPause"
+            app:layout_constraintTop_toBottomOf="@id/tvAddedBy" />
+
+        <TextView
+            android:id="@+id/tvDuration"
+            style="@style/AudioAddedBy"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:gravity="end"
+            app:layout_constraintRight_toLeftOf="@id/btnStar"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="4m 5s" />
+
+        <ImageView
+            android:id="@+id/btnStar"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_audio_star_unselected"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/btnMenu"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/ic_audio_menu_dots"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnStar" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

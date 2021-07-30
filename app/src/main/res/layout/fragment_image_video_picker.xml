@@ -1,0 +1,131 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/grey_background">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@drawable/bg_app_bar"
+            app:layout_constraintBottom_toBottomOf="@id/cgFilters"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvCancel"
+            style="@style/MediaPickerActionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/media_picker_cancel_btn_margin_w"
+            android:paddingTop="@dimen/media_picker_action_btn_margin_top"
+            android:paddingEnd="@dimen/media_picker_cancel_btn_margin_w"
+            android:text="@string/story_media_picker_cancel_btn"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvFolder"
+            style="@style/MediaPickerActionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/media_picker_action_btn_margin_top"
+            android:text="@string/story_media_picker_all_photos"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/ivFolderArrow"
+            android:layout_width="@dimen/media_picker_choose_folder_arrow_size"
+            android:layout_height="@dimen/media_picker_choose_folder_arrow_size"
+            android:layout_marginStart="@dimen/media_picker_choose_folder_arrow_margin_left"
+            android:padding="@dimen/media_picker_choose_folder_arrow_padding"
+            android:src="@drawable/ic_choose_media_folder_arrow"
+            app:layout_constraintBottom_toBottomOf="@id/tvFolder"
+            app:layout_constraintLeft_toRightOf="@id/tvFolder"
+            app:layout_constraintTop_toTopOf="@id/tvFolder" />
+
+
+        <TextView
+            android:id="@+id/tvDone"
+            style="@style/MediaPickerActionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/media_picker_done_btn_margin_w"
+            android:paddingTop="@dimen/media_picker_action_btn_margin_top"
+            android:paddingRight="@dimen/media_picker_done_btn_margin_w"
+            android:text="@string/story_media_picker_done_btn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/cgFilters"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/media_picker_tabs_padding_w"
+            android:paddingTop="@dimen/media_picker_tabs_padding_top"
+            android:paddingRight="@dimen/media_picker_tabs_padding_w"
+            android:paddingBottom="@dimen/media_picker_tabs_padding_bottom"
+            app:checkedChip="@+id/filterAll"
+            app:layout_constraintTop_toBottomOf="@id/tvCancel"
+            app:selectionRequired="true"
+            app:singleLine="true"
+            app:singleSelection="true">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/filterAll"
+                style="@style/FilterChip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/story_media_picker_tab_all" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/filterImages"
+                style="@style/FilterChip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/story_media_picker_tab_images" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/filterVideo"
+                style="@style/FilterChip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/story_media_picker_tab_videos" />
+        </com.google.android.material.chip.ChipGroup>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvMedia"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/media_picker_media_list_margin_w"
+            android:layout_marginEnd="@dimen/media_picker_media_list_margin_w"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/cgFilters" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvSelectedMedia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:padding="@dimen/media_picker_media_list_margin_h"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

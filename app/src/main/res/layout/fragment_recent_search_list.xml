@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:id="@+id/groupRecentSearches"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/screen_background_color"
+        android:orientation="vertical"
+        android:padding="@dimen/screen_padding"
+        android:visibility="visible">
+
+        <TextView
+            style="@style/RecentSearchesLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_recent_searches" />
+
+        <com.gbksoft.neighbourhood.ui.widgets.chip.RecentSearchesGroup
+            android:id="@+id/recentSearches"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:orientation="horizontal" />
+    </LinearLayout>
+
+</layout>

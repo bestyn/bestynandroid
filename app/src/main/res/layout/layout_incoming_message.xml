@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <merge
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:background="#E3E3E3"
+        tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+
+        <com.gbksoft.neighbourhood.ui.widgets.avatar.AvatarView
+            android:id="@+id/avatar"
+            android:layout_width="@dimen/chat_msg_author_avatar_size"
+            android:layout_height="@dimen/chat_msg_author_avatar_size"
+            android:layout_marginLeft="@dimen/chat_msg_author_avatar_start_margin"
+            app:av_borderEnabled="false"
+            app:av_initialsSize="@dimen/chat_msg_author_avatar_text_size"
+            app:layout_constraintBottom_toBottomOf="@id/contentBackground"
+            app:layout_constraintLeft_toLeftOf="parent"
+            tools:visibility="visible" />
+
+        <View
+            android:id="@+id/avatarHelper"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginLeft="@dimen/chat_msg_author_avatar_h_margin"
+            app:layout_constraintBottom_toBottomOf="@id/avatar"
+            app:layout_constraintLeft_toRightOf="@id/avatar"
+            app:layout_constraintTop_toTopOf="@id/avatar"
+            app:layout_goneMarginLeft="0dp" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/contentLeftLimiter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="right"
+            app:constraint_referenced_ids="avatarHelper" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/contentRightLimiter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.85" />
+
+        <View
+            android:id="@+id/contentBackground"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/bg_incoming_message"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="@id/contentLeftLimiter"
+            app:layout_constraintRight_toRightOf="@id/contentBackgroundBarrier"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/contentBackgroundBarrier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="right"
+            app:constraint_referenced_ids="textContent,textContentTime,mediaAttachment,fileAttachment,audioAttachment" />
+
+        <LinearLayout
+            android:id="@+id/textContent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintLeft_toLeftOf="@id/contentLeftLimiter"
+            app:layout_constraintRight_toRightOf="@id/contentBackgroundBarrier"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="gone">
+
+            <View
+                android:id="@+id/contentTopPadding"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/chat_msg_text_content_v_padding" />
+
+            <TextView
+                android:id="@+id/tvAuthor"
+                style="@style/IncomingMsgAuthor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:paddingLeft="@dimen/chat_msg_text_content_h_padding"
+                android:paddingRight="@dimen/chat_msg_text_content_h_padding"
+                android:singleLine="true"
+                tools:text="Alex Johnson" />
+
+            <com.gbksoft.neighbourhood.ui.widgets.expandable_text.ExpandableTextView
+                android:id="@+id/tvText"
+                style="@style/IncomingMsgText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/chat_msg_text_content_h_padding"
+                android:paddingRight="@dimen/chat_msg_text_content_h_padding"
+                android:textColorHighlight="@color/chat_incoming_msg_link"
+                android:textColorLink="@color/chat_incoming_msg_link"
+                app:etv_expand_ellipsis="@string/post_ellipsis"
+                app:etv_ellipsisColor="@color/chat_incoming_msg_ellipsis_color"
+                app:etv_maxLines="2"
+                app:etv_tap_area="text"
+                tools:text="r tfhcsddtf htfy yjgy jgvuk fhft cfthc f cfh f cfth yk i" />
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/fileAttachmentDivider"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/chat_file_attachment_divider_thickness"
+            android:background="@color/chat_incoming_file_attachment_divider_color"
+            app:layout_constraintLeft_toLeftOf="@id/contentLeftLimiter"
+            app:layout_constraintRight_toRightOf="@id/contentBackgroundBarrier"
+            app:layout_constraintTop_toBottomOf="@id/textContent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/fileAttachment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/chat_msg_text_content_h_padding"
+            android:paddingRight="@dimen/chat_msg_text_content_h_padding"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintLeft_toLeftOf="@id/textContent"
+            app:layout_constraintRight_toLeftOf="@id/ivDownloadFile"
+            app:layout_constraintTop_toBottomOf="@id/fileAttachmentDivider"
+            tools:visibility="gone">
+
+            <TextView
+                android:id="@+id/tvFileName"
+                style="@style/IncomingFileMsgTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="middle"
+                android:paddingRight="@dimen/chat_msg_text_content_h_padding"
+                android:singleLine="true"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintBottom_toTopOf="@id/tvFileTime"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed"
+                tools:text="file.doc"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/tvFileTime"
+                style="@style/IncomingMsgTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvFileName"
+                tools:text="5:15 PM" />
+
+            <TextView
+                android:id="@+id/tvFileEditedDot"
+                style="@style/IncomingMsgTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/chat_msg_edited_dot"
+                android:visibility="gone"
+                app:layout_constraintBaseline_toBaselineOf="@id/tvFileTime"
+                app:layout_constraintLeft_toRightOf="@id/tvFileTime"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/tvFileEdited"
+                style="@style/IncomingMsgTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/chat_msg_edited_label"
+                android:visibility="gone"
+                app:layout_constraintBaseline_toBaselineOf="@id/tvFileTime"
+                app:layout_constraintLeft_toRightOf="@id/tvFileEditedDot"
+                tools:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/ivFileTextToSpeech"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@null"
+                android:paddingLeft="@dimen/chat_message_speech_button_h_margin"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@id/tvFileTime"
+                app:layout_constraintLeft_toRightOf="@id/tvFileEdited"
+                app:layout_constraintTop_toTopOf="@id/tvFileTime"
+                app:srcCompat="@drawable/ic_incoming_text_to_speech"
+                tools:visibility="visible" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ProgressBar
+            android:id="@+id/progressDownloadFile"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/bg_download_incoming_file"
+            android:indeterminate="false"
+            android:max="100"
+            android:progress="0"
+            android:progressDrawable="@drawable/progress_download_file"
+            app:layout_constraintBottom_toBottomOf="@id/ivDownloadFile"
+            app:layout_constraintLeft_toLeftOf="@id/ivDownloadFile"
+            app:layout_constraintRight_toRightOf="@id/ivDownloadFile"
+            app:layout_constraintTop_toTopOf="@id/ivDownloadFile"
+            tools:progress="40"
+            tools:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/ivDownloadFile"
+            android:layout_width="@dimen/chat_download_file_button_size"
+            android:layout_height="@dimen/chat_download_file_button_size"
+            android:layout_marginTop="@dimen/chat_msg_text_content_v_padding"
+            android:layout_marginRight="@dimen/chat_msg_text_content_h_padding"
+            android:layout_marginBottom="@dimen/chat_msg_text_content_v_padding"
+            android:src="@drawable/ic_download_file"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/fileAttachment"
+            app:layout_constraintRight_toLeftOf="@id/contentBackgroundBarrier"
+            app:layout_constraintTop_toBottomOf="@id/fileAttachmentDivider"
+            tools:visibility="gone" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/audioAttachment"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/chat_msg_text_content_h_padding"
+            android:paddingRight="@dimen/chat_msg_text_content_h_padding"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintLeft_toLeftOf="@id/contentLeftLimiter"
+            app:layout_constraintRight_toLeftOf="@id/contentRightLimiter"
+            app:layout_constraintTop_toBottomOf="@id/fileAttachmentDivider"
+            tools:visibility="visible">
+
+            <ImageView
+                android:id="@+id/ivPlayAudioBackground"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:background="@drawable/bg_play_audio_button"
+                app:layout_constraintBottom_toBottomOf="@id/ivPlayAudio"
+                app:layout_constraintLeft_toLeftOf="@id/ivPlayAudio"
+                app:layout_constraintRight_toRightOf="@id/ivPlayAudio"
+                app:layout_constraintTop_toTopOf="@id/ivPlayAudio"
+                tools:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/ivPlayAudio"
+                android:layout_width="@dimen/chat_download_file_button_size"
+                android:layout_height="@dimen/chat_download_file_button_size"
+                android:layout_marginTop="@dimen/chat_msg_text_content_v_padding"
+                android:layout_marginBottom="@dimen/chat_msg_text_content_v_padding"
+                android:src="@drawable/ic_play_audio"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHorizontal_chainStyle="spread_inside"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/tvAudioDuration"
+                style="@style/IncomingAudioDuration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/chat_msg_text_content_h_padding"
+                android:ems="2"
+                android:gravity="center_horizontal"
+                android:text="@string/audio_message_start_duration"
+                android:visibility="visible"
+                app:layout_constraintBottom_toBottomOf="@id/ivPlayAudio"
+                app:layout_constraintRight_toLeftOf="@id/ivPlayAudio"
+                app:layout_constraintTop_toTopOf="@id/ivPlayAudio" />
+
+            <FrameLayout
+                android:id="@+id/playbackProgressGroup"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/chat_msg_audio_message_duration_spacing"
+                app:layout_constraintBottom_toTopOf="@id/tvAudioTime"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toLeftOf="@id/tvAudioDuration"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="19dp"
+                    android:layout_gravity="bottom"
+                    android:foregroundGravity="bottom"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/img_incoming_audio_msg_levels" />
+
+                <ImageView
+                    android:id="@+id/ivPlayedLevels"
+                    android:layout_width="match_parent"
+                    android:layout_height="19dp"
+                    android:layout_gravity="bottom"
+                    android:foregroundGravity="bottom"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/clip_incoming_audio_msg_levels_played" />
+
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/tvAudioTime"
+                style="@style/IncomingMsgTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/playbackProgressGroup"
+                tools:text="5:15 PM" />
+
+            <ImageView
+                android:id="@+id/ivIsHeard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/chat_msg_heard_icon_margin"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@id/tvAudioTime"
+                app:layout_constraintLeft_toRightOf="@id/tvAudioTime"
+                app:layout_constraintTop_toTopOf="@id/tvAudioTime"
+                app:srcCompat="@drawable/ic_incoming_msg_heard"
+                tools:visibility="visible" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <FrameLayout
+            android:id="@+id/mediaAttachment"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:padding="@dimen/chat_media_attachment_margin"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintDimensionRatio="1.34:1"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintLeft_toRightOf="@id/contentLeftLimiter"
+            app:layout_constraintRight_toRightOf="@id/contentRightLimiter"
+            app:layout_constraintTop_toBottomOf="@id/textContent"
+            tools:visibility="visible">
+
+            <ImageView
+                android:id="@+id/ivMediaPreview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:src="@drawable/placeholder_video"
+                android:scaleType="centerCrop" />
+
+            <ImageView
+                android:id="@+id/ivPlay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/ic_play_preview_video" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/chat_media_msg_time_height"
+                android:layout_gravity="bottom|left"
+                android:layout_margin="@dimen/chat_media_msg_time_margin"
+                android:background="@drawable/bg_media_msg_time"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingLeft="@dimen/chat_media_msg_time_h_padding"
+                android:paddingRight="@dimen/chat_media_msg_time_h_padding">
+
+                <TextView
+                    android:id="@+id/tvMediaTime"
+                    style="@style/MediaMsgTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    tools:text="5:15 PM" />
+
+                <TextView
+                    android:id="@+id/tvMediaEditedDot"
+                    style="@style/MediaMsgTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/chat_msg_edited_dot"
+                    android:visibility="gone"
+                    tools:visibility="visible" />
+
+                <TextView
+                    android:id="@+id/tvMediaEdited"
+                    style="@style/MediaMsgTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/chat_msg_edited_label"
+                    android:visibility="gone"
+                    tools:visibility="visible" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <LinearLayout
+            android:id="@+id/textContentTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/chat_msg_text_content_v_padding"
+            android:orientation="horizontal"
+            android:paddingLeft="@dimen/chat_msg_text_content_h_padding"
+            android:paddingRight="@dimen/chat_msg_text_content_h_padding"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintLeft_toRightOf="@id/contentLeftLimiter"
+            app:layout_constraintRight_toRightOf="@id/contentRightLimiter"
+            app:layout_constraintTop_toBottomOf="@id/textContent"
+            tools:visibility="gone">
+
+            <TextView
+                android:id="@+id/tvTime"
+                style="@style/IncomingMsgTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="5:15 PM" />
+
+            <TextView
+                android:id="@+id/tvEditedDot"
+                style="@style/IncomingMsgTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/chat_msg_edited_dot"
+                android:visibility="gone"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/tvEdited"
+                style="@style/IncomingMsgTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/chat_msg_edited_label"
+                android:visibility="gone"
+                tools:visibility="visible" />
+
+            <ImageView
+                android:id="@+id/ivTextToSpeech"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/chat_message_speech_button_h_margin"
+                android:visibility="gone"
+                app:srcCompat="@drawable/ic_incoming_text_to_speech"
+                tools:visibility="visible" />
+        </LinearLayout>
+
+    </merge>
+</layout>

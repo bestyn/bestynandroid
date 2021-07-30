@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.gbksoft.neighbourhood.model.post.FeedPost" />
+
+        <import type="com.gbksoft.neighbourhood.model.post.PostType" />
+
+        <import type="android.view.View" />
+
+        <import type="android.text.TextUtils" />
+
+        <import type="com.gbksoft.neighbourhood.utils.Constants" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/my_posts_view_h_margin"
+        android:layout_marginRight="@dimen/my_posts_view_h_margin"
+        android:background="@drawable/bg_my_posts_view">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clImageHeader"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tvPublishTime"
+                style="@style/PostPublishTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="7dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:postPublishTime="@{model.publishTime}"
+                tools:text="Apr 24 at 10:23 AM" />
+
+            <TextView
+                android:id="@+id/btnFollow"
+                style="@style/PostFollowButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:gravity="center_vertical"
+                android:maxLines="1"
+                android:text="@string/follow_button"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvPublishTime"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/tvFollowed"
+                style="@style/StateFollowed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginRight="@dimen/my_posts_view_content_padding"
+                android:drawablePadding="@dimen/my_posts_state_followed_drawable_padding"
+                android:gravity="center_vertical"
+                android:maxLines="1"
+                android:text="@string/state_followed"
+                android:visibility="gone"
+                app:drawableStartCompat="@drawable/ic_check_followed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvPublishTime"
+                tools:visibility="gone" />
+
+            <com.gbksoft.neighbourhood.ui.widgets.reaction.counter.ReactionCounter
+                android:id="@+id/reactionCounter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:layout_marginRight="16dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1"
+                app:reactionsCount="@{model.reactions}" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginLeft="@dimen/album_list_item_image_h_margin"
+            android:layout_marginTop="@dimen/album_list_item_content_v_padding"
+            android:layout_marginRight="@dimen/album_list_item_image_h_margin"
+            android:scaleType="centerCrop"
+            app:layout_constraintDimensionRatio="1.45:1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/clImageHeader" />
+
+        <com.gbksoft.neighbourhood.ui.widgets.checkable_text.CheckableTextView
+            android:id="@+id/btnReaction"
+            style="@style/ReactionButtonText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:drawablePadding="7dp"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:paddingTop="@dimen/my_posts_view_divider_bottom_margin"
+            android:paddingBottom="@dimen/my_posts_view_content_padding"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imageView"
+            app:layout_constraintVertical_bias="1.0"
+            app:myReaction="@{model.myReaction}"
+            tools:drawableLeft="@drawable/ic_no_reaction"
+            tools:text="1" />
+
+        <com.gbksoft.neighbourhood.ui.widgets.checkable_text.CheckableTextView
+            android:id="@+id/tvFollow"
+            style="@style/PostFollowers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:checked="@{model.iFollow}"
+            android:drawableStart="@drawable/selector_post_followers"
+            android:drawablePadding="7dp"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:paddingTop="@dimen/my_posts_view_divider_bottom_margin"
+            android:paddingBottom="@dimen/my_posts_view_content_padding"
+            app:checkedTextColor="@color/post_followers_active_text_color"
+            app:followers="@{model.followers}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/tvMessage"
+            app:layout_constraintTop_toBottomOf="@id/imageView"
+            tools:text="1" />
+
+        <com.gbksoft.neighbourhood.ui.widgets.checkable_text.CheckableTextView
+            android:id="@+id/tvMessage"
+            style="@style/PostMessages"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:checked="@{model.messages > 0}"
+            android:drawableLeft="@drawable/selector_post_messages"
+            android:drawablePadding="7dp"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:paddingTop="@dimen/my_posts_view_divider_bottom_margin"
+            android:paddingBottom="@dimen/my_posts_view_content_padding"
+            app:checkedTextColor="@color/post_messages_active_text_color"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/btnReaction"
+            app:layout_constraintTop_toBottomOf="@id/imageView"
+            app:messages="@{model.messages}"
+            tools:text="1" />
+
+        <ImageView
+            android:id="@+id/ivOptions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/my_posts_view_content_padding"
+            android:paddingTop="@dimen/my_posts_view_divider_bottom_margin"
+            android:paddingRight="@dimen/my_posts_view_content_padding"
+            android:paddingBottom="@dimen/my_posts_view_content_padding"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imageView"
+            app:srcCompat="@drawable/ic_post_options" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

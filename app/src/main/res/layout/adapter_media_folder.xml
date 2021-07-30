@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        style="@style/BottomSheetDialogButton"
+        android:gravity="center"
+        android:id="@+id/tvFolder"
+        android:layout_height="@dimen/bottom_sheet_dialog_item_height"
+        android:layout_width="match_parent"
+        android:text="Camera" />
+</layout>

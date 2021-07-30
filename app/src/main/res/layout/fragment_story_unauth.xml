@@ -1,0 +1,268 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.gbksoft.neighbourhood.model.reaction.Reaction" />
+
+        <import type="android.view.View" />
+
+        <variable
+            name="model"
+            type="com.gbksoft.neighbourhood.model.post.FeedPost" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
+        android:background="@color/stories_screen_background">
+
+        <com.google.android.exoplayer2.ui.PlayerView
+            android:id="@+id/playerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:resize_mode="zoom"
+            app:use_controller="true"
+            tools:visibility="invisible" />
+
+        <ImageView
+            android:id="@+id/btnSearch"
+            android:layout_width="@dimen/stories_search_btn_size"
+            android:layout_height="@dimen/stories_search_btn_size"
+            android:layout_marginStart="@dimen/stories_search_btn_margin_w"
+            android:layout_marginTop="@dimen/stories_margin_h"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_search_story" />
+
+
+
+        <ImageView
+            android:id="@+id/btnPlay"
+            android:layout_width="74dp"
+            android:layout_height="74dp"
+            android:background="@drawable/bg_story_play_button"
+            android:paddingLeft="30dp"
+            android:paddingTop="25dp"
+            android:paddingRight="25dp"
+            android:paddingBottom="25dp"
+            android:src="@drawable/ic_play_story"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible" />
+
+        <LinearLayout
+            android:id="@+id/storyMenu"
+            android:layout_width="45dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/stories_margin_h"
+            android:layout_marginRight="@dimen/stories_action_buttons_margin_w"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/btnMenu"
+                android:layout_width="@dimen/stories_action_btn_size"
+                android:layout_height="@dimen/stories_action_btn_size"
+                app:srcCompat="@drawable/ic_menu_story" />
+
+            <ImageView
+                android:id="@+id/btnMute"
+                android:layout_width="@dimen/stories_action_btn_size"
+                android:layout_height="@dimen/stories_action_btn_size"
+                app:srcCompat="@drawable/ic_unmuted" />
+
+            <!-- Disabled for Stories_1 version
+            <ImageView
+                android:id="@+id/btnShare"
+                android:layout_width="@dimen/stories_action_btn_size"
+                android:layout_height="@dimen/stories_action_btn_size"
+                app:srcCompat="@drawable/ic_share_story" />-->
+
+            <ImageView
+                android:id="@+id/ivFollowers"
+                android:layout_width="@dimen/stories_action_btn_size"
+                android:layout_height="@dimen/story_followers_btn_size_h"
+                android:visibility="@{model.isMine ? View.GONE : View.VISIBLE}"
+                app:srcCompat="@drawable/ic_followers_story" />
+
+            <com.gbksoft.neighbourhood.ui.fragments.stories.component.StrokeTextView
+                android:id="@+id/tvFollowers"
+                style="@style/StoryFollowersCountLabel"
+                android:layout_width="@dimen/stories_action_btn_size"
+                android:layout_height="wrap_content"
+                android:visibility="@{model.isMine ? View.GONE : View.VISIBLE}"
+                app:followers="@{ model != null ? model.followers : 0}"
+                tools:text="12" />
+
+            <ImageView
+                android:id="@+id/ivComments"
+                android:layout_width="@dimen/stories_action_btn_size"
+                android:layout_height="@dimen/story_followers_btn_size_h"
+                android:layout_marginTop="10dp"
+                android:visibility="@{model.allowedComment ? View.VISIBLE : View.GONE}"
+                app:srcCompat="@drawable/ic_comments_story" />
+
+            <com.gbksoft.neighbourhood.ui.fragments.stories.component.StrokeTextView
+                android:id="@+id/tvComments"
+                style="@style/StoryFollowersCountLabel"
+                android:layout_width="@dimen/stories_action_btn_size"
+                android:layout_height="wrap_content"
+                android:checked="@{model != null ? model.messages > 0: false}"
+                android:visibility="@{model.allowedComment ? View.VISIBLE : View.GONE}"
+                app:messages="@{model != null ? model.messages : 0}"
+                tools:text="12" />
+
+            <ImageView
+                android:id="@+id/ivLike"
+                android:layout_width="@dimen/stories_action_btn_size"
+                android:layout_height="@dimen/story_followers_btn_size_h"
+                app:myStoryReaction="@{model != null ? model.myReaction : Reaction.NO_REACTION}"
+                tools:srcCompat="@drawable/ic_like_story" />
+
+            <com.gbksoft.neighbourhood.ui.fragments.stories.component.StrokeTextView
+                android:id="@+id/tvLike"
+                style="@style/StoryFollowersCountLabel"
+                android:layout_width="@dimen/stories_action_btn_size"
+                android:layout_height="wrap_content"
+                app:likes="@{model != null ? model.getReactionsCount() : 0}"
+                tools:text="12" />
+
+            <ImageView
+                android:id="@+id/btnCreateStory"
+                android:layout_width="@dimen/stories_action_btn_size"
+                android:layout_height="@dimen/stories_action_btn_size"
+                android:src="@drawable/ic_create_story" />
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/authorInfo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="90dp"
+            android:paddingBottom="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent">
+
+            <com.gbksoft.neighbourhood.ui.widgets.avatar.AvatarView
+                android:id="@+id/avatar"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                app:av_borderEnabled="true"
+                app:av_borderThickness="2dp"
+                app:av_fullName="@{model.profile.name}"
+                app:av_imageUrl="@{model.profile.avatar.medium}"
+                app:av_isBusiness="@{model.profile.isBusiness? true : false}"
+                app:layout_constraintBottom_toBottomOf="@id/storyProgressBar"
+                app:layout_constraintLeft_toLeftOf="@id/storyProgressBar"
+                app:layout_constraintRight_toRightOf="@id/storyProgressBar"
+                app:layout_constraintTop_toTopOf="@id/storyProgressBar" />
+
+            <com.gbksoft.neighbourhood.ui.fragments.stories.component.CircleProgressBar
+                android:id="@+id/storyProgressBar"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginBottom="5dp"
+                app:layout_constraintBottom_toTopOf="@id/tvAuthorName"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:progress="35"
+                app:progressBarThickness="2dp"
+                app:progressbarColor="@color/accent_3" />
+
+            <TextView
+                android:id="@+id/tvAuthorName"
+                style="@style/StoryAuthorName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="@{model.profile.name}"
+                app:layout_constrainedWidth="true"
+                app:layout_constraintBottom_toTopOf="@id/tvAddress"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintLeft_toLeftOf="parent"
+                tools:text="Kateryna Lavrova" />
+
+            <TextView
+                android:id="@+id/tvAddress"
+                style="@style/StoryDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:drawableLeft="@drawable/ic_story_location"
+                android:drawablePadding="7dp"
+                android:gravity="center_vertical"
+                android:text="@{model.address}"
+                app:layout_constraintBottom_toTopOf="@id/tvDescription"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintLeft_toLeftOf="parent"
+                tools:text="213 Derrick Street, Boston" />
+
+            <com.gbksoft.neighbourhood.ui.widgets.expandable_text.ExpandableTextView
+                android:id="@+id/tvDescription"
+                style="@style/StoryDescription"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:textIsSelectable="true"
+                app:etv_collapse_ellipsis=" ...less"
+                app:etv_ellipsisColor="@color/white"
+                app:etv_ellipsis_typeface="bold"
+                app:etv_expand_ellipsis=" ...view all"
+                app:etv_hashtagColor="@color/white"
+                app:etv_hashtag_typeface="bold"
+                app:etv_hashtagsEnabled="true"
+                app:etv_can_expand="false"
+                app:etv_maxLines="2"
+                app:etv_tap_area="text"
+                app:layout_constraintBottom_toTopOf="@+id/audioStory"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                tools:text="Lorem ipsum dolor sit amet, conse ctetur adipidoi scing elit, sed do eiusmod" />
+
+            <LinearLayout
+                android:id="@+id/audioStory"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <ImageView
+                    android:id="@+id/imageAudioStory"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:padding="9dp"
+                    android:src="@drawable/ic_add_story_sound" />
+
+                <TextView
+                    android:id="@+id/tvAudioStory"
+                    style="@style/StoryDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start|center"
+                    android:gravity="center_vertical"
+                    app:layout_constraintBottom_toTopOf="@id/tvDescription"
+                    app:layout_constraintHorizontal_bias="0"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    tools:text="" />
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

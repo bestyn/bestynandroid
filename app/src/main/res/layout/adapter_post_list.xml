@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.gbksoft.neighbourhood.model.post.FeedPost" />
+
+        <import type="com.gbksoft.neighbourhood.model.post.PostType" />
+
+        <import type="android.view.View" />
+
+        <import type="android.text.TextUtils" />
+
+        <import type="com.gbksoft.neighbourhood.utils.Constants" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/my_posts_view_h_margin"
+        android:layout_marginRight="@dimen/my_posts_view_h_margin"
+        android:background="@drawable/bg_my_posts_view"
+        app:layout_constraintEnd_toEndOf="@+id/tvPublishTime"
+        app:layout_constraintStart_toEndOf="@+id/tvPublishTime">
+
+        <com.gbksoft.neighbourhood.ui.widgets.avatar.AvatarView
+            android:id="@+id/ivAuthorAvatar"
+            android:layout_width="@dimen/my_posts_view_avatar_size"
+            android:layout_height="@dimen/my_posts_view_avatar_size"
+            android:layout_marginLeft="@dimen/my_posts_view_content_padding"
+            android:layout_marginTop="@dimen/my_posts_view_content_padding"
+            app:av_borderEnabled="true"
+            app:av_borderPadding="@dimen/my_posts_view_avatar_padding"
+            app:av_borderThickness="@dimen/my_posts_view_avatar_border"
+            app:av_fullName="@{model.profile.name}"
+            app:av_imageUrl="@{model.profile.avatar.medium}"
+            app:av_initialsSize="@dimen/my_posts_initials_text_size"
+            app:av_isBusiness="@{model.profile.isBusiness? true : false}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvAuthorName"
+            style="@style/PostAuthorName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/my_posts_view_avatar_h_margin"
+            android:layout_marginRight="@dimen/my_posts_view_avatar_h_margin"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="@{model.profile.name}"
+            app:layout_constrainedWidth="true"
+            app:layout_constraintBottom_toTopOf="@id/dateAndFollowContainer"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintLeft_toRightOf="@id/ivAuthorAvatar"
+            app:layout_constraintRight_toLeftOf="@id/barrierPostType"
+            app:layout_constraintTop_toTopOf="@id/ivAuthorAvatar"
+            tools:text="Kateryna Lavrova" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/dateAndFollowContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/my_posts_view_avatar_h_margin"
+            android:layout_marginRight="@dimen/my_posts_view_avatar_h_margin"
+            android:paddingBottom="3dp"
+            app:layout_constraintBottom_toBottomOf="@id/ivAuthorAvatar"
+            app:layout_constraintLeft_toRightOf="@id/ivAuthorAvatar"
+            app:layout_constraintTop_toBottomOf="@id/tvAuthorName">
+
+            <TextView
+                android:id="@+id/tvPublishTime"
+                style="@style/PostPublishTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:postPublishTime="@{model.publishTime}"
+                tools:text="Apr 24 at 10:23 AM" />
+
+            <TextView
+                android:id="@+id/tvEdited"
+                style="@style/PostEditedLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/my_posts_view_content_padding"
+                android:text="@string/post_edited"
+                android:visibility="@{model.edited? View.VISIBLE : View.GONE}"
+                app:layout_constraintBaseline_toBaselineOf="@id/tvPublishTime"
+                app:layout_constraintLeft_toRightOf="@id/tvPublishTime"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/btnFollow"
+                style="@style/PostFollowButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:maxLines="1"
+                android:text="@string/follow_button"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvPublishTime"
+                tools:visibility="visible" />
+
+            <TextView
+                android:id="@+id/tvFollowed"
+                style="@style/StateFollowed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawablePadding="@dimen/my_posts_state_followed_drawable_padding"
+                android:gravity="center_vertical"
+                android:maxLines="1"
+                android:text="@string/state_followed"
+                android:visibility="gone"
+                app:drawableStartCompat="@drawable/ic_check_followed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvPublishTime" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrierPostType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="left"
+            app:constraint_referenced_ids="tvStoryType,tvEventType,tvOfferType,tvNewsType,tvCrimeType,tvMediaType" />
+
+        <TextView
+            android:id="@+id/tvStoryType"
+            style="@style/PostStoryType"
+            android:layout_width="wrap_content"
+            android:layout_marginEnd="15dp"
+            android:text="@string/my_posts_type_story"
+            android:visibility="@{model.type == PostType.STORY? View.VISIBLE : View.GONE}"
+            app:layout_constraintBaseline_toBaselineOf="@id/tvAuthorName"
+            app:layout_constraintRight_toRightOf="parent"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/tvEventType"
+            style="@style/PostEventType"
+            android:layout_width="wrap_content"
+            android:layout_marginEnd="15dp"
+            android:text="@string/my_posts_type_event"
+            android:visibility="@{model.type == PostType.EVENT? View.VISIBLE : View.GONE}"
+            app:layout_constraintBaseline_toBaselineOf="@id/tvAuthorName"
+            app:layout_constraintRight_toRightOf="parent"
+            tools:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tvOfferType"
+            style="@style/PostOfferType"
+            android:layout_width="wrap_content"
+            android:layout_marginEnd="15dp"
+            android:text="@string/my_posts_type_offer"
+            android:visibility="@{model.type == PostType.OFFER? View.VISIBLE : View.GONE}"
+            app:layout_constraintBaseline_toBaselineOf="@id/tvAuthorName"
+            app:layout_constraintRight_toRightOf="parent"
+            tools:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tvNewsType"
+            style="@style/PostNewsType"
+            android:layout_width="wrap_content"
+            android:layout_marginEnd="15dp"
+            android:text="@string/my_posts_type_news"
+            android:visibility="@{model.type == PostType.NEWS? View.VISIBLE : View.GONE}"
+            app:layout_constraintBaseline_toBaselineOf="@id/tvAuthorName"
+            app:layout_constraintRight_toRightOf="parent"
+            tools:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tvCrimeType"
+            style="@style/PostCrimeType"
+            android:layout_width="wrap_content"
+            android:layout_marginEnd="15dp"
+            android:text="@string/my_posts_type_crime"
+            android:visibility="@{model.type == PostType.CRIME? View.VISIBLE : View.GONE}"
+            app:layout_constraintBaseline_toBaselineOf="@id/tvAuthorName"
+            app:layout_constraintRight_toRightOf="parent"
+            tools:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tvMediaType"
+            style="@style/PostMediaType"
+            android:layout_width="wrap_content"
+            android:layout_marginEnd="15dp"
+            android:text="@string/my_posts_type_media"
+            android:visibility="@{model.type == PostType.MEDIA? View.VISIBLE : View.GONE}"
+            app:layout_constraintBaseline_toBaselineOf="@id/tvAuthorName"
+            app:layout_constraintRight_toRightOf="parent"
+            tools:visibility="gone" />
+
+        <com.gbksoft.neighbourhood.ui.widgets.reaction.counter.ReactionCounter
+            android:id="@+id/reactionCounter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dp"
+            app:layout_constraintBottom_toBottomOf="@id/dateAndFollowContainer"
+            app:layout_constraintRight_toRightOf="parent"
+            app:reactionsCount="@{model.reactions}" />
+
+        <com.gbksoft.neighbourhood.ui.widgets.ViewPagerNestedScrollingDisabler
+            android:id="@+id/scrollableHost"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/my_posts_view_avatar_v_margin"
+            android:nestedScrollingEnabled="true"
+            app:layout_constraintDimensionRatio="@string/post_picture_crop_ratio"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivAuthorAvatar"
+            tools:visibility="gone">
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/mediaPager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </com.gbksoft.neighbourhood.ui.widgets.ViewPagerNestedScrollingDisabler>
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/mediaDots"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/media_pager_indicator_view_height"
+            android:layout_gravity="bottom"
+            android:layout_marginTop="@dimen/my_posts_view_media_dots_top_margin"
+            android:visibility="@{model.post.media.size > 1 ? View.VISIBLE : View.GONE}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/scrollableHost"
+            app:tabBackground="@drawable/selector_media_pager_dots"
+            app:tabGravity="center"
+            app:tabIndicatorHeight="0dp"
+            app:tabPaddingEnd="@dimen/media_pager_indicator_h_padding"
+            app:tabPaddingStart="@dimen/media_pager_indicator_h_padding"
+            tools:visibility="gone" />
+
+        <LinearLayout
+            android:id="@+id/postTextData"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/my_posts_view_content_padding"
+            android:layout_marginTop="@dimen/my_posts_dots_bottom_margin"
+            android:layout_marginRight="@dimen/my_posts_view_content_padding"
+            android:orientation="vertical"
+            android:visibility="@{model.type == PostType.MEDIA ? View.GONE : View.VISIBLE}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mediaDots"
+            app:layout_goneMarginTop="@dimen/my_posts_dots_bottom_margin">
+
+            <TextView
+                android:id="@+id/tvEventTime"
+                style="@style/PostEventTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:eventEndTime="@{model.eventEndTime}"
+                app:eventStartTime="@{model.eventStartTime}"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/mediaDots"
+                tools:text="Apr 12, 01:00 PM - 11:00 PM " />
+
+            <TextView
+                android:id="@+id/tvEventName"
+                style="@style/PostEventName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/my_posts_event_name_bottom_margin"
+                android:text="@{model.eventName}"
+                android:visibility="@{model.type == PostType.EVENT? View.VISIBLE : View.GONE}"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvEventTime"
+                tools:text="Home Party for Kids" />
+
+            <TextView
+                android:id="@+id/tvAddress"
+                style="@style/PostAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/my_posts_address_bottom_margin"
+                android:drawableLeft="@drawable/ic_post_location"
+                android:drawablePadding="7dp"
+                android:gravity="center_vertical"
+                android:text="@{model.address}"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvEventName"
+                app:postAddressVisibility="@{model}"
+                tools:text="213 Derrick Street, Boston" />
+
+            <TextView
+                android:id="@+id/tvPrice"
+                style="@style/PostPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/my_posts_price_bottom_margin"
+                android:visibility="@{model.type == PostType.OFFER? View.VISIBLE : View.GONE}"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvAddress"
+                app:offerPrice="@{model.offerPrice}"
+                tools:text="$5.500" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rwRecyclerPostAudio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvPrice"
+                android:visibility="gone"
+                android:nestedScrollingEnabled="false"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"/>
+
+            <com.gbksoft.neighbourhood.ui.widgets.expandable_text.ExpandableTextView
+                android:id="@+id/tvDescription"
+                style="@style/PostDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textIsSelectable="true"
+                app:etv_ellipsisColor="@color/post_ellipsis_color"
+                app:etv_expand_ellipsis="@string/post_ellipsis"
+                app:etv_hashtagColor="@color/post_hashtag_color"
+                app:etv_hashtagsEnabled="true"
+                app:etv_maxLines="2"
+                app:etv_tap_area="text"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rwRecyclerPostAudio"
+                tools:text="Lorem ipsum dolor sit amet, conse ctetur adipidoi scing elit, sed do eiusmod" />
+
+        </LinearLayout>
+
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/my_posts_view_divider_height"
+            android:layout_marginTop="@dimen/my_posts_view_divider_top_margin"
+            android:background="@color/my_posts_view_divider_color"
+            android:visibility="@{model.type == PostType.MEDIA ? View.GONE : View.VISIBLE}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/postTextData" />
+
+        <com.gbksoft.neighbourhood.ui.widgets.checkable_text.CheckableTextView
+            android:id="@+id/tvLike"
+            style="@style/ReactionButtonText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:drawablePadding="7dp"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:paddingTop="@dimen/my_posts_view_divider_bottom_margin"
+            android:paddingBottom="@dimen/my_posts_view_content_padding"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider"
+            app:layout_constraintVertical_bias="1.0"
+            app:myReaction="@{model.myReaction}"
+            tools:drawableLeft="@drawable/ic_no_reaction"
+            tools:text="1" />
+
+        <com.gbksoft.neighbourhood.ui.widgets.checkable_text.CheckableTextView
+            android:id="@+id/tvFollow"
+            style="@style/PostFollowers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:checked="@{model.iFollow}"
+            android:drawableStart="@drawable/selector_post_followers"
+            android:drawablePadding="7dp"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:paddingTop="@dimen/my_posts_view_divider_bottom_margin"
+            android:paddingBottom="@dimen/my_posts_view_content_padding"
+            app:checkedTextColor="@color/post_followers_active_text_color"
+            app:followers="@{model.followers}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/tvMessage"
+            app:layout_constraintTop_toBottomOf="@id/divider"
+            tools:text="1" />
+
+        <com.gbksoft.neighbourhood.ui.widgets.checkable_text.CheckableTextView
+            android:id="@+id/tvMessage"
+            style="@style/PostMessages"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:checked="@{model.messages > 0}"
+            android:drawableLeft="@drawable/selector_post_messages"
+            android:drawablePadding="7dp"
+            android:gravity="center_vertical"
+            android:maxLines="1"
+            android:paddingTop="@dimen/my_posts_view_divider_bottom_margin"
+            android:paddingBottom="@dimen/my_posts_view_content_padding"
+            app:checkedTextColor="@color/post_messages_active_text_color"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/tvLike"
+            app:layout_constraintTop_toBottomOf="@id/divider"
+            app:messages="@{model.messages}"
+            tools:text="1" />
+
+        <ImageView
+            android:id="@+id/ivOptions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:paddingLeft="@dimen/my_posts_view_content_padding"
+            android:paddingTop="@dimen/my_posts_view_divider_bottom_margin"
+            android:paddingRight="@dimen/my_posts_view_content_padding"
+            android:paddingBottom="@dimen/my_posts_view_content_padding"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider"
+            app:srcCompat="@drawable/ic_post_options" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

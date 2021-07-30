@@ -1,0 +1,1791 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph">
+
+    <action
+        android:id="@+id/toCreateEditPost"
+        app:destination="@id/createEditPostFragment"
+        app:enterAnim="@anim/pop_enter_anim"
+        app:exitAnim="@anim/pop_exit_anim"
+        app:popEnterAnim="@anim/pop_enter_anim"
+        app:popExitAnim="@anim/pop_exit_anim" />
+    <action
+        android:id="@+id/toStoryDescription"
+        app:destination="@id/storyDescription"
+        app:enterAnim="@anim/pop_enter_anim"
+        app:exitAnim="@anim/pop_exit_anim"
+        app:popEnterAnim="@anim/pop_enter_anim"
+        app:popExitAnim="@anim/pop_exit_anim" />
+    <action
+        android:id="@+id/toPrivacyPolicy"
+        app:destination="@id/privacyPolicy"
+        app:enterAnim="@anim/pop_enter_anim"
+        app:exitAnim="@anim/pop_exit_anim"
+        app:popEnterAnim="@anim/pop_enter_anim"
+        app:popExitAnim="@anim/pop_exit_anim" />
+    <action
+        android:id="@+id/toTermsAndConditions"
+        app:destination="@id/termsAndConditions"
+        app:enterAnim="@anim/pop_enter_anim"
+        app:exitAnim="@anim/pop_exit_anim"
+        app:popEnterAnim="@anim/pop_enter_anim"
+        app:popExitAnim="@anim/pop_exit_anim" />
+    <action
+        android:id="@+id/toPaymentFragment"
+        app:destination="@id/paymentFragment"
+        app:enterAnim="@anim/pop_enter_anim"
+        app:exitAnim="@anim/pop_exit_anim"
+        app:popEnterAnim="@anim/pop_enter_anim"
+        app:popExitAnim="@anim/pop_exit_anim" />
+    <action
+        android:id="@+id/toProfileSettings"
+        app:destination="@id/profileSettingsFragment"
+        app:enterAnim="@anim/pop_enter_anim"
+        app:exitAnim="@anim/pop_exit_anim"
+        app:popEnterAnim="@anim/pop_enter_anim"
+        app:popExitAnim="@anim/pop_exit_anim" />
+    <action
+        android:id="@+id/toEditBusinessProfile"
+        app:destination="@id/editBusinessProfileFragment"
+        app:enterAnim="@anim/pop_enter_anim"
+        app:exitAnim="@anim/pop_exit_anim"
+        app:popEnterAnim="@anim/pop_enter_anim"
+        app:popExitAnim="@anim/pop_exit_anim" />
+    <action
+        android:id="@+id/toMyProfileFragment"
+        app:destination="@id/profileFragment"
+        app:enterAnim="@anim/pop_enter_anim"
+        app:exitAnim="@anim/pop_exit_anim"
+        app:popEnterAnim="@anim/pop_enter_anim"
+        app:popExitAnim="@anim/pop_exit_anim" />
+    <action
+        android:id="@+id/toMyBusinessProfileFragment"
+        app:destination="@id/businessProfileFragment"
+        app:enterAnim="@anim/pop_enter_anim"
+        app:exitAnim="@anim/pop_exit_anim"
+        app:popEnterAnim="@anim/pop_enter_anim"
+        app:popExitAnim="@anim/pop_exit_anim" />
+    <action
+        android:id="@+id/toAddBusinessProfileFragment"
+        app:destination="@id/editBusinessProfileFragment"
+        app:enterAnim="@anim/pop_enter_anim"
+        app:exitAnim="@anim/pop_exit_anim"
+        app:popEnterAnim="@anim/pop_enter_anim"
+        app:popExitAnim="@anim/pop_exit_anim" />
+
+    <action
+        android:id="@+id/toChatRoom"
+        app:destination="@id/chatRoomFragment"
+        app:enterAnim="@anim/pop_enter_anim"
+        app:exitAnim="@anim/pop_exit_anim"
+        app:popEnterAnim="@anim/pop_enter_anim"
+        app:popExitAnim="@anim/pop_exit_anim"
+        app:popUpTo="@id/chatRoomFragment"
+        app:popUpToInclusive="true" />
+
+    <action
+        android:id="@+id/switchToStories"
+        app:destination="@id/storiesFragment"
+        app:enterAnim="@anim/pop_enter_anim"
+        app:exitAnim="@anim/pop_exit_anim"
+        app:popEnterAnim="@anim/pop_enter_anim"
+        app:popExitAnim="@anim/pop_exit_anim" />
+
+    <action
+        android:id="@+id/switchToBestyn"
+        app:destination="@id/myNeighbourhoodFragment"
+        app:enterAnim="@anim/pop_enter_anim"
+        app:exitAnim="@anim/pop_exit_anim"
+        app:popEnterAnim="@anim/pop_enter_anim"
+        app:popExitAnim="@anim/pop_exit_anim"
+        app:popUpTo="@id/myNeighbourhoodFragment"
+        app:popUpToInclusive="false" />
+
+    <action
+        android:id="@+id/toPostDetails"
+        app:destination="@id/postDetailsFragment"
+        app:enterAnim="@anim/pop_enter_anim"
+        app:exitAnim="@anim/pop_exit_anim"
+        app:popEnterAnim="@anim/pop_enter_anim"
+        app:popExitAnim="@anim/pop_exit_anim" />
+
+    <action
+        android:id="@+id/toFollowersFragment"
+        app:destination="@id/followerProfilesFragment"
+        app:enterAnim="@anim/pop_enter_anim"
+        app:exitAnim="@anim/pop_exit_anim"
+        app:popEnterAnim="@anim/pop_enter_anim"
+        app:popExitAnim="@anim/pop_exit_anim" />
+
+    <action
+        android:id="@+id/toDynamicStoryList"
+        app:destination="@id/dynamicStoryListFragment"
+        app:enterAnim="@anim/pop_enter_anim"
+        app:exitAnim="@anim/pop_exit_anim"
+        app:popEnterAnim="@anim/pop_enter_anim"
+        app:popExitAnim="@anim/pop_exit_anim" />
+
+    <action
+        android:id="@+id/toRecordAudio"
+        app:destination="@id/audioRecordFragment"
+        app:enterAnim="@anim/pop_enter_anim"
+        app:exitAnim="@anim/pop_exit_anim"
+        app:popEnterAnim="@anim/pop_enter_anim"
+        app:popExitAnim="@anim/pop_exit_anim" />
+
+    <action
+        android:id="@+id/toAdjustStory"
+        app:destination="@id/adjustStory"
+        app:enterAnim="@anim/pop_enter_anim"
+        app:exitAnim="@anim/pop_exit_anim"
+        app:popEnterAnim="@anim/pop_enter_anim"
+        app:popExitAnim="@anim/pop_exit_anim" />
+
+    <fragment
+        android:id="@+id/myNeighbourhoodFragment"
+        android:name="com.gbksoft.neighbourhood.ui.fragments.neighbourhood.MyNeighbourhoodFragment"
+        android:label="fragment_neighbourhood"
+        tools:layout="@layout/fragment_my_neighbourhood">
+        <action
+            android:id="@+id/toImagePreviewFragment"
+            app:destination="@id/fullImageFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+        <action
+            android:id="@+id/toVideoPlayer"
+            app:destination="@id/videoPlayer"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+        <action
+            android:id="@+id/toPostDetailsFragment"
+            app:destination="@id/postDetailsFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+        <action
+            android:id="@+id/toMyProfileFragment"
+            app:destination="@id/profileFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+        <action
+            android:id="@+id/toMyBusinessProfileFragment"
+            app:destination="@id/businessProfileFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+        <action
+            android:id="@+id/toPublicProfileFragment"
+            app:destination="@id/publicProfileFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+        <action
+            android:id="@+id/toPublicBusinessProfileFragment"
+            app:destination="@id/publicBusinessProfileFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+        <action
+            android:id="@+id/toReportPostFragment"
+            app:destination="@id/reportPostFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+        <action
+            android:id="@+id/toMyInterest"
+            app:destination="@id/editInterestsFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+
+        <action
+            android:id="@+id/toChatRoom"
+            app:destination="@id/chatRoomFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim"
+            app:popUpTo="@id/chatRoomFragment"
+            app:popUpToInclusive="true" />
+
+        <action
+            android:id="@+id/reopen"
+            app:destination="@id/myNeighbourhoodFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim"
+            app:popUpTo="@id/myNeighbourhoodFragment"
+            app:popUpToInclusive="true" />
+
+        <action
+            android:id="@+id/toGlobalSearch"
+            app:destination="@id/globalSearch"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+
+        <action
+            android:id="@+id/toHashtagSearch"
+            app:destination="@id/hashtagSearch"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/createEditPostFragment"
+        android:name="com.gbksoft.neighbourhood.ui.fragments.create_edit_post.CreateEditPostFragment"
+        android:label="fragment_create_edit_post"
+        tools:layout="@layout/fragment_create_edit_post">
+        <argument
+            android:name="post"
+            app:argType="com.gbksoft.neighbourhood.model.post.Post" />
+
+        <argument
+            android:name="mediaUriList"
+            android:defaultValue="@null"
+            app:argType="string[]"
+            app:nullable="true" />
+
+        <action
+            android:id="@+id/toImagePreviewFragment"
+            app:destination="@id/fullImageFragment" />
+
+        <action
+            android:id="@+id/toVideoPlayer"
+            app:destination="@id/videoPlayer" />
+
+        <action
+            android:id="@+id/toMyNeighbourhoodFragment"
+            app:destination="@id/myNeighbourhoodFragment"
+            app:popUpTo="@id/myNeighbourhoodFragment"
+            app:popUpToInclusive="true" />
+
+        <action
+            android:id="@+id/toCropImage"
+            app:destination="@id/cropFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+
+        <action
+            android:id="@+id/toImageVideoPicker"
+            app:destination="@id/imageVideoPicker"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+
+        <action
+            android:id="@+id/toAudioRecordFragment"
+            app:destination="@id/audioRecordFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/chatFragment"
+        android:name="com.gbksoft.neighbourhood.ui.fragments.chat.list.ChatListFragment"
+        android:label="fragment_chat"
+        tools:layout="@layout/fragment_chat_list">
+        <action
+            android:id="@+id/toChatBackground"
+            app:destination="@id/chatBackgroundFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+        <action
+            android:id="@+id/toChatRoom"
+            app:destination="@id/chatRoomFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim"
+            app:popUpTo="@id/chatRoomFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/toAddBusinessProfile"
+            app:destination="@id/editBusinessProfileFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+
+        <action
+            android:id="@+id/reopen"
+            app:destination="@id/chatFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim"
+            app:popUpTo="@id/chatFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/myNeighboursMap"
+        android:name="com.gbksoft.neighbourhood.ui.fragments.my_neighbours_map.MyNeighborsFragment"
+        android:label="fragment_map"
+        tools:layout="@layout/fragment_map">
+
+        <action
+            android:id="@+id/toMyProfileFragment"
+            app:destination="@id/profileFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+        <action
+            android:id="@+id/toMyBusinessProfileFragment"
+            app:destination="@id/businessProfileFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+        <action
+            android:id="@+id/toPublicProfileFragment"
+            app:destination="@id/publicProfileFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+        <action
+            android:id="@+id/toPublicBusinessProfileFragment"
+            app:destination="@id/publicBusinessProfileFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim"
+            app:popUpTo="@id/chatFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/reopen"
+            app:destination="@id/myNeighboursMap"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim"
+            app:popUpTo="@id/myNeighboursMap"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.gbksoft.neighbourhood.ui.fragments.profile.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile">
+
+        <action
+            android:id="@+id/nav_profile_to_profileSettings"
+            app:destination="@id/profileSettingsFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+
+        <action
+            android:id="@+id/to_editInterestsFragment"
+            app:destination="@id/editInterestsFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+
+        <action
+            android:id="@+id/toAddBusinessProfileFragment"
+            app:destination="@id/editBusinessProfileFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+
+        <action
+            android:id="@+id/switchToBusinessProfile"
+            app:destination="@id/businessProfileFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim"
+            app:popUpTo="@id/myNeighbourhoodFragment"
+            app:popUpToInclusive="false" />
+
+        <action
+            android:id="@+id/switchToProfile"
+            app:destination="@id/profileFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim"
+            app:popUpTo="@id/myNeighbourhoodFragment"
+            app:popUpToInclusive="false" />
+
+        <action
+            android:id="@+id/toAbout"
+            app:destination="@id/about"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+
+        <action
+            android:id="@+id/toTermsAndConditions"
+            app:destination="@id/termsAndConditions"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+
+        <action
+            android:id="@+id/toPrivacyPolicy"
+            app:destination="@id/privacyPolicy"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+
+        <action
+            android:id="@+id/toCropImage"
+            app:destination="@id/cropFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+
+        <action
+            android:id="@+id/toAlbumList"
+            app:destination="@id/albumList"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+
+        <action
+            android:id="@+id/toFollowersFragment"
+            app:destination="@id/followerProfilesFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+
+        <action
+            android:id="@+id/toFollowedFragment"
+            app:destination="@id/followedProfilesFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/profileSettingsFragment"
+        android:name="com.gbksoft.neighbourhood.ui.fragments.profile.settings.ProfileSettingsFragment"
+        android:label="fragment_profile_settings"
+        tools:layout="@layout/fragment_profile_settings" />
+
+    <fragment
+        android:id="@+id/businessProfileFragment"
+        android:name="com.gbksoft.neighbourhood.ui.fragments.business_profile.BusinessProfileFragment"
+        android:label="fragment_business_profile"
+        tools:layout="@layout/fragment_business_profile">
+
+        <action
+            android:id="@+id/toEditBusinessProfileFragment"
+            app:destination="@id/editBusinessProfileFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+        <action
+            android:id="@+id/toAlbumList"
+            app:destination="@id/albumList"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+        <action
+            android:id="@+id/switchToBusinessProfile"
+            app:destination="@id/businessProfileFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim"
+            app:popUpTo="@id/myNeighbourhoodFragment"
+            app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/switchToProfile"
+            app:destination="@id/profileFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim"
+            app:popUpTo="@id/myNeighbourhoodFragment"
+            app:popUpToInclusive="false" />
+
+        <action
+            android:id="@+id/toCropImage"
+            app:destination="@id/cropFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+
+        <action
+            android:id="@+id/toFollowersFragment"
+            app:destination="@id/followerProfilesFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+
+        <action
+            android:id="@+id/toFollowedFragment"
+            app:destination="@id/followedProfilesFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/publicProfileFragment"
+        android:name="com.gbksoft.neighbourhood.ui.fragments.profile.public_view.PublicProfileFragment"
+        android:label="fragment_public_profile"
+        tools:layout="@layout/fragment_public_profile">
+
+        <argument
+            android:name="profile_id"
+            app:argType="long" />
+
+        <action
+            android:id="@+id/toReportUserFragment"
+            app:destination="@id/reportUserFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+        <action
+            android:id="@+id/toChatRoom"
+            app:destination="@id/chatRoomFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim"
+            app:popUpTo="@id/chatRoomFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/toAlbumList"
+            app:destination="@id/albumList"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/publicBusinessProfileFragment"
+        android:name="com.gbksoft.neighbourhood.ui.fragments.business_profile.publick_view.PublicBusinessProfileFragment"
+        android:label="fragment_public_business_profile"
+        tools:layout="@layout/fragment_public_business_profile">
+
+        <argument
+            android:name="profile_id"
+            app:argType="long" />
+        <action
+            android:id="@+id/toAlbumList"
+            app:destination="@id/albumList"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+        <action
+            android:id="@+id/toReportUserFragment"
+            app:destination="@id/reportUserFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+        <action
+            android:id="@+id/toChatRoom"
+            app:destination="@id/chatRoomFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim"
+            app:popUpTo="@id/chatRoomFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/editInterestsFragment"
+        android:name="com.gbksoft.neighbourhood.ui.fragments.profile.hashtags.EditInterestsFragment"
+        android:label="fragment_edit_interests"
+        tools:layout="@layout/fragment_edit_interests">
+
+        <action
+            android:id="@+id/toMyNeighbourhood"
+            app:destination="@id/myNeighbourhoodFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim"
+            app:popUpTo="@id/editInterestsFragment"
+            app:popUpToInclusive="true" />
+
+        <action
+            android:id="@+id/toStoryList"
+            app:destination="@id/storiesFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim"
+            app:popUpTo="@id/storiesFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/editBusinessProfileFragment"
+        android:name="com.gbksoft.neighbourhood.ui.fragments.business_profile.add_or_edit.AddEditBusinessProfileFragment"
+        android:label="fragment_edit_business_profile"
+        tools:layout="@layout/fragment_edit_business_profile">
+
+        <argument
+            android:name="business_profile_id"
+            android:defaultValue="-1L"
+            app:argType="long" />
+        <action
+            android:id="@+id/switchToBusinessProfile"
+            app:destination="@id/businessProfileFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim"
+            app:popUpTo="@id/myNeighbourhoodFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/badConnectionFragment"
+        android:name="com.gbksoft.neighbourhood.ui.fragments.network.BadConnectionFragment"
+        android:label="fragment_bad_connection"
+        tools:layout="@layout/fragment_bad_connection" />
+
+    <fragment
+        android:id="@+id/fullImageFragment"
+        android:name="com.gbksoft.neighbourhood.ui.fragments.album.full_image.FullImageFragment"
+        android:label="fragment_image_preview"
+        tools:layout="@layout/fragment_image_preview">
+        <argument
+            android:name="image"
+            app:argType="com.gbksoft.neighbourhood.model.media.Media$Picture" />
+    </fragment>
+
+    <activity
+        android:id="@+id/videoPlayer"
+        android:name="com.gbksoft.neighbourhood.ui.activities.player.VideoPlayerActivity"
+        tools:layout="@layout/activity_host_fragment">
+
+        <argument
+            android:name="video"
+            app:argType="com.gbksoft.neighbourhood.model.media.Media$Video" />
+    </activity>
+
+    <fragment
+        android:id="@+id/postDetailsFragment"
+        android:name="com.gbksoft.neighbourhood.ui.fragments.post_details.PostDetailsFragment"
+        android:label="fragment_post"
+        tools:layout="@layout/fragment_post_details">
+        <argument
+            android:name="feedPost"
+            app:argType="com.gbksoft.neighbourhood.model.post.FeedPost"
+            app:nullable="true" />
+
+        <argument
+            android:name="postId"
+            app:argType="long" />
+        <action
+            android:id="@+id/toEditPost"
+            app:destination="@id/createEditPostFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+        <action
+            android:id="@+id/toImagePreviewFragment"
+            app:destination="@id/fullImageFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+        <action
+            android:id="@+id/toVideoPlayer"
+            app:destination="@id/videoPlayer"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+        <action
+            android:id="@+id/toMyProfileFragment"
+            app:destination="@id/profileFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+        <action
+            android:id="@+id/toMyBusinessProfileFragment"
+            app:destination="@id/businessProfileFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+        <action
+            android:id="@+id/toPublicProfileFragment"
+            app:destination="@id/publicProfileFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+        <action
+            android:id="@+id/toPublicBusinessProfileFragment"
+            app:destination="@id/publicBusinessProfileFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+        <action
+            android:id="@+id/toAddBusinessProfileFragment"
+            app:destination="@id/editBusinessProfileFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+        <action
+            android:id="@+id/toReportPostFragment"
+            app:destination="@id/reportPostFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+        <action
+            android:id="@+id/toChatRoom"
+            app:destination="@id/chatRoomFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim"
+            app:popUpTo="@id/chatRoomFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/toHashtagSearch"
+            app:destination="@id/hashtagSearch"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/reportPostFragment"
+        android:name="com.gbksoft.neighbourhood.ui.fragments.report.ReportPostFragment"
+        android:label="fragment_report_post"
+        tools:layout="@layout/fragment_report_post">
+
+        <argument
+            android:name="reportContentArgs"
+            app:argType="com.gbksoft.neighbourhood.ui.fragments.report.ReportContentArgs" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/reportUserFragment"
+        android:name="com.gbksoft.neighbourhood.ui.fragments.report.ReportUserFragment"
+        android:label="fragment_report_user"
+        tools:layout="@layout/fragment_report_user">
+        <argument
+            android:name="profile"
+            app:argType="com.gbksoft.neighbourhood.model.profile.PublicProfile" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/chatBackgroundFragment"
+        android:name="com.gbksoft.neighbourhood.ui.fragments.chat.background.ChatBackgroundFragment"
+        android:label="fragment_chat_background"
+        tools:layout="@layout/fragment_chat_background" />
+
+    <fragment
+        android:id="@+id/chatRoomFragment"
+        android:name="com.gbksoft.neighbourhood.ui.fragments.chat.room.ChatRoomFragment"
+        android:label="fragment_chat_room"
+        tools:layout="@layout/fragment_chat_room">
+        <argument
+            android:name="chatRoomData"
+            app:argType="com.gbksoft.neighbourhood.model.chat.ChatRoomData" />
+        <action
+            android:id="@+id/toImagePreview"
+            app:destination="@id/fullImageFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+        <action
+            android:id="@+id/toVideoPlayer"
+            app:destination="@id/videoPlayer"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+        <action
+            android:id="@+id/toPublicBusinessProfile"
+            app:destination="@id/publicBusinessProfileFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+        <action
+            android:id="@+id/toPublicProfile"
+            app:destination="@id/publicProfileFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/paymentFragment"
+        android:name="com.gbksoft.neighbourhood.ui.fragments.payment.PaymentFragment"
+        android:label="fragment_payment"
+        tools:layout="@layout/fragment_payment" />
+
+
+    <fragment
+        android:id="@+id/termsAndConditions"
+        android:name="com.gbksoft.neighbourhood.ui.fragments.static_pages.terms_and_conditions.TermsAndConditionsFragment"
+        android:label="fragment_terms_and_conditions"
+        tools:layout="@layout/fragment_static_page" />
+
+    <fragment
+        android:id="@+id/privacyPolicy"
+        android:name="com.gbksoft.neighbourhood.ui.fragments.static_pages.privacy_policy.PrivacyPolicyFragment"
+        android:label="fragment_privacy_policy"
+        tools:layout="@layout/fragment_static_page" />
+
+    <fragment
+        android:id="@+id/about"
+        android:name="com.gbksoft.neighbourhood.ui.fragments.static_pages.about.AboutFragment"
+        android:label="fragment_about"
+        tools:layout="@layout/fragment_static_page" />
+
+    <fragment
+        android:id="@+id/cropFragment"
+        android:name="com.gbksoft.neighbourhood.ui.fragments.crop.CropFragment"
+        android:label="fragment_crop"
+        tools:layout="@layout/fragment_crop">
+        <argument
+            android:name="cropOptions"
+            app:argType="com.gbksoft.neighbourhood.model.crop.CropOptions" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/albumList"
+        android:name="com.gbksoft.neighbourhood.ui.fragments.album.AlbumListFragment"
+        android:label="fragment_album_list"
+        tools:layout="@layout/fragment_album_list">
+        <argument
+            android:name="image_position"
+            android:defaultValue="0"
+            app:argType="integer" />
+        <argument
+            android:name="image_owner"
+            app:argType="com.gbksoft.neighbourhood.model.profile.PublicProfile" />
+        <action
+            android:id="@+id/toPostDetailsFragment"
+            app:destination="@id/postDetailsFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+        <action
+            android:id="@+id/toImagePreviewFragment"
+            app:destination="@id/fullImageFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+        <action
+            android:id="@+id/toMyProfileFragment"
+            app:destination="@id/profileFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+        <action
+            android:id="@+id/toMyBusinessProfileFragment"
+            app:destination="@id/businessProfileFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+        <action
+            android:id="@+id/toPublicProfileFragment"
+            app:destination="@id/publicProfileFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+        <action
+            android:id="@+id/toPublicBusinessProfileFragment"
+            app:destination="@id/publicBusinessProfileFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+        <action
+            android:id="@+id/toReportPostFragment"
+            app:destination="@id/reportPostFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+        <action
+            android:id="@+id/toChatRoom"
+            app:destination="@id/chatRoomFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim"
+            app:popUpTo="@id/chatRoomFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/globalSearch"
+        android:name="com.gbksoft.neighbourhood.ui.fragments.search.GlobalSearchFragment"
+        android:label="fragment_global_search"
+        tools:layout="@layout/fragment_global_search">
+
+        <action
+            android:id="@+id/toMyProfile"
+            app:destination="@id/profileFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+        <action
+            android:id="@+id/toMyBusinessProfile"
+            app:destination="@id/businessProfileFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+        <action
+            android:id="@+id/toPublicProfile"
+            app:destination="@id/publicProfileFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+        <action
+            android:id="@+id/toPublicBusinessProfile"
+            app:destination="@id/publicBusinessProfileFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+        <action
+            android:id="@+id/toChatRoom"
+            app:destination="@id/chatRoomFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim"
+            app:popUpTo="@id/chatRoomFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/toPostDetails"
+            app:destination="@id/postDetailsFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+        <action
+            android:id="@+id/toReportPost"
+            app:destination="@id/reportPostFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+        <action
+            android:id="@+id/toFullImage"
+            app:destination="@id/fullImageFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+        <action
+            android:id="@+id/toVideoPlayer"
+            app:destination="@id/videoPlayer"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+        <action
+            android:id="@+id/toHashtagSearch"
+            app:destination="@id/hashtagSearch"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+
+        <action
+            android:id="@+id/toAudioDetailsFragment"
+            app:destination="@id/audioDetailsFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/hashtagSearch"
+        android:name="com.gbksoft.neighbourhood.ui.fragments.search.HashtagSearchFragment"
+        android:label="fragment_hashtag_search"
+        tools:layout="@layout/fragment_hashtag_search">
+        <argument
+            android:name="hashtag"
+            app:argType="string" />
+        <action
+            android:id="@+id/toPostDetails"
+            app:destination="@id/postDetailsFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+        <action
+            android:id="@+id/toHashtagSearch"
+            app:destination="@id/hashtagSearch"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+        <action
+            android:id="@+id/toMyProfile"
+            app:destination="@id/profileFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+        <action
+            android:id="@+id/toMyBusinessProfile"
+            app:destination="@id/businessProfileFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+        <action
+            android:id="@+id/toPublicProfile"
+            app:destination="@id/publicProfileFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+        <action
+            android:id="@+id/toPublicBusinessProfile"
+            app:destination="@id/publicBusinessProfileFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+        <action
+            android:id="@+id/toChatRoom"
+            app:destination="@id/chatRoomFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim"
+            app:popUpTo="@id/chatRoomFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/toReportPost"
+            app:destination="@id/reportPostFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+        <action
+            android:id="@+id/toFullImage"
+            app:destination="@id/fullImageFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+        <action
+            android:id="@+id/toVideoPlayer"
+            app:destination="@id/videoPlayer"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/storiesFragment"
+        android:name="com.gbksoft.neighbourhood.ui.fragments.stories.StoriesFragment"
+        android:label="fragment_stories"
+        tools:layout="@layout/fragment_stories">
+
+        <action
+            android:id="@+id/toCreateStory"
+            app:destination="@id/createStory"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+
+        <action
+            android:id="@+id/toEditPost"
+            app:destination="@id/createEditPostFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+        <action
+            android:id="@+id/toImagePreviewFragment"
+            app:destination="@id/fullImageFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+        <action
+            android:id="@+id/toVideoPlayer"
+            app:destination="@id/videoPlayer"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+        <action
+            android:id="@+id/toMyProfileFragment"
+            app:destination="@id/profileFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+        <action
+            android:id="@+id/toMyBusinessProfileFragment"
+            app:destination="@id/businessProfileFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+        <action
+            android:id="@+id/toPublicProfileFragment"
+            app:destination="@id/publicProfileFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+        <action
+            android:id="@+id/toPublicBusinessProfileFragment"
+            app:destination="@id/publicBusinessProfileFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+        <action
+            android:id="@+id/toAddBusinessProfileFragment"
+            app:destination="@id/editBusinessProfileFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+        <action
+            android:id="@+id/toReportPostFragment"
+            app:destination="@id/reportPostFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+        <action
+            android:id="@+id/toChatRoom"
+            app:destination="@id/chatRoomFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim"
+            app:popUpTo="@id/chatRoomFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/toHashtagSearch"
+            app:destination="@id/hashtagSearch"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+
+        <action
+            android:id="@+id/toGlobalSearch"
+            app:destination="@id/globalSearch"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+
+        <action
+            android:id="@+id/reopen"
+            app:destination="@id/storiesFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim"
+            app:popUpTo="@id/storiesFragment"
+            app:popUpToInclusive="true" />
+
+        <action
+            android:id="@+id/toMyInterest"
+            app:destination="@id/editInterestsFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+
+        <action
+            android:id="@+id/toAudioDetailsFragment"
+            app:destination="@id/audioDetailsFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+
+        <action
+            android:id="@+id/toCreateDuetStory"
+            app:destination="@id/createDuetStory"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/createStory"
+        android:name="com.gbksoft.neighbourhood.ui.fragments.stories.create_story.record.CreateStoryFragment"
+        android:label="fragment_create_story"
+        tools:layout="@layout/fragment_create_story">
+
+        <action
+            android:id="@+id/toPreviewStory"
+            app:destination="@id/previewStory"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+
+        <action
+            android:id="@+id/toImageVideoPicker"
+            app:destination="@id/imageVideoPicker"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+
+        <action
+            android:id="@+id/toCreateTextStory"
+            app:destination="@id/createTextStory"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/previewStory"
+        android:name="com.gbksoft.neighbourhood.ui.fragments.stories.create_story.preview.PreviewStoryFragment"
+        android:label="fragment_preview_story"
+        tools:layout="@layout/fragment_preview_story">
+
+        <argument
+            android:name="story"
+            app:argType="com.gbksoft.neighbourhood.model.story.creating.ConstructStory" />
+        <action
+            android:id="@+id/toAdjustStory"
+            app:destination="@id/adjustStory"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+
+        <action
+            android:id="@+id/toImageVideoPicker"
+            app:destination="@id/imageVideoPicker"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+
+        <action
+            android:id="@+id/toSetEffectDuration"
+            app:destination="@id/setEffectDuration"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+
+        <action
+            android:id="@+id/toAudioList"
+            app:destination="@id/audioList"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/storyDescription"
+        android:name="com.gbksoft.neighbourhood.ui.fragments.stories.create_story.description.StoryDescriptionFragment"
+        android:label="fragment_story_description"
+        tools:layout="@layout/fragment_story_description">
+
+        <argument
+            android:name="story"
+            app:argType="com.gbksoft.neighbourhood.model.story.creating.ConstructStory" />
+
+        <action
+            android:id="@+id/toSelectCover"
+            app:destination="@id/selectCover"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+
+        <action
+            android:id="@+id/toStoryList"
+            app:destination="@id/storiesFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim"
+            app:popUpTo="@id/storiesFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/selectCover"
+        android:name="com.gbksoft.neighbourhood.ui.fragments.stories.create_story.select_cover.SelectCoverFragment"
+        android:label="fragment_select_cover"
+        tools:layout="@layout/fragment_select_cover">
+
+        <argument
+            android:name="story"
+            app:argType="com.gbksoft.neighbourhood.model.story.creating.ConstructStory" />
+
+        <argument
+            android:name="currentCoverTimestamp"
+            app:argType="long" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/adjustStory"
+        android:name="com.gbksoft.neighbourhood.ui.fragments.stories.create_story.adjust_story.AdjustStoryFragment"
+        android:label="fragment_adjust_story"
+        tools:layout="@layout/fragment_adjust_story">
+
+        <argument
+            android:name="story"
+            app:argType="com.gbksoft.neighbourhood.model.story.creating.ConstructStory" />
+
+        <argument
+            android:name="shouldReturnResult"
+            app:argType="boolean" />
+
+        <action
+            android:id="@+id/toImageVideoPicker"
+            app:destination="@id/imageVideoPicker"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+
+        <action
+            android:id="@+id/toPreviewStory"
+            app:destination="@id/previewStory"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/imageVideoPicker"
+        android:name="com.gbksoft.neighbourhood.ui.fragments.stories.create_story.media_picker.StoryMediaPickerFragment"
+        android:label="image_video_picker"
+        tools:layout="@layout/fragment_image_video_picker">
+
+        <action
+            android:id="@+id/toAdjustStory"
+            app:destination="@id/adjustStory"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+
+        <argument
+            android:name="isPost"
+            app:argType="boolean" />
+
+        <argument
+            android:name="needVideo"
+            app:argType="integer"
+            android:defaultValue="-1"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/createTextStory"
+        android:name="com.gbksoft.neighbourhood.ui.fragments.stories.create_story.text_story.CreateTextStoryFragment"
+        android:label="create_text_story"
+        tools:layout="@layout/fragment_create_text_story">
+
+        <action
+            android:id="@+id/toSetEffectDuration"
+            app:destination="@id/setEffectDuration"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+
+        <action
+            android:id="@+id/toAudioList"
+            app:destination="@id/audioList"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/setEffectDuration"
+        android:name="com.gbksoft.neighbourhood.ui.fragments.stories.create_story.effect_duration.SetEffectDurationFragment"
+        android:label="set_effect_duration"
+        tools:layout="@layout/fragment_set_effect_duration">
+
+        <argument
+            android:name="story"
+            app:argType="com.gbksoft.neighbourhood.model.story.creating.ConstructStory" />
+
+        <argument
+            android:name="storyText"
+            app:argType="com.gbksoft.neighbourhood.ui.fragments.stories.create_story.add_text.StoryText" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/audioList"
+        android:name="com.gbksoft.neighbourhood.ui.fragments.stories.audio.list.AudioListFragment"
+        android:label="audio_list"
+        tools:layout="@layout/fragment_audio_list">
+
+        <action
+            android:id="@+id/toReportPostFragment"
+            app:destination="@id/reportPostFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+
+        <action
+            android:id="@+id/toAddAudio"
+            app:destination="@id/addAudio"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/addAudio"
+        android:name="com.gbksoft.neighbourhood.ui.fragments.stories.audio.add.AddAudioFragment"
+        android:label="add_audio"
+        tools:layout="@layout/fragment_add_audio">
+
+        <argument
+            android:name="audio"
+            app:argType="android.net.Uri" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/audioSearchFragment"
+        android:name="com.gbksoft.neighbourhood.ui.fragments.search.search_screens.AudioSearchFragment"
+        android:label="AudioSearchFragment">
+
+        <action
+            android:id="@+id/toAudioDetailsFragment"
+            app:destination="@id/audioDetailsFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/audioDetailsFragment"
+        android:name="com.gbksoft.neighbourhood.ui.fragments.audio_details.AudioDetailsFragment"
+        android:label="AudioDetailsFragment">
+
+        <argument
+            android:name="audio"
+            app:argType="com.gbksoft.neighbourhood.model.audio.Audio" />
+
+        <action
+            android:id="@+id/toReportPostFragment"
+            app:destination="@id/reportPostFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+
+        <action
+            android:id="@+id/toDynamicStoryList"
+            app:destination="@id/dynamicStoryListFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/dynamicStoryListFragment"
+        android:name="com.gbksoft.neighbourhood.ui.fragments.stories.list.dynamic.DynamicStoryListFragment"
+        android:label="dynamic_story_list"
+        tools:layout="@layout/fragment_story_list">
+
+        <argument
+            android:name="initial_story_id"
+            app:argType="long" />
+
+        <argument
+            android:name="audio_id"
+            app:argType="long" />
+
+        <action
+            android:id="@+id/toCreateStory"
+            app:destination="@id/createStory"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+
+        <action
+            android:id="@+id/toEditPost"
+            app:destination="@id/createEditPostFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+
+        <action
+            android:id="@+id/toMyProfileFragment"
+            app:destination="@id/profileFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+        <action
+            android:id="@+id/toMyBusinessProfileFragment"
+            app:destination="@id/businessProfileFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+        <action
+            android:id="@+id/toPublicProfileFragment"
+            app:destination="@id/publicProfileFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+        <action
+            android:id="@+id/toPublicBusinessProfileFragment"
+            app:destination="@id/publicBusinessProfileFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+
+        <action
+            android:id="@+id/toReportPostFragment"
+            app:destination="@id/reportPostFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+        <action
+            android:id="@+id/toChatRoom"
+            app:destination="@id/chatRoomFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim"
+            app:popUpTo="@id/chatRoomFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/toHashtagSearch"
+            app:destination="@id/hashtagSearch"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+
+        <action
+            android:id="@+id/toGlobalSearch"
+            app:destination="@id/globalSearch"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+
+        <action
+            android:id="@+id/toAudioDetailsFragment"
+            app:destination="@id/audioDetailsFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+
+        <action
+            android:id="@+id/toCreateDuetStory"
+            app:destination="@id/createDuetStory"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/createDuetStory"
+        android:name="com.gbksoft.neighbourhood.ui.fragments.stories.create_story.duet.CreateDuetStoryFragment"
+        android:label="create_duet_story"
+        tools:layout="@layout/fragment_create_duet_story">
+
+        <argument
+            android:name="video"
+            app:argType="android.net.Uri" />
+
+        <action
+            android:id="@+id/toPreviewStory"
+            app:destination="@id/previewStory"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/followerProfilesFragment"
+        android:name="com.gbksoft.neighbourhood.ui.fragments.followers.FollowerProfilesFragment"
+        android:label="follower_profiles"
+        tools:layout="@layout/fragment_followers">
+
+        <action
+            android:id="@+id/toReportUserFragment"
+            app:destination="@id/reportUserFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+        <action
+            android:id="@+id/toPublicProfileFragment"
+            app:destination="@id/publicProfileFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+        <action
+            android:id="@+id/toPublicBusinessProfileFragment"
+            app:destination="@id/publicBusinessProfileFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/followedProfilesFragment"
+        android:name="com.gbksoft.neighbourhood.ui.fragments.followed.FollowedProfilesFragment"
+        android:label="followed_profiles"
+        tools:layout="@layout/fragment_followed">
+
+        <action
+            android:id="@+id/toReportUserFragment"
+            app:destination="@id/reportUserFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+        <action
+            android:id="@+id/toPublicProfileFragment"
+            app:destination="@id/publicProfileFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+        <action
+            android:id="@+id/toPublicBusinessProfileFragment"
+            app:destination="@id/publicBusinessProfileFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/audioRecordFragment"
+        android:name="com.gbksoft.neighbourhood.ui.fragments.audio_record.AudioRecordFragment"
+        android:label="audio_record"
+        tools:layout="@layout/fragment_audio_record">
+
+        <argument
+            android:name="wasHidden"
+            android:defaultValue="false"
+            app:argType="boolean" />
+
+        <argument
+            android:name="filePath"
+            android:defaultValue=""
+            app:argType="string" />
+
+        <action
+            android:id="@+id/toCreatePost"
+            app:destination="@id/createEditPostFragment"
+            app:enterAnim="@anim/pop_enter_anim"
+            app:exitAnim="@anim/pop_exit_anim"
+            app:popEnterAnim="@anim/pop_enter_anim"
+            app:popExitAnim="@anim/pop_exit_anim" />
+
+    </fragment>
+</navigation>

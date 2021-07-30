@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="@+id/cgFilters"
+        app:layout_constraintStart_toEndOf="@+id/cgFilters">
+
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/screen_padding"
+            android:src="@drawable/ic_nav_back"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/cgFilters"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:checkedChip="@id/discover"
+            app:layout_constraintLeft_toRightOf="@id/ivBack"
+            app:layout_constraintTop_toTopOf="parent"
+            app:selectionRequired="true"
+            app:singleLine="true"
+            app:singleSelection="true">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/discover"
+                style="@style/FilterChip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/audio_list_discover" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/myTracks"
+                style="@style/FilterChip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/audio_list_my_tracks" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/favorites"
+                style="@style/FilterChip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/audio_list_favorites" />
+        </com.google.android.material.chip.ChipGroup>
+
+        <FrameLayout
+            android:id="@+id/btnSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/filter_chip_min_touch_target_size"
+            android:paddingLeft="@dimen/screen_padding"
+            android:paddingRight="@dimen/screen_padding"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/ivSearch"
+                android:layout_width="@dimen/filter_chip_min_height"
+                android:layout_height="@dimen/filter_chip_min_height"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/bg_search_audio_btn_unselected"
+                android:scaleType="center"
+                app:srcCompat="@drawable/ic_search_audio_unselected" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/flAddAudio"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:layout_marginLeft="@dimen/screen_padding"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="@dimen/screen_padding"
+            android:background="@drawable/bg_add_audio_btn"
+            app:layout_constraintTop_toBottomOf="@id/cgFilters">
+
+            <ImageView
+                android:layout_width="39dp"
+                android:layout_height="39dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="4dp"
+                android:layout_marginTop="1dp"
+                android:src="@drawable/ic_add_audio" />
+
+            <TextView
+                style="@style/AddTrackButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/audio_list_add_your_track_btn" />
+
+        </FrameLayout>
+
+
+        <EditText
+            android:id="@+id/etSearch"
+            style="@style/AudioListSearchField"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginLeft="@dimen/screen_padding"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="@dimen/screen_padding"
+            android:hint="@string/audio_list_search"
+            android:paddingLeft="@dimen/screen_padding"
+            android:paddingRight="@dimen/screen_padding"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/cgFilters" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="bottom"
+            app:constraint_referenced_ids="flAddAudio,etSearch" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/groupEmptySearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:constraint_referenced_ids="ivEmptySearch,tvEmptySearch" />
+
+        <ImageView
+            android:id="@+id/ivEmptySearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.25"
+            app:srcCompat="@drawable/img_empty_search"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/tvEmptySearch"
+            style="@style/EmptySearchLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/empty_search_label_top_margin"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivEmptySearch"
+            android:text="@string/empty_search_result_msg"
+            tools:visibility="visible" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvAudio"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/barrier"
+            tools:listitem="@layout/adapter_audio_list" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

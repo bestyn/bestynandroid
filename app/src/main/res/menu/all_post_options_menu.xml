@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <item
+        android:id="@+id/actionEditPost"
+        android:title="@string/options_menu_edit_post"
+        android:visible="false"
+        tools:visible="true" />
+
+    <item
+        android:id="@+id/actionDeletePost"
+        android:title="@string/options_menu_delete_post"
+        android:visible="false"
+        tools:visible="true" />
+
+    <item
+        android:id="@+id/actionUnfollowPost"
+        android:title="@string/options_menu_unfollow_post"
+        android:visible="false"
+        tools:visible="true" />
+
+    <item
+        android:id="@+id/actionReportPost"
+        android:title="@string/options_menu_report_post"
+        android:visible="false"
+        tools:visible="true" />
+
+    <item
+        android:id="@+id/actionCopyDescription"
+        android:title="@string/options_menu_copy_description"
+        android:visible="false"
+        tools:visible="true" />
+
+    <item
+        android:id="@+id/actionSetAsAvatar"
+        android:title="@string/options_menu_set_as_avatar"
+        android:visible="false"
+        tools:visible="true" />
+
+    <item
+        android:id="@+id/actionMessageAuthor"
+        android:title=""
+        android:visible="false"
+        tools:visible="true" />
+
+</menu>

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/appBar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/screen_background_color"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/groupStartSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="ivEmptySearch,tvEmptySearch" />
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/groupRecentSearches"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:constraint_referenced_ids="recentSearchLabel,recentSearches" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/bg_app_bar"
+            app:layout_constraintBottom_toBottomOf="@id/searchTabs"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/btnBack"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_gravity="start|center_vertical"
+            android:background="@drawable/ripple_click"
+            android:paddingLeft="@dimen/global_search_header_h_padding"
+            android:paddingRight="@dimen/global_search_header_h_padding"
+            android:scaleType="center"
+            app:layout_constraintBottom_toBottomOf="@id/searchView"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="@id/searchView"
+            app:srcCompat="@drawable/ic_nav_back" />
+
+        <com.gbksoft.neighbourhood.ui.widgets.post_list.GlobalSearchView
+            android:id="@+id/searchView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/global_search_header_h_padding"
+            android:paddingTop="@dimen/global_search_header_v_padding"
+            android:paddingBottom="@dimen/global_search_header_v_padding"
+            app:layout_constraintLeft_toRightOf="@id/btnBack"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/searchTabs"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/screen_padding"
+            android:paddingRight="@dimen/screen_padding"
+            app:checkedChip="@id/searchTabPosts"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/searchView"
+            app:selectionRequired="true"
+            app:singleLine="true"
+            app:singleSelection="true">
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/searchTabPosts"
+                style="@style/FilterChip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/search_tab_posts" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/searchTabProfiles"
+                style="@style/FilterChip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/search_tab_profiles" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/searchTabAudios"
+                style="@style/FilterChip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/search_tab_audios" />
+        </com.google.android.material.chip.ChipGroup>
+
+        <FrameLayout
+            android:id="@+id/searchScreenContainer"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@color/screen_background_color"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/searchTabs"
+            tools:visibility="visible" />
+
+
+        <TextView
+            android:id="@+id/recentSearchLabel"
+            style="@style/RecentSearchesLabel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/screen_padding"
+            android:layout_marginTop="@dimen/screen_padding"
+            android:text="@string/label_recent_searches"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/searchTabs" />
+
+        <com.gbksoft.neighbourhood.ui.widgets.chip.RecentSearchesGroup
+            android:id="@+id/recentSearches"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/screen_padding"
+            android:clipToPadding="false"
+            android:orientation="horizontal"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/recentSearchLabel" />
+
+        <ImageView
+            android:id="@+id/ivEmptySearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/searchTabs"
+            app:layout_constraintVertical_bias="0.25"
+            app:srcCompat="@drawable/img_empty_search" />
+
+        <TextView
+            android:id="@+id/tvEmptySearch"
+            style="@style/EmptySearchLabel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/empty_search_label_top_margin"
+            android:layout_marginStart="@dimen/margin_60"
+            android:layout_marginEnd="@dimen/margin_60"
+            android:text="@string/empty_recent_searches_msg"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivEmptySearch" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

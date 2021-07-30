@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="@dimen/news_item_width"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/news_item_bg_color"
+        app:cardCornerRadius="@dimen/news_item_corner"
+        app:cardElevation="0dp">
+
+        <LinearLayout
+            android:layout_margin="@dimen/news_item_padding"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/ivPicture"
+                android:layout_width="@dimen/news_item_picture_width"
+                android:layout_height="@dimen/news_item_picture_height"
+                android:scaleType="centerCrop"
+                tools:src="@drawable/img_auth" />
+
+            <TextView
+                android:id="@+id/tvDescription"
+                style="@style/NewsDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/news_item_description_h_margin"
+                android:layout_marginTop="@dimen/news_item_text_v_margin"
+                android:ellipsize="end"
+                android:lines="3"
+                android:maxLines="3"
+                tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidid …" />
+
+            <TextView
+                android:id="@+id/tvDetails"
+                style="@style/NewsDetailsButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/news_item_description_h_margin"
+                android:layout_marginTop="@dimen/news_item_text_v_spacing"
+                android:layout_marginBottom="@dimen/news_item_text_v_margin"
+                android:background="@drawable/selector_news_details_button"
+                android:gravity="center_vertical"
+                android:minHeight="@dimen/news_item_details_button_height"
+                android:paddingHorizontal="@dimen/news_item_details_button_h_padding"
+                android:text="@string/news_item_details_button" />
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>

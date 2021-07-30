@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_color_picker"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/ivFontRubikOne"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="15dp"
+        android:background="@drawable/bg_font_picker_item_inactive"
+        android:scaleType="center"
+        android:src="@drawable/ic_font_rubik_one" />
+
+    <ImageView
+        android:id="@+id/ivFontPacifico"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="12dp"
+        android:background="@drawable/bg_font_picker_item_inactive"
+        android:scaleType="center"
+        android:src="@drawable/ic_font_pacifico" />
+
+    <ImageView
+        android:id="@+id/ivFontPoppins"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="12dp"
+        android:background="@drawable/bg_font_picker_item_inactive"
+        android:scaleType="center"
+        android:src="@drawable/ic_font_poppins" />
+
+    <ImageView
+        android:id="@+id/ivFontOswald"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="12dp"
+        android:background="@drawable/bg_font_picker_item_inactive"
+        android:scaleType="center"
+        android:src="@drawable/ic_font_oswald" />
+
+    <ImageView
+        android:id="@+id/ivFontProstoOne"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="12dp"
+        android:background="@drawable/bg_font_picker_item_inactive"
+        android:scaleType="center"
+        android:src="@drawable/ic_font_prosto_one" />
+
+    <ImageView
+        android:id="@+id/ivFontPtSansCaption"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="12dp"
+        android:background="@drawable/bg_font_picker_item_inactive"
+        android:scaleType="center"
+        android:src="@drawable/ic_font_pt_sans_caption" />
+
+    <ImageView
+        android:id="@+id/ivFontPlayfairDisplay"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center"
+        android:layout_marginLeft="12dp"
+        android:background="@drawable/bg_font_picker_item_inactive"
+        android:scaleType="center"
+        android:src="@drawable/ic_font_playfair_display" />
+
+</LinearLayout>

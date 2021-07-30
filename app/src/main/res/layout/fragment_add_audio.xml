@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.gbksoft.neighbourhood.utils.validation.ValidationField" />
+
+        <variable
+            name="errors"
+            type="com.gbksoft.neighbourhood.utils.validation.ErrorFieldsModel" />
+
+        <variable
+            name="model"
+            type="com.gbksoft.neighbourhood.ui.fragments.stories.create_story.description.StoryDescriptionModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/leftIndent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="@dimen/story_description_screen_h_padding" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/rightIndent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="@dimen/story_description_screen_h_padding" />
+
+        <FrameLayout
+            android:id="@+id/flActionBar"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tvAddTrack"
+                style="@style/AddTrackTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/add_audio_title" />
+
+            <ImageView
+                android:id="@+id/btnClose"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_gravity="right|center_vertical"
+                android:layout_marginRight="20dp"
+                android:padding="3dp"
+                android:src="@drawable/ic_close_adding_track" />
+
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/labelDescription"
+            style="@style/TextInputLabel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/label_story_description_top_margin"
+            android:text="@string/add_audio_description"
+            app:layout_constraintLeft_toLeftOf="@id/leftIndent"
+            app:layout_constraintRight_toRightOf="@id/rightIndent"
+            app:layout_constraintTop_toBottomOf="@id/flActionBar" />
+
+        <com.gbksoft.neighbourhood.ui.widgets.text_input_layout.AutoClearErrorInputLayout
+            android:id="@+id/tilDescription"
+            style="@style/TextInputLayout"
+            android:layout_width="0dp"
+            app:errorField="@{ValidationField.AUDIO_DESCRIPTION}"
+            app:errorText="@{errors.errorsMap}"
+            app:errorTextAppearance="@style/TextInputLayoutError"
+            app:layout_constraintLeft_toLeftOf="@id/leftIndent"
+            app:layout_constraintRight_toRightOf="@id/rightIndent"
+            app:layout_constraintTop_toBottomOf="@id/labelDescription">
+
+            <EditText
+                android:id="@+id/etDescription"
+                style="@style/TextInputEditText"
+                android:layout_height="wrap_content"
+                android:hint="@string/field_story_description_hint"
+                android:inputType="textMultiLine"
+                android:minHeight="@dimen/edit_text_height"
+                android:text="@={model.description}" />
+
+        </com.gbksoft.neighbourhood.ui.widgets.text_input_layout.AutoClearErrorInputLayout>
+
+        <TextView
+            android:id="@+id/btnHashtag"
+            style="@style/HashtagButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add_hashtag"
+            app:layout_constraintLeft_toLeftOf="@id/leftIndent"
+            app:layout_constraintTop_toBottomOf="@id/tilDescription" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvHashtags"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:clickable="true"
+            android:elevation="1dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:visibility="gone"
+            app:layout_constraintLeft_toLeftOf="@id/leftIndent"
+            app:layout_constraintRight_toRightOf="@id/rightIndent"
+            app:layout_constraintTop_toBottomOf="@id/tilDescription"
+            tools:listitem="@layout/adapter_hashtag_list" />
+
+
+        <TextView
+            android:id="@+id/labelSelectBeginning"
+            style="@style/TextInputLabel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/label_story_description_top_margin"
+            android:text="@string/add_audio_select_beginning"
+            app:layout_constraintLeft_toLeftOf="@id/leftIndent"
+            app:layout_constraintRight_toRightOf="@id/rightIndent"
+            app:layout_constraintTop_toBottomOf="@id/btnHashtag" />
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/bg_trim_audio_view_add_track"
+            app:layout_constraintBottom_toBottomOf="@id/trimAudioView"
+            app:layout_constraintLeft_toLeftOf="@id/leftIndent"
+            app:layout_constraintRight_toRightOf="@id/rightIndent"
+            app:layout_constraintTop_toTopOf="@id/trimAudioView" />
+
+        <com.gbksoft.neighbourhood.ui.widgets.stories.audio.TrimAudioView
+            android:id="@+id/trimAudioView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginRight="12dp"
+            app:layout_constraintLeft_toRightOf="@id/btnPlayPause"
+            app:layout_constraintRight_toRightOf="@id/rightIndent"
+            app:layout_constraintTop_toBottomOf="@id/labelSelectBeginning" />
+
+        <ImageView
+            android:id="@+id/btnPlayPause"
+            android:layout_width="39dp"
+            android:layout_height="39dp"
+            android:layout_marginLeft="12dp"
+            android:background="@drawable/bg_trim_audio_play_btn"
+            android:src="@drawable/ic_pause_audio"
+            app:layout_constraintBottom_toBottomOf="@id/trimAudioView"
+            app:layout_constraintLeft_toLeftOf="@id/leftIndent"
+            app:layout_constraintTop_toTopOf="@id/trimAudioView" />
+
+        <View
+            android:id="@+id/panelShadow"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/bottom_panel_shadow_height"
+            android:background="@drawable/shadow_bottom_panel"
+            app:layout_constraintBottom_toTopOf="@id/buttonPanel"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <FrameLayout
+            android:id="@+id/buttonPanel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/edit_post_panel_color"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent">
+
+            <Button
+                android:id="@+id/btnSave"
+                style="@style/PostStoryButton"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="12dp"
+                android:text="@string/add_audio_save" />
+        </FrameLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

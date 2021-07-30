@@ -1,0 +1,652 @@
+<!DOCTYPE resources[<!ENTITY terms "Terms &amp; Conditions"><!ENTITY policy "Privacy Policy"><!ENTITY signup "Sign Up"><!ENTITY signin "Sign In">]>
+<resources>
+    <string name="app_name">Bestyn</string>
+    <string name="info_email">info@bestyn.app</string>
+
+    <string name="value_not_set">Not set</string>
+
+    <string name="error_no_internet_connection">Connection Error.\nPlease check your connection to continue using the app.</string>
+    <string name="bad_connection">Bad Connection</string>
+    <string name="bad_connection_description">You have some connection problems.\nPlease reconnect</string>
+
+    <string name="maintenance_mode_title">We\'ll be back soon!</string>
+    <string name="maintenance_mode_description">Sorry for the inconvenience but we\'re performing some maintenance at the moment. We\'ll be back online shortly!</string>
+
+    <string name="terms">&terms;</string>
+    <string name="policy">&policy;</string>
+    <string name="terms_and_policy_full_text">I agree with &terms; and &policy;</string>
+
+    <string name="signup">&signup;</string>
+    <string name="do_not_have_an_account_yet">Don’t have an account yet? &signup;</string>
+
+    <string name="signin">&signin;</string>
+    <string name="go_to_signin">Go to &signin;</string>
+
+    <string name="dialog_logout_message">Do you really want to Sign Out from your Bestyn?</string>
+
+    <string name="error_category_not_found">There is no such category in the system</string>
+    <string name="info_type_birthday">Date of Birth</string>
+    <string name="info_type_address">Address</string>
+    <string name="info_type_email">Email</string>
+    <string name="info_type_gender">Gender</string>
+
+    <string name="resend_email_link"><u>Resend Email</u></string>
+    <string name="ok">Ok</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="accepted">accepted</string>
+    <string name="congrats">Congratulations! You are now signed into the app</string>
+    <string name="msg_email_has_changed">Your email was successfully updated. Please sign in</string>
+    <string name="you_already_added_such_type">You already added such type</string>
+
+    <string name="dialog_confirm_changed_email_title">Change email</string>
+    <string name="dialog_confirm_changed_email_message">We have sent you a link to your email to change. Please check your Inbox and Spam folders. If you haven\'t received a link, request the link again</string>
+
+    <!--Common -->
+    <string name="post_picture_crop_ratio">255:190</string>
+    <string name="error_unable_open_file">Unable to open file</string>
+    <string name="error_something_went_wrong">Something went wrong. Please try again.</string>
+
+    <!-- Auth -->
+    <string name="create_password_hint">8 symbols minimum</string>
+    <string name="title_sign_in">Sign In</string>
+    <string name="sign_in_email_label">Email</string>
+    <string name="sign_in_email_hint">Enter Email</string>
+    <string name="sign_in_password_label">Password</string>
+    <string name="sign_in_password_hint">Enter Password</string>
+    <string name="sign_in_button">Sign In</string>
+    <string name="sign_in_forgot_password_question">Forgot Password?</string>
+    <string name="title_sign_up">Sign Up</string>
+    <string name="sign_up_button">Sign Up</string>
+    <string name="sign_up_address_label">Address</string>
+    <string name="sign_up_address_hint">@string/sign_up_address_label</string>
+    <string name="sign_up_full_name_label">Full Name</string>
+    <string name="sign_up_full_name_hint">Enter Full Name</string>
+    <string name="sign_up_email_label">@string/sign_in_email_label</string>
+    <string name="sign_up_email_hint">@string/sign_in_email_hint</string>
+    <string name="sign_up_password_label">@string/sign_in_password_label</string>
+    <string name="sign_up_password_hint">@string/create_password_hint</string>
+    <string name="sign_up_confirm_password_label">Confirm Password</string>
+    <string name="sign_up_confirm_password_hint">@string/sign_up_confirm_password_label</string>
+    <string name="title_forgot_password">Forgot password</string>
+    <string name="forgot_password_button">Reset Password</string>
+    <string name="forgot_password_email_label">@string/sign_in_email_label</string>
+    <string name="forgot_password_email_hint">@string/sign_in_email_hint</string>
+    <string name="title_reset_password">Reset Password</string>
+    <string name="reset_password_button">Change Password</string>
+    <string name="reset_password_label">New Password</string>
+    <string name="reset_password_hint">@string/create_password_hint</string>
+    <string name="reset_password_confirm_label">Confirm New Password</string>
+    <string name="reset_password_confirm_hint">@string/reset_password_confirm_label</string>
+    <string name="dialog_confirm_your_email_title">Confirm Email Address</string>
+    <string name="dialog_confirm_your_email_message">We have sent you a link to verify your email. Please check your Inbox and Spam folders. If you haven\'t received a link, request the link again</string>
+    <string name="dialog_email_not_confirmed_title">Email Not Confirmed</string>
+    <string name="dialog_email_not_confirmed_message">We sent you an email but you did not confirm your email address yet. Please confirm it now or ask for another email</string>
+    <string name="dialog_password_recover_title">Password recover</string>
+    <string name="dialog_password_recover_message">We have sent you a link to your email to recover the password. Please check your Inbox and Spam folders. If you haven\'t received a link, request the link again</string>
+    <string name="dialog_password_changed_title">Password changed</string>
+    <string name="dialog_password_changed_message">Password was successfully reset! Use it to log into the Bestyn application</string>
+    <string name="dialog_user_blocked_title">Your account was blocked</string>
+    <string name="dialog_user_blocked_message">Sorry, but your account was blocked by Admin. For more details contact us %s</string>
+
+    <!--Static Pages -->
+    <string name="about_app_link">https://bestyn.app</string>
+    <string name="title_about">About</string>
+    <string name="title_privacy_policy">Privacy policy</string>
+    <string name="title_terms_and_conditions">Terms and conditions</string>
+
+    <!-- Bottom Sheet Dialogs -->
+    <string name="bottom_sheet_photo_from_gallery">Select image from Gallery</string>
+    <string name="bottom_sheet_video_from_gallery">Select video from Gallery</string>
+    <string name="bottom_sheet_start_camera">Start a Camera</string>
+    <string name="bottom_sheet_remove_photo">Remove Photo</string>
+    <string name="bottom_sheet_take_photo">Take a Photo</string>
+    <string name="bottom_sheet_make_video">Make a Video</string>
+    <string name="bottom_sheet_file">File</string>
+    <string name="bottom_sheet_remove">Remove</string>
+    <string name="bottom_sheet_cancel">Cancel</string>
+    <string name="bottom_sheet_copy_message">Copy Message</string>
+    <string name="bottom_sheet_edit_message">Edit Message</string>
+    <string name="bottom_sheet_delete_message">Delete Message </string>
+
+    <!-- Create Post Bottom sheet -->
+    <string name="create_post_menu_title">Create Post</string>
+    <string name="create_post_label_offer">Offer</string>
+    <string name="create_post_label_news">News</string>
+    <string name="create_post_label_event">Event</string>
+    <string name="create_post_label_crime">Crime</string>
+    <string name="create_post_label_general">General</string>
+
+    <!-- Settings Bottom sheet -->
+    <string name="settings_menu_profile_settings">Profile Settings</string>
+    <string name="settings_menu_payment_plans">Payment Plans</string>
+    <string name="settings_menu_about">About</string>
+    <string name="settings_menu_privacy_policy">Privacy Policy</string>
+    <string name="settings_menu_terms">Terms and Conditions</string>
+    <string name="settings_menu_logout">Log Out</string>
+
+    <!-- Switch Profile Bottom sheet -->
+    <string name="switch_profile_business_type">Business</string>
+    <string name="msg_profile_switched">You switched to %s</string>
+    <string name="add_business_profile">Add Business Profile</string>
+    <string name="business_profile_max_count">(maximum 5)</string>
+
+    <!--Basic Profile -->
+    <string name="sign_out_yes">Sign Out</string>
+    <string name="sign_out_no">Cancel</string>
+    <string name="profile_tab_interests">My Interests</string>
+    <string name="profile_tab_images">Images</string>
+    <string name="profile_interests_label">Selected Interests</string>
+    <string name="profile_gender_template">Gender: %s</string>
+
+    <!-- Profile Settings -->
+    <string name="title_profile_setting">Profile Settings</string>
+    <string name="edit_profile_info_title">Edit Profile Info</string>
+    <string name="edit_profile_email_title">Change Email</string>
+    <string name="edit_profile_password_title">Change Password</string>
+    <string name="edit_profile_business_content_title">Show Business Content To Me</string>
+    <string name="edit_profile_current_password_label">Current Password</string>
+    <string name="edit_profile_current_password_hint">@string/edit_profile_current_password_label</string>
+    <string name="edit_profile_new_password_label">New Password</string>
+    <string name="edit_profile_new_password_hint">@string/create_password_hint</string>
+    <string name="edit_profile_confirm_password_label">Confirm New Password</string>
+    <string name="edit_profile_confirm_password_hint">@string/edit_profile_confirm_password_label</string>
+    <string name="edit_profile_skip_interests">Skip For Now</string>
+    <string name="edit_profile_save">Save</string>
+    <string name="edit_profile_existing_email">Existing Email</string>
+    <string name="edit_profile_new_email">New Email</string>
+    <string name="edit_profile_new_email_hint">Enter New email</string>
+    <string name="msg_edit_profile_data_saved">Your Profile was successfully updated</string>
+    <string name="toast_edit_profile_password_changed">Your password has been successfully changed!</string>
+    <string name="date_of_birth_label">Date of Birth</string>
+    <string name="date_of_birth_hint">Add your date of birth</string>
+    <string name="gender">Gender</string>
+    <string name="gender_male">Male</string>
+    <string name="gender_female">Female</string>
+    <string name="gender_other">Other</string>
+
+    <!-- Errors -->
+    <string name="browser_not_found_msg">No application can handle this request. Please install a web browser or check your URL.</string>
+    <string name="dialer_not_found_msg">No application can handle this request.</string>
+    <string name="email_app_not_found_msg">No application can handle this request.</string>
+
+    <!-- Public Basic Profile -->
+    <string name="public_profile_message_button">Message</string>
+    <string name="options_menu_report_user">Report User</string>
+    <string name="options_menu_remove_follower">Remove follower</string>
+    <string name="public_profile_tab_info">Interests</string>
+    <string name="public_profile_tab_images">Images</string>
+
+    <!-- Edit Interests -->
+    <string name="title_my_interests">My Interests</string>
+    <string name="title_edit_interests">Edit My Interests</string>
+    <string name="label_selected_interests">Selected interests</string>
+    <string name="label_search_or_select_interests">Search or Select Your Interests</string>
+    <string name="hint_search_interest">Search</string>
+    <string name="msg_interests_saved">Your interests were successfully updated</string>
+    <string name="radius_miles">miles</string>
+    <string name="dialog_not_saved_interests_changes_msg">Do you really want to leave without saving the changes?</string>
+    <string name="dialog_not_saved_interests_changes_save_btn">Save</string>
+    <string name="dialog_not_saved_interests_changes_leave_btn">Leave</string>
+
+    <!-- Create/Edit Post -->
+    <string name="post_type_general">General</string>
+    <string name="post_type_news">News</string>
+    <string name="post_type_crime">Crime</string>
+    <string name="post_type_offer">Offer</string>
+    <string name="post_type_event">Event</string>
+    <string name="title_create_general_post">Create General Post</string>
+    <string name="title_create_news_post">Share News</string>
+    <string name="title_create_crime_post">Tell about Crime</string>
+    <string name="title_create_offer_post">Create Offer</string>
+    <string name="title_create_event_post">Create Event</string>
+    <string name="title_edit_general_post">Edit General Post</string>
+    <string name="title_edit_news_post">Edit News Post</string>
+    <string name="title_edit_crime_post">Edit Crime Post</string>
+    <string name="title_edit_offer_post">Edit Offer Post</string>
+    <string name="title_edit_event_post">Edit Event</string>
+    <string name="title_edit_story_post">Edit Story</string>
+    <string name="category_label_general_post">General Post Category</string>
+    <string name="category_label_news_post">News Category</string>
+    <string name="category_label_crime_post">Crime Category</string>
+    <string name="category_label_offer_post">Offer Category</string>
+    <string name="category_label_event_post">Event Category</string>
+    <string name="category_hint_general_post">Food, Weather, etc.</string>
+    <string name="category_hint_news_post">@string/category_hint_general_post</string>
+    <string name="category_hint_crime_post">Fraud, Robbery, etc.</string>
+    <string name="category_hint_offer_post">@string/category_hint_general_post</string>
+    <string name="category_hint_event_post">Party, Exhibition, etc.</string>
+    <string name="description_label_general_post">General Post Description</string>
+    <string name="description_label_news_post">News Description</string>
+    <string name="description_label_crime_post">Crime Description</string>
+    <string name="description_label_offer_post">Offer Description</string>
+    <string name="description_label_event_post">Event Description</string>
+    <string name="address_label_crime_post">Address</string>
+    <string name="address_label_event_post">Event Address</string>
+    <string name="address_hint_crime_post">Incident Address</string>
+    <string name="address_hint_event_post">Your Event Address</string>
+    <string name="create_post_button">Post</string>
+    <string name="create_event_button">Create Event</string>
+    <string name="save_post_button">Save</string>
+    <string name="save_event_button">Save</string>
+    <string name="label_add_post_media">Attach</string>
+    <string name="label_added_post_media">Attachments Added</string>
+    <string name="name_label_event_post">Event Name</string>
+    <string name="name_hint_event_post">Your Event Name</string>
+    <string name="msg_post_published">Your Post was successfully published</string>
+    <string name="price_in">Price in</string>
+    <string name="post">Post</string>
+    <string name="start_date_time">Start Date &amp; Time</string>
+    <string name="end_date_time">End Date &amp; Time</string>
+    <string name="create_post_description_hint">Add your description and hashtags</string>
+    <string name="add_hashtag">#hashtags</string>
+    <string name="add_user">@users</string>
+
+    <!-- Business Profile -->
+    <string name="business_info_type_address">Business Address</string>
+    <string name="business_info_type_email">Business Email </string>
+    <string name="business_info_type_site">Business Web site </string>
+    <string name="business_info_type_phone">Business Phone</string>
+    <string name="business_info_type_radius">Visibility Radius</string>
+    <string name="business_add_image">Add Image</string>
+    <string name="business_profile_tab_info">Business Information</string>
+    <string name="business_profile_tab_images">Business Images</string>
+    <string name="business_profile_send_email_selector_title">Send email</string>
+
+    <!-- Add/Edit Business Profile -->
+    <string name="title_add_business_profile">Add Business Profile</string>
+    <string name="title_edit_business_profile">Edit Business Profile</string>
+    <string name="edit_business_profile_name_label">Name of Business</string>
+    <string name="edit_business_profile_name_hint">Enter Business Name</string>
+    <string name="edit_business_profile_description_label">Business Description</string>
+    <string name="edit_business_profile_description_hint">What is your Business about?</string>
+    <string name="edit_business_profile_address_label">Business Address</string>
+    <string name="edit_business_profile_address_hint">Enter Business Address</string>
+    <string name="edit_business_profile_categories_label">Business Category</string>
+    <string name="edit_business_profile_max_categories_label">(Maximum 5)</string>
+    <string name="edit_business_profile_categories_hint">Food Delivery, Trading goods, Tourism</string>
+    <string name="edit_business_profile_web_label">Business Web site</string>
+    <string name="edit_business_profile_web_hint">Enter Business Web site</string>
+    <string name="edit_business_profile_email_label">Business Email</string>
+    <string name="edit_business_profile_email_hint">Enter Business Email</string>
+    <string name="edit_business_profile_phone_label">Business Phone</string>
+    <string name="edit_business_profile_phone_hint">Enter Business Phone</string>
+    <string name="edit_business_profile_radius_label">Visibility Radius</string>
+    <string name="edit_business_profile_radius_cost_free">Cost : Free</string>
+    <string name="edit_business_profile_radius_cost">Cost : %s</string>
+    <string name="edit_business_profile_radius_only_me">Only me</string>
+    <string name="edit_business_profile_radius_only_me_description">If you select then this Profile with it\'s posts will become invisible for others.</string>
+    <string name="edit_business_profile_radius_10">50 miles - for free</string>
+    <string name="edit_business_profile_radius_10_description">If you select then your posts in the radius of 50 miles will be available for your business.</string>
+    <string name="edit_business_profile_increase_radius">Increase radius</string>
+    <string name="edit_business_profile_change_radius">Change radius</string>
+    <string name="edit_business_profile_increase_radius_description">An option to promote your business within this application for more than 50 miles radius from your address is provided on paid subscriptions</string>
+    <string name="edit_business_profile_radius_other_description">You current plan is %s under %s</string>
+    <string name="add_business_profile_button">Create</string>
+    <string name="edit_business_profile_button">Save</string>
+    <string name="msg_business_profile_created">You have just created a new Business Profile</string>
+    <string name="msg_business_profile_updated">Business profile details have been updated</string>
+    <string name="msg_category_limit_exceeded">Maximum 5 categories are allowed</string>
+
+    <!-- My Posts -->
+    <string name="posts_filter_all">All</string>
+    <string name="posts_filter_general">General</string>
+    <string name="posts_filter_media">Media</string>
+    <string name="posts_filter_news">News</string>
+    <string name="posts_filter_crime">Crimes</string>
+    <string name="posts_filter_events">Events</string>
+    <string name="posts_filter_offer">Offers</string>
+    <string name="posts_filter_business">Business</string>
+    <string name="posts_filter_followed">Followed</string>
+    <string name="posts_filter_created">Created</string>
+    <string name="post_tab_title_followed_by_me">Followed</string>
+    <string name="post_tab_title_created_by_me">Created</string>
+    <string name="my_posts_empty_list_msg">You have no posts yet</string>
+    <string name="post_edited">&#160;•&#160;edited</string>
+    <string name="my_posts_type_event">Event</string>
+    <string name="my_posts_type_story">Story</string>
+    <string name="my_posts_type_crime">Crime</string>
+    <string name="my_posts_type_media">Media</string>
+    <string name="my_posts_type_news">News</string>
+    <string name="my_posts_type_offer">Offer</string>
+    <string name="post_ellipsis"> …view all</string>
+    <string name="options_menu_edit_post">Edit</string>
+    <string name="options_menu_delete_post">Delete</string>
+    <string name="options_menu_unfollow_post">Unfollow Post</string>
+    <string name="options_menu_report_post">Report Post</string>
+    <string name="options_menu_copy_description">Copy description</string>
+    <string name="options_menu_message_author">Message %s</string>
+    <string name="delete_post_dialog_title">Do you really want to delete this post?</string>
+    <string name="delete_event_dialog_title">Do you really want to delete this event?</string>
+    <string name="delete_post_dialog_msg">In this case it will become unavailable for anyone and you won’t be able to recover it</string>
+    <string name="delete_post_dialog_yes">Yes</string>
+    <string name="delete_post_dialog_no">No</string>
+    <string name="post_deleted_msg">Your post was successfully deleted</string>
+    <string name="event_deleted_msg">Your event was successfully deleted</string>
+    <string name="post_description_copied">Description copied</string>
+
+    <!-- My Neighborhood -->
+    <string name="posts_filter_recommended">For You</string>
+    <string name="follow_button">Follow Post</string>
+    <string name="state_followed">Followed</string>
+    <string name="neighborhood_posts_empty_list_msg">There are no posts</string>
+    <string name="filtered_posts_empty_list_msg">There are no posts of such type</string>
+    <string name="recommended_tab_empty_list_button">My Interests</string>
+    <string name="recommended_tab_empty_list_msg">To see recommended posts, please\nprovide us with your interests</string>
+
+    <!-- News -->
+    <string name="news_list_title">It may be Interesting for You</string>
+    <string name="news_item_details_button">Details</string>
+
+    <!-- My Neighbors Map -->
+    <string name="map_marker_me">Me</string>
+
+    <!-- Full Image screen -->
+    <string name="full_image_media_downloaded_message">Media file was successfully saved to your device</string>
+
+    <!-- Video Player -->
+    <string name="video_player_media_downloaded_message">@string/full_image_media_downloaded_message</string>
+
+    <!-- Reports-->
+    <string name="title_report_screen">Reason of complaint</string>
+    <string name="report_post_hint">What do you want to report?</string>
+    <string name="report_user_hint">Why are you reporting this user?</string>
+    <string name="report_post_button">Report Post</string>
+    <string name="report_user_button">Report User</string>
+    <string name="report_post_inappropriate_content">Inappropriate content\n(offensive or abusive)</string>
+    <string name="report_post_spam">Spam</string>
+    <string name="report_user_fake_profile">Fake Profile</string>
+    <string name="report_user_privacy_violation">Privacy Violation</string>
+    <string name="report_user_vandalism">Vandalism</string>
+    <string name="report_user_inappropriate_content">Inappropriate content\n(offensive or abusive)</string>
+    <string name="report_user_spam">Spam</string>
+    <string name="success_report_popup_message">Your request was successfully created and will be reviewed by Admin</string>
+
+    <!-- Input Message View  -->
+    <string name="input_message_edit_label">Edit Message</string>
+    <string name="input_message_swipe_to_cancel_audio_msg">Swipe to cancel</string>
+    <string name="input_message_swipe_arrow">&#60;</string>
+    <string name="toast_hold_to_record">Hold to record audio</string>
+
+    <!-- Post chats -->
+    <string name="title_general_post">General Post</string>
+    <string name="title_news">News</string>
+    <string name="title_crime">Crime</string>
+    <string name="title_offer">Offer</string>
+    <string name="title_event">Event</string>
+    <string name="title_media">Media</string>
+    <string name="title_story">Story</string>
+    <string name="add_post_comment_hint">Add a comment</string>
+    <string name="post_empty_messages_hint">Be the first to add a comment</string>
+
+    <!-- Chat Room  -->
+    <string name="chat_msg_edited_label">edited</string>
+    <string name="chat_msg_edited_dot">&#160;•&#160;</string>
+    <string name="dialog_delete_message_text">Do you really want to delete this message?</string>
+    <string name="dialog_delete_message_yes">@string/yes</string>
+    <string name="dialog_delete_message_no">@string/no</string>
+    <string name="today_title">Today</string>
+    <string name="yesterday_title">Yesterday</string>
+    <string name="message_copied">Message copied</string>
+    <string name="audio_message_start_duration">00:00</string>
+    <string name="audio_message_duration_pattern">%s:%s</string>
+    <string name="restore_purchase_button"><u>Restore Purchase</u></string>
+    <string name="msg_text_to_speech_unavailable">Text-To-Speech is not enabled</string>
+    <string name="msg_voicing_lang_unavailable">Language is not supported</string>
+    <string name="msg_voicing_lang_data_missing">Language data is missing</string>
+    <string name="chat_online_indicator_state_online">Online</string>
+    <string name="chat_online_indicator_state_offline">Offline</string>
+    <string name="chat_online_indicator_state_typing">is typing…</string>
+    <string name="chat_unread_msg_highlighter_label">Unread Messages</string>
+
+    <!--Payments-->
+    <string name="title_payment_screen_for_not_subscribed">Select Your Payment Plan</string>
+    <string name="title_payment_screen_for_subscribed">Your current subscription</string>
+
+    <string name="description_payment_screen_for_not_subscribed">To spread Post from ALL of your Business Profiles for more than 10 miles radius, please purchase a subscription</string>
+    <string name="description_payment_screen_for_subscribed">To change your Payment plan please you need to cancel your current subscription first</string>
+
+    <string name="title_payment_plans">Payment Plans</string>
+    <string name="title_audio_track_details">Audio Track Details</string>
+
+    <string name="purchase_subscription_button">Purchase Subscription</string>
+    <string name="manage_subscription_button">Manage Subscription</string>
+    <string name="hint_choose_plan_first">Choose plan first</string>
+    <string name="subscription_is_used_by_another_user">Subscription connected to this Google account is already linked to another user</string>
+    <string name="title_change_subscription">Change subscription</string>
+    <string name="msg_change_subscription">To change your subscription you need to cancel the current previously within Manage Subscription</string>
+    <string name="title_active_subscription_found_dialog">Active subscription found</string>
+    <string name="msg_active_subscription_found_dialog">Your subscription was successfully restored</string>
+    <string name="title_no_subscription_found_dialog">No subscription found</string>
+    <string name="msg_no_subscription_found_dialog">There is no active Subscription found with Bestyn for this Google account</string>
+    <string name="title_manage_subscription_on_ios_dialog">Warning!</string>
+    <string name="msg_manage_subscription_on_ios_dialog">To manage your subscription, you should use a device with iOS platform on which it was purchased</string>
+    <string name="title_subscription_from_another_platform">Purchased from %s</string>
+    <string name="title_restore_subscription_on_ios_dialog">Subscription on another platform found</string>
+    <string name="msg_restore_subscription_on_ios_dialog">There is no active Subscription found with Bestyn for this Google account on Android platform. Check it on your iOS where it was purchased.</string>
+
+    <array name="subscription_hints">
+        <item>Subscription will be linked to your Google account. The subscription is renewed
+            automatically until the user chooses to cancel it.
+        </item>
+        <item>Cancellation of subscription should be done in at least 24 hours before the end of the
+            current period. If you cancel your subscription earlier, this will mean that your
+            current subscription will not be prolonged anymore.
+        </item>
+        <item>Removing the app doesn\'t automatically cancel the subscription.</item>
+    </array>
+
+    <!--Plurals-->
+    <plurals name="month">
+        <item quantity="other">Months</item>
+        <item quantity="one">Month</item>
+    </plurals>
+    <string name="toast_file_downloaded">File has been downloaded</string>
+
+    <!-- Chat List -->
+    <string name="empty_chat_list_msg">You have no chats yet</string>
+    <string name="search_chats_no_matches_msg">There is no matches</string>
+    <string name="chat_list_search_field_hint">Search</string>
+    <string name="chat_list_cancel_search">Cancel</string>
+    <string name="chat_last_msg_audio_type">Voice message</string>
+    <string name="delete_chat_dialog_title">Delete chat</string>
+    <string name="delete_chat_dialog_message">Are you sure you want to delete this chat?</string>
+    <string name="delete_chat_dialog_positive_button">Yes, delete</string>
+    <string name="delete_chat_dialog_negative_button">No</string>
+    <string name="message_chat_deleted">Chat was successfully deleted</string>
+
+    <!-- Chat Background -->
+    <string name="title_chat_background">Choose Chats Background</string>
+    <string name="no_chat_background_label">No background</string>
+    <string name="chat_background_changed_msg">Your background was successfully changed</string>
+
+    <!-- Update screen -->
+    <string name="update_dialog_title">Need to Update %s</string>
+    <string name="update_dialog_message">Please update %s, so that it could work in correct manner.</string>
+    <string name="update_dialog_update_btn">Update</string>
+    <string name="update_dialog_close_btn">Close</string>
+    <string name="update_error_not_found_in_market">Unable to find market app</string>
+
+    <!-- Select image crop area  -->
+    <string name="select_crop_area_title">Select Crop Area</string>
+
+    <!-- Reaction -->
+    <string name="reaction_like">Like</string>
+    <string name="reaction_love">Love</string>
+    <string name="reaction_laugh">Laugh</string>
+    <string name="reaction_angry">Angry</string>
+    <string name="reaction_sad">Sad</string>
+    <string name="reaction_hundred_points">100%</string>
+    <string name="reaction_trash">Trash</string>
+
+    <!-- Album -->
+    <string name="album_title_pattern">%s Images</string>
+    <string name="options_menu_report_album_image">Report media</string>
+    <string name="options_menu_unfollow_album_image">Unfollow</string>
+    <string name="options_menu_set_as_avatar">Set as Avatar</string>
+    <string name="album_image_details_title">Comments</string>
+    <string name="album_list_avatar_updated_message">Your avatar was successfully updated</string>
+
+    <!-- Global Search -->
+    <string name="search_tab_posts">Posts</string>
+    <string name="search_tab_profiles">People</string>
+    <string name="search_tab_audios">Audio Track</string>
+    <string name="global_search_field_hint">Search</string>
+    <string name="empty_recent_searches_msg">Search here to find People, Posts or Audio files across whole Bestyn</string>
+    <string name="empty_search_result_msg">Sorry, there are no search results.\nPlease try a different search</string>
+    <string name="delete_image_dialog_title">Delete image</string>
+    <string name="delete_image_dialog_msg">Are you sure you want to remove this image from your Album?</string>
+    <string name="delete_image_dialog_yes">Yes, remove</string>
+    <string name="delete_image_dialog_no">No</string>
+    <string name="image_deleted_msg">Image was successfully removed</string>
+    <string name="label_recent_searches">Recent Searches</string>
+
+    <!-- Story List -->
+    <string name="story_tab_all">All</string>
+    <string name="story_tab_recommended">For you</string>
+    <string name="story_tab_created">Created</string>
+    <string name="dialog_title_first_story_creating">Create Story</string>
+    <string name="dialog_msg_first_story_creating">You can post stories to share with the whole world! Stories are not limited to your neighborhood radius.</string>
+    <string name="dialog_btn_first_story_creating">Get Started</string>
+    <string name="delete_story_dialog_msg">Are you sure you want to delete this Story?</string>
+    <string name="delete_story_dialog_no">Cancel</string>
+    <string name="delete_story_dialog_yes">Delete</string>
+    <string name="story_deleted_msg">Your Story has been successfully deleted.</string>
+    <string name="msg_empty_stories_on_all_tab">There are no stories of such type</string>
+    <string name="msg_empty_stories_on_created_tab">You haven\'t created any content yet</string>
+    <string name="msg_empty_stories_on_for_you_tab">Sorry, we cannot find any result that match your interests</string>
+    <string name="msg_empty_stories_on_for_you_tab_without_interest">Please tell us about your Interests so that we could display you with the recommended posts</string>
+    <string name="btn_empty_stories_on_for_you_tab_without_interest">My Interests</string>
+    <string name="btn_empty_stories_on_created_tab">Create Story</string>
+
+    <!-- Create Story -->
+    <string name="delete_story_segment_dialog_msg">Are you sure you want to delete the last clip?</string>
+    <string name="delete_story_segment_dialog_no">Cancel</string>
+    <string name="delete_story_segment_dialog_yes">Delete</string>
+    <string name="story_min_length_msg">Your video must be 1 second or more</string>
+
+    <!-- Story Description -->
+    <string name="title_add_story_description">Story Description</string>
+    <string name="title_edit_story_description">Edit Story Description</string>
+    <string name="label_story_description">Description</string>
+    <string name="field_story_description_hint">@string/create_post_description_hint</string>
+    <string name="label_story_location">Location</string>
+    <string name="field_story_location_hint">Add location</string>
+    <string name="label_allow_comments">Allow comments</string>
+    <string name="label_allow_duet">Allow duet</string>
+    <string name="label_story_cover_image">Story Cover Image</string>
+    <string name="toast_story_created">Your Story has been successfully created.</string>
+    <string name="toast_story_updated">Your Story has been successfully updated.</string>
+    <string name="toast_story_publishing">Sorry, your story is publishing. Please wait</string>
+    <string name="cancel_story_editing_dialog">Your changes will not be saved.</string>
+    <string name="cancel_story_editing_dialog_cancel">Cancel</string>
+    <string name="cancel_story_editing_dialog_ok">Ok</string>
+
+    <!-- Story Preview-->
+    <string name="create_story_from_gallery_dialog_title">Would you like to create a new story?</string>
+    <string name="create_story_from_gallery_dialog_msg">Tap \'Yes\' if you want to continue and create a new story with different media files.\nTap \'Cancel\' and then the \'Adjust Story\' button to add more images or videos to the current story.</string>
+    <string name="create_story_from_gallery_dialog_yes">Yes</string>
+    <string name="create_story_from_gallery_dialog_cancel">Cancel</string>
+    <string name="adjust_story_clip_dialog_msg">The applied text will be removed from the trimmed video clips. Would you like to continue?</string>
+    <string name="adjust_story_clip_dialog_yes">Yes</string>
+    <string name="adjust_story_clip_dialog_cancel">Cancel</string>
+
+    <!-- Select Story Cover -->
+    <string name="select_story_cover_title">Select Cover</string>
+    <string name="story_action_bar_cancel_btn">Cancel</string>
+    <string name="story_action_bar_done_btn">Done</string>
+
+    <!-- Adjust Story -->
+    <string name="adjust_story_title">Trim</string>
+    <string name="adjust_story_cancel_changes_dialog_msg">Your changes will not be saved.</string>
+    <string name="adjust_story_cancel_changes_dialog_ok">OK</string>
+    <string name="adjust_story_cancel_changes_dialog_cancel">Cancel</string>
+
+    <string name="adjust_story_delete_video_segment_dialog_msg">Are you sure you want to delete this clip?</string>
+    <string name="adjust_story_delete_video_segment_dialog_delete">Delete</string>
+    <string name="adjust_story_delete_video_segment_dialog_cancel">Cancel</string>
+
+    <!-- Story Media Picker -->
+    <string name="story_media_picker_cancel_btn">Cancel</string>
+    <string name="story_media_picker_done_btn">Done</string>
+    <string name="story_media_picker_all_photos">All Photos</string>
+    <string name="story_media_picker_tab_all">All</string>
+    <string name="story_media_picker_tab_images">Images</string>
+    <string name="story_media_picker_tab_videos">Videos</string>
+    <string name="story_media_picker_no_files_error">You have not selected any media file yet. Please, pick up an image or video to continue</string>
+    <string name="story_media_picker_too_many_files_error">You can upload at most 30 images and videos.</string>
+    <string name="story_media_picker_too_many_images_error">You can upload at most 5 images.</string>
+    <string name="story_media_storage_permission_title">Gallery Permissions Required</string>
+    <string name="story_media_camera_permission_title">Camera and Microphone Permissions required </string>
+    <string name="story_media_storage_permission_msg">Please go to settings to enable Bestyn to access your Gallery so that you can select images and videos for your Posts on Bestyn.</string>
+    <string name="story_media_camera_permission_msg">Please go to settings to enable Camera and Microphone so that you can record a Story on Bestyn. </string>
+    <string name="story_media_permission_required_cancel_btn">Cancel</string>
+    <string name="story_media_permission_required_settings_btn">Go to Settings</string>
+
+    <!-- Add Text To Story -->
+    <string name="delete_story_text_dialog_message">Are you sure you want to delete this text?</string>
+    <string name="delete_story_text_dialog_cancel_btn">Cancel</string>
+    <string name="delete_story_text_dialog_delete_btn">Delete</string>
+    <string name="add_text_cancel_changes_dialog_msg">Your changes will not be saved. </string>
+    <string name="add_text_cancel_changes_dialog_ok">OK</string>
+    <string name="add_text_cancel_changes_dialog_cancel">Cancel</string>
+
+    <!-- Add Audio To Story-->
+    <string name="audio_list_duration">%ss</string>
+    <string name="audio_list_added_by">added by %s</string>
+    <string name="audio_list_search">Search</string>
+    <string name="audio_list_discover">Discover</string>
+    <string name="audio_list_my_tracks">My Tracks</string>
+    <string name="audio_list_favorites">Favorites</string>
+    <string name="audio_list_apply_btn">Apply</string>
+    <string name="audio_list_report">Report</string>
+    <string name="audio_list_add_your_track_btn">Add Your Track</string>
+    <string name="report_audio_plagiarism">Plagiarism</string>
+
+    <!-- Add Audio-->
+    <string name="add_audio_title">Add Track</string>
+    <string name="add_audio_description">Description</string>
+    <string name="add_audio_select_beginning">Select the beginning of the Track</string>
+    <string name="add_audio_save">Save</string>
+    <string name="add_audio_cancel_changes_msg">Your changes will not be saved.</string>
+    <string name="add_audio_cancel_changes_cancel_btn">Cancel</string>
+    <string name="add_audio_cancel_changes_ok_btn">OK</string>
+    <string name="audio_successfuly_uploaded_msg">New Audio Track has been successfully added.</string>
+    <string name="there_are_no_stories_with_this_audio_track_tbd">There are no stories with this audio track TBD</string>
+    <string name="you_have_marked_the_maximum_number">You have marked the maximum number of files. You can unselect other files to choose this one.</string>
+    <string name="duet_headphones_message">Use headphones to improve recording quality</string>
+
+    <!--Follow-->
+    <string name="follow">Follow</string>
+    <string name="following">Following</string>
+    <string name="follow_back">Follow back</string>
+    <string name="followers">Followers</string>
+    <string name="followed">Followed</string>
+    <string name="cancel">Cancel</string>
+    <string name="report_user">Report User</string>
+    <string name="unfollow">Unfollow</string>
+    <string name="remove_follower">Remove Follower</string>
+    <string name="basic">Basic</string>
+    <string name="business">Business</string>
+    <string name="followers_empty_state_msg">Sorry, there are no search results.\nPlease try a different search</string>
+
+    <string name="default_notification_channel_id" translatable="false">fcm_default_channel</string>
+    <string name="default_notification_channel_name" translatable="true">Weather</string>
+    <string name="fcm_message">FCM Message</string>
+    <string name="add_audio">Add Audio</string>
+    <string name="select_from_recordings">Select from Recordings</string>
+    <string name="record_a_voice_message">Record a Voice Message</string>
+    <string name="start_an_audio_livestream">Start an Audio Livestream</string>
+    <string name="recording">Recording</string>
+    <string name="you_can_select_5_images_or_1_video">You can only select 5 photos or 1 video at once</string>
+    <string name="you_have_marked_maximum">You have marked the maximum number of files.You can unselect other files to choose this one.</string>
+    <string name="allowed_audio_files">Only files with these extensions are allowed: mp3, aac, wav, m4a.</string>
+    <string name="audio_size_too_big">The file is too big. Its size cannot exceed 350 mb.</string>
+    <string name="you_can_not_create_new_post">You can not create a new post, while you are recording an audio attachment.</string>
+    <string name="sorry_your_post_is_publishing">Sorry, your post is publishing. Please wait</string>
+    <string name="sorry_your_story_is_publishing">Sorry, your story is publishing. Please wait.</string>
+    <string name="please_wait_your_post_is_publishing">Please wait, your post is publishing.</string>
+    <string name="your_story_is_publishing">Your story is publishing. Please do not close the application until the story has been published.</string>
+
+
+</resources>

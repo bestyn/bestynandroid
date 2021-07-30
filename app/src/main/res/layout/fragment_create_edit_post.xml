@@ -1,0 +1,563 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.gbksoft.neighbourhood.utils.validation.ValidationField" />
+
+        <variable
+            name="errors"
+            type="com.gbksoft.neighbourhood.utils.validation.ErrorFieldsModel" />
+
+        <variable
+            name="model"
+            type="com.gbksoft.neighbourhood.ui.fragments.create_edit_post.EditPostModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <View
+            android:id="@+id/actionBarBg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/screen_foreground_color" />
+
+        <com.gbksoft.neighbourhood.ui.widgets.actionbar.ActionBarView
+            android:id="@+id/actionBar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:ab_isShowCancel="true"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toTopOf="@id/buttonPanel"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/actionBar">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toStartOf="@+id/addedMediaDots"
+                app:layout_constraintStart_toStartOf="@+id/addedMediaDots">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/leftIndent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_begin="@dimen/screen_padding" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/rightIndent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_end="@dimen/screen_padding" />
+
+                <LinearLayout
+                    android:id="@+id/addMedia"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="@dimen/edit_post_screen_top_padding"
+                    android:layout_marginBottom="@dimen/margin_15"
+                    android:background="@drawable/bg_add_post_media"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:visibility="@{model.addMediaVisibility}"
+                    app:layout_constraintBottom_toTopOf="@+id/btnAddAudioAttachment"
+                    app:layout_constraintDimensionRatio="@string/post_picture_crop_ratio"
+                    app:layout_constraintLeft_toLeftOf="@id/leftIndent"
+                    app:layout_constraintRight_toRightOf="@id/rightIndent"
+                    app:layout_constraintTop_toBottomOf="@id/tilEndDateTime">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:src="@drawable/ic_add_post_media" />
+
+                    <TextView
+                        style="@style/AddAvatarText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:gravity="center"
+                        android:text="@string/label_add_post_media" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/addedMediaLabel"
+                    style="@style/AddedMediaLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/edit_post_screen_top_padding"
+                    android:text="@string/label_added_post_media"
+                    android:visibility="@{model.mediaVisibility}"
+                    app:layout_constraintLeft_toLeftOf="@id/leftIndent"
+                    app:layout_constraintTop_toBottomOf="@id/tilEndDateTime" />
+
+                <ImageView
+                    android:id="@+id/btnAddMedia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Photos Added"
+                    android:visibility="@{model.addExtraMediaVisibility}"
+                    app:layout_constraintBottom_toBottomOf="@id/addedMediaLabel"
+                    app:layout_constraintRight_toRightOf="@id/rightIndent"
+                    app:layout_constraintTop_toTopOf="@id/addedMediaLabel"
+                    app:srcCompat="@drawable/ic_add_media" />
+
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/addedMediaPager"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="@dimen/edit_post_screen_top_padding"
+                    android:visibility="@{model.mediaVisibility}"
+                    app:layout_constraintDimensionRatio="@string/post_picture_crop_ratio"
+                    app:layout_constraintLeft_toLeftOf="@id/leftIndent"
+                    app:layout_constraintRight_toRightOf="@id/rightIndent"
+                    app:layout_constraintTop_toBottomOf="@id/addedMediaLabel"
+                    tools:context=".ui.fragments.base.posts_feed.MediaPagerContentFragment" />
+
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/addedMediaDots"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/media_pager_indicator_view_height"
+                    android:layout_gravity="bottom"
+                    android:layout_marginTop="@dimen/selected_media_pager_indicator_top_margin"
+                    android:layout_marginBottom="@dimen/margin_15"
+                    android:visibility="@{model.mediaDotsVisibility}"
+                    app:layout_constraintBottom_toTopOf="@+id/btnAddAudioAttachment"
+                    app:layout_constraintLeft_toLeftOf="@id/leftIndent"
+                    app:layout_constraintRight_toRightOf="@id/rightIndent"
+                    app:layout_constraintTop_toBottomOf="@id/addedMediaPager"
+                    app:tabBackground="@drawable/selector_media_pager_dots"
+                    app:tabGravity="center"
+                    app:tabIndicatorHeight="0dp"
+                    app:tabPaddingEnd="@dimen/media_pager_indicator_h_padding"
+                    app:tabPaddingStart="@dimen/media_pager_indicator_h_padding" />
+
+                <TextView
+                    android:id="@+id/nameTitle"
+                    style="@style/TextInputLabel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/edit_post_v_spacing"
+                    android:visibility="gone"
+                    app:layout_constraintLeft_toLeftOf="@id/leftIndent"
+                    app:layout_constraintRight_toRightOf="@id/rightIndent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="nameTitle"
+                    tools:visibility="visible" />
+
+                <com.gbksoft.neighbourhood.ui.widgets.text_input_layout.AutoClearErrorInputLayout
+                    android:id="@+id/tilName"
+                    style="@style/TextInputLayout"
+                    android:layout_width="0dp"
+                    android:visibility="gone"
+                    app:errorField="@{ValidationField.NAME}"
+                    app:errorText="@{errors.errorsMap}"
+                    app:errorTextAppearance="@style/TextInputLayoutError"
+                    app:layout_constraintLeft_toLeftOf="@id/leftIndent"
+                    app:layout_constraintRight_toRightOf="@id/rightIndent"
+                    app:layout_constraintTop_toBottomOf="@id/nameTitle"
+                    tools:visibility="visible">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etName"
+                        style="@style/TextInputEditText"
+                        android:inputType="text"
+                        android:text="@={model.name}"
+                        android:visibility="gone"
+                        tools:hint="nameHint"
+                        tools:visibility="visible" />
+
+                </com.gbksoft.neighbourhood.ui.widgets.text_input_layout.AutoClearErrorInputLayout>
+
+                <TextView
+                    android:id="@+id/addressTitle"
+                    style="@style/TextInputLabel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/edit_post_v_spacing"
+                    android:text="@string/sign_up_address_label"
+                    android:visibility="gone"
+                    app:layout_constraintLeft_toLeftOf="@id/leftIndent"
+                    app:layout_constraintRight_toRightOf="@id/rightIndent"
+                    app:layout_constraintTop_toBottomOf="@id/btnHashtag"
+                    tools:visibility="visible" />
+
+                <com.gbksoft.neighbourhood.ui.widgets.text_input_layout.AutoClearErrorInputLayout
+                    android:id="@+id/tilAddress"
+                    style="@style/TextInputLayout"
+                    android:layout_width="0dp"
+                    android:visibility="gone"
+                    app:errorField="@{ValidationField.ADDRESS}"
+                    app:errorText="@{errors.errorsMap}"
+                    app:errorTextAppearance="@style/TextInputLayoutError"
+                    app:layout_constraintLeft_toLeftOf="@id/leftIndent"
+                    app:layout_constraintRight_toRightOf="@id/rightIndent"
+                    app:layout_constraintTop_toBottomOf="@id/addressTitle"
+                    tools:visibility="visible">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etAddress"
+                        style="@style/TextInputEditText"
+                        android:cursorVisible="false"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:inputType="text"
+                        android:text="@={model.address}"
+                        android:visibility="gone"
+                        tools:hint="addressHint"
+                        tools:visibility="visible" />
+
+                </com.gbksoft.neighbourhood.ui.widgets.text_input_layout.AutoClearErrorInputLayout>
+
+
+                <TextView
+                    android:id="@+id/priceTitle"
+                    style="@style/TextLabel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/edit_post_v_spacing"
+                    android:visibility="gone"
+                    app:layout_constraintLeft_toLeftOf="@id/leftIndent"
+                    app:layout_constraintRight_toRightOf="@id/rightIndent"
+                    app:layout_constraintTop_toBottomOf="@id/tilAddress"
+                    tools:text="@string/price_in"
+                    tools:visibility="visible" />
+
+                <com.gbksoft.neighbourhood.ui.widgets.text_input_layout.AutoClearErrorInputLayout
+                    android:id="@+id/tilPrice"
+                    style="@style/TextInputLayout"
+                    android:layout_width="0dp"
+                    android:visibility="gone"
+                    app:errorField="@{ValidationField.PRICE}"
+                    app:errorText="@{errors.errorsMap}"
+                    app:errorTextAppearance="@style/TextInputLayoutError"
+                    app:layout_constraintLeft_toLeftOf="@id/leftIndent"
+                    app:layout_constraintRight_toRightOf="@id/rightIndent"
+                    app:layout_constraintTop_toBottomOf="@id/priceTitle"
+                    tools:visibility="visible">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etPrice"
+                        style="@style/TextInputEditText"
+                        android:inputType="numberDecimal"
+                        android:text="@={model.price}"
+                        android:visibility="gone"
+                        tools:visibility="visible" />
+
+                </com.gbksoft.neighbourhood.ui.widgets.text_input_layout.AutoClearErrorInputLayout>
+
+                <TextView
+                    android:id="@+id/startDateTimeTitle"
+                    style="@style/TextInputLabel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/edit_post_v_spacing"
+                    android:text="@string/start_date_time"
+                    android:visibility="gone"
+                    app:layout_constraintLeft_toLeftOf="@id/leftIndent"
+                    app:layout_constraintRight_toRightOf="@id/rightIndent"
+                    app:layout_constraintTop_toBottomOf="@id/tilPrice"
+                    tools:visibility="visible" />
+
+                <com.gbksoft.neighbourhood.ui.widgets.text_input_layout.AutoClearErrorInputLayout
+                    android:id="@+id/tilStartDateTime"
+                    style="@style/TextInputLayout"
+                    android:layout_width="0dp"
+                    android:visibility="gone"
+                    app:errorField="@{ValidationField.START_DATE_TIME}"
+                    app:errorText="@{errors.errorsMap}"
+                    app:errorTextAppearance="@style/TextInputLayoutError"
+                    app:layout_constraintLeft_toLeftOf="@id/leftIndent"
+                    app:layout_constraintRight_toRightOf="@id/rightIndent"
+                    app:layout_constraintTop_toBottomOf="@id/startDateTimeTitle"
+                    tools:visibility="visible">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etStartDateTime"
+                        style="@style/TextInputEditText"
+                        android:cursorVisible="false"
+                        android:drawableRight="@drawable/ic_edit_date_of_birth"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:inputType="text"
+                        android:visibility="gone"
+                        app:dateTime="@{model.startDateTime}"
+                        tools:visibility="visible" />
+
+                </com.gbksoft.neighbourhood.ui.widgets.text_input_layout.AutoClearErrorInputLayout>
+
+                <TextView
+                    android:id="@+id/endDateTimeTitle"
+                    style="@style/TextInputLabel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/edit_post_v_spacing"
+                    android:text="@string/end_date_time"
+                    android:visibility="gone"
+                    app:layout_constraintLeft_toLeftOf="@id/leftIndent"
+                    app:layout_constraintRight_toRightOf="@id/rightIndent"
+                    app:layout_constraintTop_toBottomOf="@id/tilStartDateTime"
+                    tools:visibility="visible" />
+
+                <com.gbksoft.neighbourhood.ui.widgets.text_input_layout.AutoClearErrorInputLayout
+                    android:id="@+id/tilEndDateTime"
+                    style="@style/TextInputLayout"
+                    android:layout_width="0dp"
+                    android:visibility="gone"
+                    app:errorField="@{ValidationField.END_DATE_TIME}"
+                    app:errorText="@{errors.errorsMap}"
+                    app:errorTextAppearance="@style/TextInputLayoutError"
+                    app:layout_constraintLeft_toLeftOf="@id/leftIndent"
+                    app:layout_constraintRight_toRightOf="@id/rightIndent"
+                    app:layout_constraintTop_toBottomOf="@id/endDateTimeTitle"
+                    tools:visibility="visible">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etEndDateTime"
+                        style="@style/TextInputEditText"
+                        android:cursorVisible="false"
+                        android:drawableRight="@drawable/ic_edit_date_of_birth"
+                        android:focusable="false"
+                        android:focusableInTouchMode="false"
+                        android:inputType="text"
+                        android:visibility="gone"
+                        app:dateTime="@{model.endDateTime}"
+                        tools:visibility="visible" />
+
+                </com.gbksoft.neighbourhood.ui.widgets.text_input_layout.AutoClearErrorInputLayout>
+
+                <TextView
+                    android:id="@+id/descriptionTitle"
+                    style="@style/TextInputLabel"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintLeft_toLeftOf="@id/leftIndent"
+                    app:layout_constraintRight_toRightOf="@id/rightIndent"
+                    app:layout_constraintTop_toBottomOf="@id/tilName"
+                    tools:text="descriptionTitle" />
+
+                <com.gbksoft.neighbourhood.ui.widgets.text_input_layout.AutoClearErrorInputLayout
+                    android:id="@+id/tilDescription"
+                    style="@style/TextInputLayout"
+                    android:layout_width="0dp"
+                    android:layout_marginBottom="16dp"
+                    app:errorField="@{ValidationField.DESCRIPTION}"
+                    app:errorText="@{errors.errorsMap}"
+                    app:errorTextAppearance="@style/TextInputLayoutError"
+                    app:layout_constraintLeft_toLeftOf="@id/leftIndent"
+                    app:layout_constraintRight_toRightOf="@id/rightIndent"
+                    app:layout_constraintTop_toBottomOf="@id/descriptionTitle">
+
+                    <EditText
+                        android:id="@+id/etDescription"
+                        style="@style/TextInputEditText"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/create_post_description_hint"
+                        android:inputType="textMultiLine"
+                        android:minHeight="@dimen/edit_text_height"
+                        android:text="@={model.description}" />
+
+                </com.gbksoft.neighbourhood.ui.widgets.text_input_layout.AutoClearErrorInputLayout>
+
+                <TextView
+                    android:id="@+id/btnHashtag"
+                    style="@style/HashtagButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/add_hashtag"
+                    app:layout_constraintLeft_toLeftOf="@id/leftIndent"
+                    app:layout_constraintTop_toBottomOf="@id/tilDescription" />
+
+                <TextView
+                    android:id="@+id/btnMention"
+                    style="@style/HashtagButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="@string/add_user"
+                    app:layout_constraintLeft_toRightOf="@id/btnHashtag"
+                    app:layout_constraintTop_toBottomOf="@id/tilDescription" />
+
+                <View
+                    android:id="@+id/searchDivider"
+                    android:layout_width="0dp"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@color/grey_stroke"
+                    android:visibility="gone"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tilDescription" />
+
+
+                <LinearLayout
+                    android:id="@+id/llHashtags"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:visibility="gone"
+                    android:orientation="vertical"
+                    app:layout_constraintTop_toBottomOf="@id/tilDescription">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvHashtags"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"
+                        android:visibility="gone"
+                        android:paddingLeft="@dimen/screen_padding"
+                        android:paddingRight="@dimen/screen_padding"
+                        tools:listitem="@layout/adapter_hashtag_list" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/llMentions"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    app:layout_constraintTop_toBottomOf="@id/tilDescription">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvMentions"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"
+                        android:paddingLeft="@dimen/screen_padding"
+                        android:paddingRight="@dimen/screen_padding"
+                        android:visibility="gone"
+                        tools:listitem="@layout/adapter_mention_list" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:background="@color/white"
+                    android:id="@+id/tvMentionsEmptyState"
+                    style="@style/MentionsSearchEmptyState"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:text="@string/followers_empty_state_msg"
+                    android:visibility="gone"
+                    android:gravity="top"
+                    android:paddingLeft="@dimen/screen_padding"
+                    android:paddingTop="5dp"
+                    android:paddingRight="@dimen/screen_padding"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tilDescription" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/btnAddAudioAttachment"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    app:layout_constraintTop_toBottomOf="@+id/tvMentionsEmptyState"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@id/rightIndent"
+                    app:layout_constraintStart_toStartOf="@id/leftIndent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/btnAddAudioRecord"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_audio_attachment_btn"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:visibility="visible"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageView
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_margin="4dp"
+                            android:src="@drawable/ic_btn_add_audio"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            style="@style/AddAvatarText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="@string/add_audio"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_marginTop="8dp"
+                        android:id="@+id/rwAudioAttach"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/btnAddAudioRecord"
+                        tools:listitem="@layout/adapter_audio_attachment" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+        <View
+            android:id="@+id/panelShadow"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/bottom_panel_shadow_height"
+            android:background="@drawable/shadow_bottom_panel"
+            app:layout_constraintBottom_toTopOf="@id/buttonPanel"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent" />
+
+        <FrameLayout
+            android:id="@+id/buttonPanel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/edit_post_panel_color"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent">
+
+            <Button
+                android:id="@+id/btnPost"
+                style="@style/PostButton"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="12dp"
+                android:text="@string/post" />
+
+        </FrameLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

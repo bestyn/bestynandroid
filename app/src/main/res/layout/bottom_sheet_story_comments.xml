@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <com.gbksoft.neighbourhood.ui.widgets.MatchParentFrameLayout
+        android:id="@+id/rootView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="@dimen/story_comments_padding_h">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:focusable="true">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvChat"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@drawable/bg_story_comments"
+                android:clipToPadding="false"
+                android:focusableInTouchMode="true"
+                android:paddingTop="25dp"
+                app:layout_constraintBottom_toTopOf="@id/shadowFrame"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1" />
+
+            <ImageView
+                android:id="@+id/btnClose"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:layout_margin="10dp"
+                android:padding="10dp"
+                android:src="@drawable/ic_close_story_comments"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textNoSearchMentions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_story_comments"
+                android:fontFamily="@font/poppins_regular"
+                android:paddingStart="34dp"
+                android:paddingTop="15dp"
+                android:paddingEnd="34dp"
+                android:paddingBottom="15dp"
+                android:text="@string/empty_search_result_msg"
+                android:textColor="@color/grey_medium"
+                android:textSize="14sp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@id/shadowFrame"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvMentions"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@drawable/bg_story_comments"
+                android:clickable="true"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:paddingTop="25dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="15dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@id/shadowFrame"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:listitem="@layout/adapter_mention_list" />
+
+            <View
+                android:id="@+id/panelShadow"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/bottom_panel_shadow_height"
+                android:background="@drawable/shadow_bottom_panel"
+                app:layout_constraintBottom_toTopOf="@id/shadowFrame"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent" />
+
+            <FrameLayout
+                android:id="@+id/shadowFrame"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@color/edit_interest_panel_color"
+                android:clickable="true"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                app:layout_constrainedHeight="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1">
+
+                <com.gbksoft.neighbourhood.ui.widgets.chat.input_field.InputMessageView
+                    android:id="@+id/inputMessageForm"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:imv_hint="@string/add_post_comment_hint" />
+
+            </FrameLayout>
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="@id/rvChat"
+                app:layout_constraintLeft_toLeftOf="@id/rvChat"
+                app:layout_constraintRight_toRightOf="@id/rvChat"
+                app:layout_constraintTop_toTopOf="@id/rvChat"
+                tools:visibility="visible" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.gbksoft.neighbourhood.ui.widgets.MatchParentFrameLayout>
+</layout>

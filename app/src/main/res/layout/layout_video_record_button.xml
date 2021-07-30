@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="@dimen/create_story_record_btn_size"
+    android:layout_height="@dimen/create_story_record_btn_size"
+    android:gravity="center"
+    android:background="#000"
+    tools:parentTag="android.widget.FrameLayout">
+
+    <View
+        android:id="@+id/vrb_recordBg"
+        android:background="@drawable/bg_video_record_btn"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <View
+        android:id="@+id/vrb_recordRing"
+        android:background="@drawable/shape_video_record_btn_ring"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+    <ImageView
+        android:id="@+id/vrb_recordDot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:scaleType="center"
+        tools:background="@drawable/anim_vector_record_btn_active" />
+
+</merge>

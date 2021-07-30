@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="profile"
+            type="com.gbksoft.neighbourhood.model.profile.BasicProfile" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/screen_background_color"
+        android:orientation="vertical">
+
+        <com.gbksoft.neighbourhood.ui.widgets.actionbar.ActionBarView
+            android:id="@+id/actionBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:ab_isSettingsVisible="true" />
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/main_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/appbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.appbar.CollapsingToolbarLayout
+                    android:id="@+id/collapsingToolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_scrollFlags="scroll|enterAlwaysCollapsed">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical"
+                        android:paddingBottom="@dimen/profile_birthday_bottom_margin"
+                        app:layout_collapseMode="parallax">
+
+                        <com.gbksoft.neighbourhood.ui.widgets.avatar.AvatarView
+                            android:id="@+id/avatar"
+                            android:layout_width="@dimen/profile_photo_size"
+                            android:layout_height="@dimen/profile_photo_size"
+                            android:layout_marginTop="20dp"
+                            tools:av_fullName="Alexander Johnson"
+                            app:av_borderEnabled="true"
+                            app:av_borderPadding="@dimen/profile_avatar_border_padding"
+                            app:av_borderThickness="@dimen/profile_avatar_border_width"
+                            app:av_fullName="@{profile.fullName}"
+                            app:av_imageUrl="@{profile.avatar.medium}"
+                            app:av_initialsSize="@dimen/profile_initials_text_size" />
+
+                        <TextView
+                            android:id="@+id/tvUserName"
+                            style="@style/ProfileNameText"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/screen_padding"
+                            android:layout_marginTop="@dimen/profile_name_top_margin"
+                            android:layout_marginRight="@dimen/screen_padding"
+                            android:gravity="center_horizontal"
+                            android:text="@{profile.fullName}"
+                            tools:text="Alexander Johnson" />
+
+                        <include
+                            android:id="@+id/followers"
+                            layout="@layout/include_follow_view" />
+
+                        <TextView
+                            android:id="@+id/tvAddress"
+                            style="@style/ProfileAddress"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:gravity="center_horizontal"
+                            android:paddingHorizontal="@dimen/screen_padding"
+                            app:address="@{profile.address}"
+                            tools:text="45 Derrick Street, Boston, NY, 12345" />
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:id="@+id/tvBirthday"
+                                style="@style/ProfileBirthdayAndGender"
+                                android:drawablePadding="@dimen/profile_birthday_icon_padding"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/profile_birthday_top_margin"
+                                android:gravity="center"
+                                android:visibility="@{profile.birthday == null ? View.GONE : View.VISIBLE}"
+                                app:birthday="@{profile.birthday}"
+                                tools:text="Apr 12, 2000"
+                                app:drawableLeftCompat="@drawable/ic_birthday" />
+
+                            <TextView
+                                android:id="@+id/tvGender"
+                                style="@style/ProfileBirthdayAndGender"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/profile_birthday_top_margin"
+                                android:gravity="center"
+                                android:paddingHorizontal="@dimen/profile_gender_h_margin"
+                                app:gender="@{profile.gender}"
+                                android:visibility="@{profile.gender == null ? View.GONE : View.VISIBLE}"
+                                tools:text="Gender: Female" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tabLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/profile_tab_titles_height"
+                    android:layout_gravity="bottom"
+                    android:background="@drawable/bg_profile_tab_titles"
+                    app:layout_collapseMode="pin"
+                    app:tabIndicatorColor="@color/profile_selected_tab_text"
+                    app:tabIndicatorHeight="@dimen/profile_selected_tab_indicator_height"
+                    app:tabSelectedTextColor="@color/profile_selected_tab_text"
+                    app:tabTextAppearance="@style/TabTitleText"
+                    app:tabTextColor="@color/profile_tab_text" />
+            </com.google.android.material.appbar.AppBarLayout>
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/viewPager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/profile_tabs_bg"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    </LinearLayout>
+
+</layout>

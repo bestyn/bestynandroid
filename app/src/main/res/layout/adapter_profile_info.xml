@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/profile_info_view_height"
+        android:gravity="center_vertical">
+
+        <ImageView
+            android:id="@+id/ivIcon"
+            android:layout_width="@dimen/profile_info_icon_size"
+            android:layout_height="@dimen/profile_info_icon_size"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/ic_address" />
+
+        <TextView
+            android:id="@+id/tvType"
+            style="@style/ProfileInfoType"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/profile_info_view_icon_margin"
+            tools:text="Address"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintBottom_toTopOf="@id/tvValue"
+            app:layout_constraintLeft_toRightOf="@id/ivIcon"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvValue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            style="@style/ProfileInfoValueText"
+            tools:text="45 Derrick Street, Boston, NY, 12345"
+            app:layout_constraintTop_toBottomOf="@id/tvType"
+            app:layout_constraintLeft_toLeftOf="@id/tvType"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <TextView
+            android:id="@+id/tvNotSet"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            style="@style/ProfileInfoNotSetText"
+            android:text="@string/value_not_set"
+            android:visibility="invisible"
+            app:layout_constraintTop_toTopOf="@id/tvValue"
+            app:layout_constraintLeft_toLeftOf="@id/tvValue"
+            app:layout_constraintRight_toRightOf="@id/tvValue"
+            app:layout_constraintBottom_toBottomOf="@id/tvValue" />
+
+        <TextView
+            android:id="@+id/tvLink"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            style="@style/ProfileInfoLinkText"
+            android:visibility="invisible"
+            app:layout_constraintTop_toTopOf="@id/tvValue"
+            app:layout_constraintLeft_toLeftOf="@id/tvValue"
+            app:layout_constraintRight_toRightOf="@id/tvValue"
+            app:layout_constraintBottom_toBottomOf="@id/tvValue" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

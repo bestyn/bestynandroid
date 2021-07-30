@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:parentTag="android.widget.LinearLayout"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/iv15s"
+        android:layout_width="@dimen/create_story_duration_btn_size"
+        android:layout_height="@dimen/create_story_duration_btn_size"
+        android:layout_gravity="center"
+        android:background="@drawable/ic_duration_inactive"
+        android:scaleType="center"
+        android:src="@drawable/ic_15s" />
+
+    <ImageView
+        android:id="@+id/iv30s"
+        android:layout_width="@dimen/create_story_duration_btn_size"
+        android:layout_height="@dimen/create_story_duration_btn_size"
+        android:layout_gravity="center"
+        android:layout_marginLeft="@dimen/create_story_duration_btn_h_spacing"
+        android:background="@drawable/ic_duration_inactive"
+        android:scaleType="center"
+        android:src="@drawable/ic_30s" />
+
+    <ImageView
+        android:id="@+id/iv45s"
+        android:layout_width="@dimen/create_story_duration_btn_size"
+        android:layout_height="@dimen/create_story_duration_btn_size"
+        android:layout_gravity="center"
+        android:layout_marginLeft="@dimen/create_story_duration_btn_h_spacing"
+        android:background="@drawable/ic_duration_inactive"
+        android:scaleType="center"
+        android:src="@drawable/ic_45s" />
+
+    <ImageView
+        android:id="@+id/iv60s"
+        android:layout_width="@dimen/create_story_duration_btn_size"
+        android:layout_height="@dimen/create_story_duration_btn_size"
+        android:layout_gravity="center"
+        android:layout_marginLeft="@dimen/create_story_duration_btn_h_spacing"
+        android:background="@drawable/ic_duration_active"
+        android:scaleType="center"
+        android:src="@drawable/ic_60s" />
+</merge>

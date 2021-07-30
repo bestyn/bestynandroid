@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <merge
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/floating_menu_expanded_bg_color"
+        android:gravity="bottom|right"
+        android:orientation="vertical"
+        android:padding="@dimen/floating_menu_margin"
+        tools:parentTag="android.widget.LinearLayout">
+
+        <LinearLayout
+            android:id="@+id/fmMenu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_floating_expandable_menu_header"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/fmExpandCollapseMenu"
+                android:layout_width="@dimen/floating_menu_btn_size"
+                android:layout_height="@dimen/floating_menu_btn_size"
+                android:layout_marginLeft="@dimen/floating_expandable_menu_padding"
+                android:layout_marginTop="@dimen/floating_expandable_menu_padding"
+                android:layout_marginRight="@dimen/floating_expandable_menu_padding"
+                android:scaleType="centerInside"
+                android:visibility="visible"
+                app:srcCompat="@drawable/ic_expand_floating_menu"
+                tools:srcCompat="@drawable/ic_collapse_floating_menu" />
+
+            <LinearLayout
+                android:id="@+id/fmExpandable"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingHorizontal="@dimen/floating_expandable_menu_padding"
+                android:visibility="gone"
+                tools:visibility="visible">
+
+                <ImageView
+                    android:id="@+id/fmSettings"
+                    android:layout_width="@dimen/floating_menu_btn_size"
+                    android:layout_height="@dimen/floating_menu_btn_size"
+                    android:layout_marginBottom="@dimen/floating_expandable_menu_v_spacing"
+                    android:background="@drawable/bg_floating_menu_button"
+                    android:scaleType="centerInside"
+                    app:srcCompat="@drawable/ic_fm_settings" />
+
+                <ImageView
+                    android:id="@+id/fmHome"
+                    android:layout_width="@dimen/floating_menu_btn_size"
+                    android:layout_height="@dimen/floating_menu_btn_size"
+                    android:layout_marginBottom="@dimen/floating_expandable_menu_v_spacing"
+                    android:background="@drawable/bg_floating_menu_button"
+                    android:scaleType="centerInside"
+                    app:srcCompat="@drawable/selector_fm_home" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/fmChats"
+                    android:layout_width="@dimen/floating_menu_btn_size"
+                    android:layout_height="@dimen/floating_menu_btn_size"
+                    android:layout_marginBottom="@dimen/floating_expandable_menu_v_spacing"
+                    android:background="@drawable/bg_floating_menu_button">
+
+                    <ImageView
+                        android:id="@+id/ivChats"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:scaleType="centerInside"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/selector_fm_chats" />
+
+                    <View
+                        android:id="@+id/unreadMessages"
+                        android:layout_width="@dimen/floating_menu_unread_messages_badge_size"
+                        android:layout_height="@dimen/floating_menu_unread_messages_badge_size"
+                        android:background="@drawable/ic_unread_messages_badge"
+                        android:translationX="@dimen/floating_menu_unread_messages_badge_translation_x"
+                        android:translationY="@dimen/floating_menu_unread_messages_badge_translation_y"
+                        android:visibility="gone"
+                        app:layout_constraintBottom_toTopOf="@id/ivChats"
+                        app:layout_constraintLeft_toRightOf="@id/ivChats"
+                        tools:visibility="visible" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <ImageView
+                    android:id="@+id/fmMap"
+                    android:layout_width="@dimen/floating_menu_btn_size"
+                    android:layout_height="@dimen/floating_menu_btn_size"
+                    android:layout_marginBottom="@dimen/floating_expandable_menu_v_spacing"
+                    android:background="@drawable/bg_floating_menu_button"
+                    android:scaleType="centerInside"
+                    app:srcCompat="@drawable/selector_fm_map" />
+
+                <ImageView
+                    android:id="@+id/fmAddPost"
+                    android:layout_width="@dimen/floating_menu_btn_size"
+                    android:layout_height="@dimen/floating_menu_btn_size"
+                    android:layout_marginBottom="@dimen/floating_expandable_menu_v_spacing"
+                    android:background="@drawable/bg_floating_menu_add_post_button"
+                    android:scaleType="centerInside"
+                    app:srcCompat="@drawable/ic_add_post" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/floating_expandable_menu_bottom_margin"
+            android:background="@drawable/bg_floating_expandable_menu_bottom"
+            android:clickable="true"
+            android:focusable="true">
+
+            <com.gbksoft.neighbourhood.ui.widgets.avatar.AvatarView
+                android:id="@+id/fmSwitchProfile"
+                android:layout_width="@dimen/floating_menu_btn_size"
+                android:layout_height="@dimen/floating_menu_btn_size"
+                android:layout_marginLeft="@dimen/floating_expandable_menu_padding"
+                android:layout_marginRight="@dimen/floating_expandable_menu_padding"
+                android:layout_marginBottom="@dimen/floating_expandable_menu_padding"
+                app:av_borderEnabled="true"
+                app:av_borderThickness="@dimen/chat_list_item_avatar_border_width"
+                app:av_initialsSize="@dimen/chat_list_item_avatar_initials_text_size"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/unreadNotifications"
+                android:layout_width="@dimen/floating_menu_unread_notifications_badge_size"
+                android:layout_height="@dimen/floating_menu_unread_notifications_badge_size"
+                android:background="@drawable/ic_unread_notifications_badge"
+                android:translationX="@dimen/floating_menu_unread_notifications_badge_translation_x"
+                android:translationY="@dimen/floating_menu_unread_notifications_badge_translation_y"
+                android:visibility="gone"
+                app:layout_constraintRight_toRightOf="@id/fmSwitchProfile"
+                app:layout_constraintTop_toTopOf="@id/fmSwitchProfile"
+                tools:visibility="visible" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ImageView
+            android:id="@+id/fmSwitchToStories"
+            android:layout_width="@dimen/floating_menu_btn_size"
+            android:layout_height="@dimen/floating_menu_btn_size"
+            android:layout_marginStart="@dimen/floating_expandable_menu_padding"
+            android:layout_marginEnd="@dimen/floating_expandable_menu_padding"
+            android:paddingBottom="1dp"
+            android:scaleType="centerInside"
+            android:visibility="gone"
+            app:srcCompat="@drawable/ic_stories" />
+
+        <ImageView
+            android:id="@+id/fmSwitchToBestyn"
+            android:layout_width="@dimen/floating_menu_btn_size"
+            android:layout_height="@dimen/floating_menu_btn_size"
+            android:layout_marginStart="@dimen/floating_expandable_menu_padding"
+            android:layout_marginEnd="@dimen/floating_expandable_menu_padding"
+            android:paddingBottom="1dp"
+            android:scaleType="centerInside"
+            app:srcCompat="@drawable/ic_bestyn" />
+    </merge>
+</layout>

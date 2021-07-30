@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <import type="com.gbksoft.neighbourhood.utils.validation.ValidationField" />
+
+        <import type="com.gbksoft.neighbourhood.model.profile_data.Gender" />
+
+        <variable
+            name="errors"
+            type="com.gbksoft.neighbourhood.utils.validation.ErrorFieldsModel" />
+
+        <variable
+            name="profileModel"
+            type="com.gbksoft.neighbourhood.ui.fragments.profile.model.ProfileSettingsModel" />
+    </data>
+
+    <merge xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/edit_profile_expanding_divider_height"
+            android:background="@color/edit_profile_expanding_divider_color"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.gbksoft.neighbourhood.ui.widgets.avatar.AvatarView
+            android:id="@+id/avatar"
+            android:layout_width="@dimen/profile_photo_size"
+            android:layout_height="@dimen/profile_photo_size"
+            android:layout_marginTop="@dimen/edit_profile_layout_top_padding"
+            app:av_fullName="@{profileModel.fullName}"
+            app:av_imageUrl="@{profileModel.avatarUrl}"
+            app:av_imageFile="@{profileModel.avatar}"
+            app:av_borderEnabled="false"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:av_initialsSize="@dimen/profile_initials_text_size" />
+
+        <ProgressBar
+            android:id="@+id/photoLoading"
+            style="?android:attr/progressBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@id/avatar"
+            app:layout_constraintLeft_toLeftOf="@id/avatar"
+            app:layout_constraintRight_toRightOf="@id/avatar"
+            app:layout_constraintTop_toTopOf="@id/avatar"
+            tools:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/btnChangePhoto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            app:srcCompat="@drawable/ic_change_avatar"
+            app:layout_constraintLeft_toRightOf="@id/avatar"
+            app:layout_constraintTop_toTopOf="@id/avatar" />
+
+        <TextView
+            android:id="@+id/labelFullName"
+            style="@style/TextInputLabel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/edit_profile_card_h_padding"
+            android:layout_marginTop="@dimen/edit_profile_layout_top_padding"
+            android:layout_marginRight="@dimen/edit_profile_card_h_padding"
+            android:text="@string/sign_up_full_name_label"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/avatar" />
+
+        <com.gbksoft.neighbourhood.ui.widgets.text_input_layout.AutoClearErrorInputLayout
+            android:id="@+id/tilFullName"
+            style="@style/TextInputLayout"
+            android:layout_width="0dp"
+            android:layout_marginLeft="@dimen/edit_profile_card_h_padding"
+            android:layout_marginRight="@dimen/edit_profile_card_h_padding"
+            app:errorField="@{ValidationField.FULL_NAME}"
+            app:errorText="@{errors.errorsMap}"
+            app:errorTextAppearance="@style/TextInputLayoutError"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/labelFullName">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etFullName"
+                style="@style/TextInputEditText"
+                android:hint="@string/sign_up_full_name_label"
+                android:inputType="text"
+                android:text="@={profileModel.fullName}" />
+
+        </com.gbksoft.neighbourhood.ui.widgets.text_input_layout.AutoClearErrorInputLayout>
+
+        <TextView
+            android:id="@+id/labelAddress"
+            style="@style/TextInputLabel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/edit_profile_card_h_padding"
+            android:layout_marginTop="@dimen/edit_profile_layout_top_padding"
+            android:layout_marginRight="@dimen/edit_profile_card_h_padding"
+            android:text="@string/sign_up_address_label"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tilFullName" />
+
+        <com.gbksoft.neighbourhood.ui.widgets.text_input_layout.AutoClearErrorInputLayout
+            android:id="@+id/tilAddress"
+            style="@style/TextInputLayout"
+            android:layout_width="0dp"
+            android:layout_marginLeft="@dimen/edit_profile_card_h_padding"
+            android:layout_marginRight="@dimen/edit_profile_card_h_padding"
+            app:errorField="@{ValidationField.ADDRESS}"
+            app:errorText="@{errors.errorsMap}"
+            app:errorTextAppearance="@style/TextInputLayoutError"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/labelAddress">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etAddress"
+                style="@style/TextInputEditText"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:hint="@string/sign_up_address_label"
+                android:inputType="text"
+                android:text="@{profileModel.address}" />
+
+        </com.gbksoft.neighbourhood.ui.widgets.text_input_layout.AutoClearErrorInputLayout>
+
+        <TextView
+            android:id="@+id/labelDateOfBirth"
+            style="@style/TextInputLabel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/edit_profile_card_h_padding"
+            android:layout_marginTop="@dimen/edit_profile_layout_top_padding"
+            android:layout_marginRight="@dimen/edit_profile_card_h_padding"
+            android:text="@string/date_of_birth_label"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tilAddress" />
+
+        <com.gbksoft.neighbourhood.ui.widgets.text_input_layout.AutoClearErrorInputLayout
+            android:id="@+id/tilDateOfBirth"
+            style="@style/TextInputLayout"
+            android:layout_width="0dp"
+            android:layout_marginLeft="@dimen/edit_profile_card_h_padding"
+            android:layout_marginRight="@dimen/edit_profile_card_h_padding"
+            app:errorField="@{ValidationField.DATE_OF_BIRTH}"
+            app:errorText="@{errors.errorsMap}"
+            app:errorTextAppearance="@style/TextInputLayoutError"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/labelDateOfBirth">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etDateOfBirth"
+                style="@style/TextInputEditText"
+                android:cursorVisible="false"
+                android:drawableRight="@drawable/ic_edit_date_of_birth"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:hint="@string/date_of_birth_hint"
+                android:inputType="text"
+                android:text="@{profileModel.dateOfBirth}" />
+
+        </com.gbksoft.neighbourhood.ui.widgets.text_input_layout.AutoClearErrorInputLayout>
+
+        <TextView
+            android:id="@+id/labelGender"
+            style="@style/TextInputLabel"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/edit_profile_card_h_padding"
+            android:layout_marginTop="@dimen/edit_profile_layout_top_padding"
+            android:layout_marginRight="@dimen/edit_profile_card_h_padding"
+            android:text="@string/gender"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tilDateOfBirth" />
+
+        <RadioGroup
+            android:id="@+id/rgGender"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/edit_profile_card_h_padding"
+            android:layout_marginTop="@dimen/edit_profile_layout_gender_label_spacing"
+            android:layout_marginRight="@dimen/edit_profile_card_h_padding"
+            android:orientation="horizontal"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/labelGender">
+
+            <RadioButton
+                android:id="@+id/rbMale"
+                style="@style/StandardRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/gender_male"
+                app:gender="@{profileModel.gender}"
+                app:genderType="@{Gender.MALE}" />
+
+            <RadioButton
+                android:id="@+id/rbFemale"
+                style="@style/StandardRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/gender_female"
+                app:gender="@{profileModel.gender}"
+                app:genderType="@{Gender.FEMALE}" />
+
+            <RadioButton
+                android:id="@+id/rbOther"
+                style="@style/StandardRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/gender_other"
+                app:gender="@{profileModel.gender}"
+                app:genderType="@{Gender.OTHER}" />
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/btnSaveProfile"
+            style="@style/SmallButton"
+            android:layout_width="@dimen/edit_profile_save_btn_width"
+            android:layout_marginLeft="@dimen/edit_profile_card_h_padding"
+            android:layout_marginTop="@dimen/edit_profile_layout_bottom_padding"
+            android:layout_marginRight="@dimen/edit_profile_card_h_padding"
+            android:layout_marginBottom="@dimen/edit_profile_layout_bottom_padding"
+            android:text="@string/edit_profile_save"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/rgGender" />
+    </merge>
+</layout>

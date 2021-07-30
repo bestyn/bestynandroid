@@ -1,0 +1,145 @@
+android {
+    int releaseVersionCode = 0
+
+    def releaseMajor = ''
+    def releaseMinor = ''
+    def releaseBuild = ''
+    def releaseVersionName = ''
+
+    flavorDimensions "server", "app"
+    productFlavors {
+        dev1 {
+            dimension 'server'
+            buildConfigField "String", "API_BASE_URL", "\"https://dev-bestyn-backend.ci.gbksoft.net/\""
+            //buildConfigField "String", "API_BASE_URL", "\"https://dev-naumenko-neighbourhood-backend.ci.gbksoft.net/\"" //For Naumenko local debugging
+            buildConfigField "String", "WS_BASE_URL", "\"wss://dev-centrifugo-bestyn-backend.ci.gbksoft.net\""
+            resValue "string", "intercept_host", "dev-bestyn-backend.ci.gbksoft.net"
+            manifestPlaceholders = [enableCrashReporting: "false"]
+
+        }
+        dev2 {
+            dimension 'server'
+            buildConfigField "String", "API_BASE_URL", "\"https://dev2-bestyn-backend.ci.gbksoft.net/\""
+            buildConfigField "String", "WS_BASE_URL", "\"wss://dev2-centrifugo-bestyn-backend.ci.gbksoft.net\""
+            resValue "string", "intercept_host", "dev2-bestyn-backend.ci.gbksoft.net"
+            manifestPlaceholders = [enableCrashReporting: "false"]
+        }
+        mobtest1 {
+            dimension 'server'
+
+            buildConfigField "String", "API_BASE_URL", "\"https://test-bestyn-backend.ci.gbksoft.net/\""
+            buildConfigField "String", "WS_BASE_URL", "\"wss://test-centrifugo-bestyn-backend.ci.gbksoft.net\""
+            resValue "string", "intercept_host", "test-bestyn-backend.ci.gbksoft.net"
+            manifestPlaceholders = [enableCrashReporting: "true"]
+        }
+        mobtest2 {
+            dimension 'server'
+
+            buildConfigField "String", "API_BASE_URL", "\"https://test2-bestyn-backend.ci.gbksoft.net/\""
+            buildConfigField "String", "WS_BASE_URL", "\"wss://test2-centrifugo-bestyn-backend.ci.gbksoft.net\""
+            resValue "string", "intercept_host", "test2-bestyn-backend.ci.gbksoft.net"
+            manifestPlaceholders = [enableCrashReporting: "true"]
+        }
+        mobtest3 {
+            dimension 'server'
+
+            buildConfigField "String", "API_BASE_URL", "\"https://test3-bestyn-backend.ci.gbksoft.net/\""
+            buildConfigField "String", "WS_BASE_URL", "\"wss://test3-centrifugo-bestyn-backend.ci.gbksoft.net\""
+            resValue "string", "intercept_host", "test3-bestyn-backend.ci.gbksoft.net"
+            manifestPlaceholders = [enableCrashReporting: "true"]
+        }
+        automation {
+            dimension 'server'
+
+            buildConfigField "String", "API_BASE_URL", "\"https://automation-bestyn-backend.ci.gbksoft.net/\""
+            buildConfigField "String", "WS_BASE_URL", "\"wss://automation-centrifugo-bestyn-backend.ci.gbksoft.net\""
+            resValue "string", "intercept_host", "automation-bestyn-backend.ci.gbksoft.net"
+            manifestPlaceholders = [enableCrashReporting: "true"]
+        }
+        live {
+            dimension 'server'
+
+            buildConfigField "String", "API_BASE_URL", "\"https://live-bestyn-backend.ci.gbksoft.net/\""
+            buildConfigField "String", "WS_BASE_URL", "\"wss://live-centrifugo-bestyn-backend.ci.gbksoft.net\""
+            resValue "string", "intercept_host", "live-bestyn-backend.ci.gbksoft.net"
+            manifestPlaceholders = [enableCrashReporting: "true"]
+        }
+        staging {
+            dimension 'server'
+
+            buildConfigField "String", "API_BASE_URL", "\"https://api.staging.bestyn.app/\""
+            buildConfigField "String", "WS_BASE_URL", "\"wss://push.staging.bestyn.app:8000\""
+            resValue "string", "intercept_host", "api.staging.bestyn.app"
+            manifestPlaceholders = [enableCrashReporting: "true"]
+        }
+        prod {
+            dimension 'server'
+
+            buildConfigField "String", "API_BASE_URL", "\"https://api.bestyn.app/\""
+            buildConfigField "String", "WS_BASE_URL", "\"wss://push.bestyn.app:8000\""
+            resValue "string", "intercept_host", "api.bestyn.app"
+            manifestPlaceholders = [enableCrashReporting: "true"]
+        }
+
+        app {
+            dimension 'app'
+
+            releaseVersionCode = 117
+            releaseMajor = '5'
+            releaseMinor = '4'
+            releaseBuild = '9'
+            releaseVersionName = releaseMajor + '.' + releaseMinor + '.' + releaseBuild
+
+            buildConfigField "String", "API_BASE_PATH", "\"rest/\""
+            buildConfigField "String", "GOOGLE_MAPS_API_KEY", "\"AIzaSyCk19AuXPIviLdXV1Acpx3p-YtDQA6d7gg\""
+
+            signingConfig signingConfigs.releaseApp
+        }
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            shrinkResources false
+        }
+        release {
+            minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    try {
+        applicationVariants.all { variant ->
+            def prodFlavor = android.productFlavors.findByName('prod')
+            variant.outputs.all { output ->
+
+                def versionName = releaseVersionName
+                if (variant.productFlavors[0].name != prodFlavor.name) {
+                    versionName = versionName +
+                            '-' + variant.productFlavors[0].name +
+                            '-' + variant.buildType.name
+                }
+                project.logger.lifecycle('versionName: ' + versionName)
+
+                output.versionNameOverride = versionName
+                output.versionCodeOverride = releaseVersionCode
+
+                outputFileName = new File(releaseVersionName + '.apk')
+            }
+        }
+
+        task(setVC) {
+            if (project.hasProperty("vc")) {
+                releaseVersionCode = Integer.parseInt(vc)
+            }
+        }
+
+        task(setVN) {
+            if (project.hasProperty("vn")) {
+                releaseVersionName = (vn =~ /\d+\.\d+\.\d+/)[0]
+            }
+        }
+    } catch (groovy.lang.MissingPropertyException e) {
+    }
+}

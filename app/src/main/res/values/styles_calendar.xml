@@ -1,0 +1,63 @@
+<resources>
+
+    <!-- Date Picker -->
+    <style name="AppMaterialCalendarTheme" parent="ThemeOverlay.MaterialComponents.MaterialCalendar">
+        <item name="colorPrimary">@color/calendar_select_button_color</item>
+        <item name="materialCalendarStyle">@style/AppMaterialCalendarStyle</item>
+        <item name="materialButtonStyle">@style/ThemeMaterialCalendarTextButton</item>
+
+        <item name="materialCalendarHeaderLayout">@style/AppMaterialCalendarHeaderLayout</item>
+    </style>
+
+    <style name="ThemeMaterialCalendarTextButton" parent="Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">@color/material_on_surface_emphasis_high_type</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="AppMaterialCalendarHeaderLayout" parent="Widget.MaterialComponents.MaterialCalendar.HeaderLayout">
+        <item name="android:background">@color/calendar_header_bg</item>
+    </style>
+
+    <style name="AppMaterialCalendarStyle" parent="Widget.MaterialComponents.MaterialCalendar">
+        <item name="android:windowFullscreen">false</item>
+        <item name="shapeAppearance">@style/AppCalendarShapeAppearance</item>
+        <item name="daySelectedStyle">@style/AppCalendarDaySelectedStyle</item>
+        <item name="dayTodayStyle">@style/AppCalendarDayTodayStyle</item>
+        <item name="yearSelectedStyle">@style/AppCalendarYearSelectedStyle</item>
+        <item name="yearTodayStyle">@style/AppCalendarYearToday</item>
+    </style>
+
+    <style name="AppCalendarShapeAppearance" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">@dimen/calendar_corners</item>
+    </style>
+
+    <style name="AppCalendarDaySelectedStyle" parent="Widget.MaterialComponents.MaterialCalendar.Day.Selected">
+        <item name="itemFillColor">@color/calendar_selected_day_bg</item>
+        <item name="itemTextColor">@color/calendar_selected_day_color</item>
+    </style>
+
+    <style name="AppCalendarDayTodayStyle" parent="Widget.MaterialComponents.MaterialCalendar.Day.Today">
+        <item name="itemStrokeColor">@color/calendar_today_stroke</item>
+        <item name="itemStrokeWidth">@dimen/calendar_today_stroke_width</item>
+    </style>
+
+    <style name="AppCalendarYearSelectedStyle" parent="Widget.MaterialComponents.MaterialCalendar.Year.Selected">
+        <item name="itemFillColor">@color/calendar_selected_day_bg</item>
+        <item name="itemTextColor">@color/calendar_selected_day_color</item>
+    </style>
+
+    <style name="AppCalendarYearToday" parent="Widget.MaterialComponents.MaterialCalendar.Year.Today">
+        <item name="itemStrokeColor">@color/calendar_today_stroke</item>
+        <item name="itemStrokeWidth">@dimen/calendar_today_stroke_width</item>
+    </style>
+
+    <style name="AppMaterialCalendarFullscreenTheme" parent="ThemeOverlay.MaterialComponents.MaterialCalendar.Fullscreen">
+
+    </style>
+
+    <!-- Time Picker -->
+    <style name="AppTimePicker" parent="@android:style/Widget.Material.Light.TimePicker">
+        <item name="android:numbersSelectorColor">@color/calendar_selected_day_bg</item>
+    </style>
+</resources>
